@@ -9,16 +9,6 @@ namespace CoreLoop.States
         public string Payload { get; set; }
         [Inject] private readonly ISceneLoader sceneLoader;
         [Inject] private readonly DefaultActions defaultActions;
-        protected override void Enter(string payload)
-        {
-            
-        }
-
-        protected override void Exit(string payload)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public override void Enter()
         {
             sceneLoader.LoadCinematicScene(Payload);
