@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{813add2a-9daf-4f2c-b195-18ed2757a734}">
+		<property name="assetPath">
+			<value>mother mother.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>97.021270833333332</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7cb4e597-f557-4c60-9716-ee404b86be3b}</destination>
+		</relationship>
+	</object>
+</objects>

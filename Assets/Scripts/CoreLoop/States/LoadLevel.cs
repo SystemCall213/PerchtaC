@@ -13,7 +13,10 @@ namespace CoreLoop.States
         public override void Enter()
         {
             sceneLoader.LoadNextLevel();
+<<<<<<< Updated upstream
             gameStateMachine.ChangeState(dialogueStateFactory.Create(dialogue));
+=======
+>>>>>>> Stashed changes
         }
 
         public override void Exit()
