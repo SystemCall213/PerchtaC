@@ -6,9 +6,14 @@ namespace CoreLoop.States
 {
     public class CinematicState : State<string>
     {
-        public string Payload { get; set; }
         [Inject] private readonly ISceneLoader sceneLoader;
         [Inject] private readonly DefaultActions defaultActions;
+
+        public CinematicState(string payload)
+        {
+            Payload = payload;
+        }
+
         public override void Enter()
         {
             sceneLoader.LoadCinematicScene(Payload);

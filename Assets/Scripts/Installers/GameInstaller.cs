@@ -2,7 +2,6 @@ using CoreLoop;
 using CoreLoop.Interfaces;
 using UnityEngine;
 using Zenject;
-using Zenject.Asteroids;
 
 public class GameInstaller : MonoInstaller
 {
@@ -11,6 +10,6 @@ public class GameInstaller : MonoInstaller
     {
         Container.Bind<DefaultActions>().AsSingle();
         Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle().WithArguments(levels);
-        
+        Container.Bind<IGameStateMachine>().To<GameStateMachine>().AsSingle();
     }
 }

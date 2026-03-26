@@ -10,7 +10,7 @@ namespace CoreLoop
         {
             currentState?.Exit();
             currentState = state;
-            currentState?.Enter();
+            currentState.Enter();
         }
 
         public void ChangeState<TPayload>(State<TPayload> state, TPayload payload)

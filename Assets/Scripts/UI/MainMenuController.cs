@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using CoreLoop.Interfaces;
+using CoreLoop.States;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -12,8 +13,8 @@ namespace UI
     [RequireComponent(typeof(Canvas))]
     public class MainMenuController : MonoBehaviour
     {
-        [Inject] private readonly ISceneLoader sceneLoader;
-        [Inject] private readonly SettingMenu _settingЬутг;
+        [Inject] private readonly IGameStateMachine gameStateMachine;
+        [Inject] private readonly SettingMenu settingMenu;
         
         [SerializeField] private Button startButton;
         [SerializeField] private Button settingsButton;
@@ -37,17 +38,17 @@ namespace UI
         }
 
         public void Play()
-        {
-           sceneLoader.LoadNextLevel();
+        { 
+            gameStateMachine.ChangeState(new LoadLevel());
         }
         
         public void Settings()
         {
-            _settingЬутг.Open();
+            settingMenu.Open();
         }
         public void Credits()
         {
-            sceneLoader.LoadCreditsScene();
+            gameStateMachine.ChangeState(new CinematicState("CreditsLevel"));
         }
         
         public void Quit()
