@@ -9,6 +9,7 @@ namespace CoreLoop.States
     {
         [Inject] private readonly DialogueManager dialogueManager;
 
+        [Inject]
         public DialogueState(DialogueSO dialogueSO)
         {
             Payload = dialogueSO;
@@ -23,5 +24,7 @@ namespace CoreLoop.States
         {
             
         }
+
+        public class Factory : PlaceholderFactory<DialogueSO, DialogueState> { }
     }
 }

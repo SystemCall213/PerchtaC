@@ -19,5 +19,7 @@ namespace CoreLoop.States
         {
             
         }
+
+        public class Factory : PlaceholderFactory<MainMenuState> { }
     }
 }

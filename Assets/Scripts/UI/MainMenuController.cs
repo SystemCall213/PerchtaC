@@ -15,6 +15,8 @@ namespace UI
     {
         [Inject] private readonly IGameStateMachine gameStateMachine;
         [Inject] private readonly SettingMenu settingMenu;
+        [Inject] private readonly LoadLevel.Factory loadLevelFactory;
+        [Inject] private readonly CinematicState.Factory cinematicStateFactory;
         
         [SerializeField] private Button startButton;
         [SerializeField] private Button settingsButton;
@@ -39,7 +41,7 @@ namespace UI
 
         public void Play()
         { 
-            gameStateMachine.ChangeState(new LoadLevel());
+            gameStateMachine.ChangeState(loadLevelFactory.Create());
         }
         
         public void Settings()
@@ -48,7 +50,7 @@ namespace UI
         }
         public void Credits()
         {
-            gameStateMachine.ChangeState(new CinematicState("CreditsLevel"));
+            gameStateMachine.ChangeState(cinematicStateFactory.Create("CreditsLevel"));
         }
         
         public void Quit()
