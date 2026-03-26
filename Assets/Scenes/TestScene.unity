@@ -987,6 +987,7 @@ GameObject:
   - component: {fileID: 1102236155}
   - component: {fileID: 1102236154}
   - component: {fileID: 1102236153}
+  - component: {fileID: 1102236157}
   - component: {fileID: 1102236156}
   m_Layer: 0
   m_Name: DialogueCanvas
@@ -1098,6 +1099,19 @@ MonoBehaviour:
   speaker: {fileID: 1492573747}
   girlImage: {fileID: 1170331626}
   perchtaImage: {fileID: 405774746}
+  canvasGroup: {fileID: 1102236157}
+--- !u!225 &1102236157
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102236151}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1170331624
 GameObject:
   m_ObjectHideFlags: 0
