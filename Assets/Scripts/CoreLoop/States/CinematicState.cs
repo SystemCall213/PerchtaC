@@ -9,6 +9,7 @@ namespace CoreLoop.States
         [Inject] private readonly ISceneLoader sceneLoader;
         [Inject] private readonly DefaultActions defaultActions;
 
+        [Inject]
         public CinematicState(string payload)
         {
             Payload = payload;
@@ -26,5 +27,7 @@ namespace CoreLoop.States
             defaultActions.UI.CloseMenu.Enable();
             defaultActions.UI.SkipCinematic.Disable();
         }
+
+        public class Factory : PlaceholderFactory<string, CinematicState> { }
     }
 }
