@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0010e3ad75fa42ee95b877eba3cd5b11, type: 3}
   m_Name: TestDialogue
   m_EditorClassIdentifier: 
+  json: {fileID: 0}
+  knotName: Perchta

@@ -301,7 +301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bdc4e6d7ad4c7787aa27857ba80152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDialogue: {fileID: 11400000, guid: f367c0bb5a311414ab8366d3a3a5e91a, type: 2}
 --- !u!114 &327388434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,7 +314,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 327388433}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -938,6 +938,7 @@ GameObject:
   - component: {fileID: 1102236155}
   - component: {fileID: 1102236154}
   - component: {fileID: 1102236153}
+  - component: {fileID: 1102236156}
   m_Layer: 0
   m_Name: DialogueCanvas
   m_TagString: Untagged
@@ -1031,6 +1032,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
+--- !u!114 &1102236156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102236151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720556ba7758486cb2d35e9d6510ea3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 369772944}
 --- !u!1 &1170331624
 GameObject:
   m_ObjectHideFlags: 0
