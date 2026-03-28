@@ -10,7 +10,7 @@ namespace Installers
         
         public override void InstallBindings()
         {
-            Container.Bind<DialogueSO>().WithId("InitialDialogue").FromInstance(initialDialogue).AsSingle();
+            Container.Bind<DialogueSO>().FromInstance(initialDialogue).AsSingle();
         }
     }
 }

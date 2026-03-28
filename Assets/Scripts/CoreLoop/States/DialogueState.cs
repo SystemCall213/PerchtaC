@@ -7,7 +7,7 @@ namespace CoreLoop.States
 {
     public class DialogueState : State<DialogueSO>
     {
-        [Inject] private readonly DialogueCanvas dialogueCanvas;
+        [Inject] private readonly DialogueManager dialogueManager;
 
         [Inject]
         public DialogueState(DialogueSO dialogueSO)
@@ -17,7 +17,7 @@ namespace CoreLoop.States
 
         public override void Enter()
         {
-            dialogueCanvas.Open();
+            dialogueManager.EnterDialogue(Payload.json, Payload.knotName);
         }
 
         public override void Exit()
