@@ -4,6 +4,7 @@
 #
 .utmp/
 /[Ll]ibrary/
+**/[Ii]nk/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
