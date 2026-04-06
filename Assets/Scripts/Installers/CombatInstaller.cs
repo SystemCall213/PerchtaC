@@ -12,6 +12,7 @@ namespace Installers
         
         public override void InstallBindings()
         {
+            Container.Bind<PlayerHealth>().FromComponentInHierarchy().AsSingle();
             Container.Bind<PlayerMovement>().FromComponentInHierarchy().AsSingle();
             Container.Bind<CombatArena>().FromComponentInHierarchy().AsSingle();
             Container.Bind<GameObject>().WithId("CombatArena").FromInstance(combatArena).AsSingle();

@@ -17,7 +17,9 @@ namespace Combat
         private float currentImmunityTimer;
         private CancellationTokenSource immunityCts;
         private Tween immunityTween;
-
+        
+        public event Action<int> OnDamage;
+        public event Action<int> OnHeal;
         public event Action OnDeath;
 
         public bool IsImmune => currentImmunityTimer > 0;
@@ -39,6 +41,8 @@ namespace Combat
 
             health -= damage;
 
+            OnDamage?.Invoke(damage);
+
             if (IsDead())
             {
                 Die();
@@ -52,6 +56,8 @@ namespace Combat
         public void Heal(int heal)
         {
             health = Mathf.Min(health + heal, maxHealth);
+
+            OnHeal?.Invoke(heal);
         }
 
         public bool IsDead()
@@ -114,6 +120,11 @@ namespace Combat
         {
             Debug.Log("Player Died");
             OnDeath?.Invoke();
+        }
+
+        public int GetMaxHealth()
+        {
+            return maxHealth;
         }
     }
 }

@@ -604,6 +604,7 @@ GameObject:
   - component: {fileID: 407123994}
   - component: {fileID: 407123993}
   - component: {fileID: 407123992}
+  - component: {fileID: 407123995}
   m_Layer: 0
   m_Name: InteractableCanvas
   m_TagString: Untagged
@@ -695,6 +696,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &407123995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407123990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d98c72d8405db947a1b2f6101c01236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorButton: {fileID: 1703998204}
+  fightButtons:
+  - {fileID: 844027456}
+  fightSceneNames:
+  - CombatScene
 --- !u!1 &740743173
 GameObject:
   m_ObjectHideFlags: 0

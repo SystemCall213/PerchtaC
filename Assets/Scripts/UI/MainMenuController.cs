@@ -1,10 +1,6 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using CoreLoop.Interfaces;
+﻿using CoreLoop.Interfaces;
 using CoreLoop.States;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
 

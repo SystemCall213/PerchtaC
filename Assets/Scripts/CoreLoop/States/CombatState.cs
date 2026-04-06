@@ -3,13 +3,21 @@ using Zenject;
 
 namespace CoreLoop.States
 {
-    public class CombatState : State
+    public class CombatState : State<string>
     {
         [Inject] private readonly IGameStateMachine gameStateMachine;
         [Inject] private readonly ISceneLoader sceneLoader;
         [Inject] private readonly DefaultActions defaultActions;
+        
+        [Inject]
+        public CombatState(string combatSceneName)
+        {
+            Payload = combatSceneName;
+        }
+        
         public override void Enter()
         {
+            sceneLoader.LoadCombatScene(Payload);
             defaultActions.Combat.Enable();
         }
 
@@ -18,6 +26,6 @@ namespace CoreLoop.States
             defaultActions.Combat.Disable();
         }
 
-        public class Factory : PlaceholderFactory<CombatState> { }
+        public class Factory : PlaceholderFactory<string, CombatState> { }
     }
 }

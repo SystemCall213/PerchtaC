@@ -19,6 +19,6 @@ public class GameInstaller : MonoInstaller
         Container.BindFactory<DialogueSO, DialogueState, DialogueState.Factory>();
         Container.BindFactory<LoadLevel, LoadLevel.Factory>();
         Container.BindFactory<MainMenuState, MainMenuState.Factory>();
-        Container.BindFactory<CombatState, CombatState.Factory>();
+        Container.BindFactory<string, CombatState, CombatState.Factory>();
     }
 }

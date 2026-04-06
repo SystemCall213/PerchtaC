@@ -33,8 +33,11 @@ namespace CoreLoop
 
         public void LoadCombatScene(string levelName)
         {
-            SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
-            currentCombatScene = levelName;
+            if (currentCombatScene != levelName)
+            {
+                SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
+                currentCombatScene = levelName;
+            }
         }
         public void UnloadCombatScene()
         {

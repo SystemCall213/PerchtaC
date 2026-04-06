@@ -51,7 +51,7 @@ namespace CoreLoop
                 }
                 case TestState.Combat:
                 {
-                    gameStateMachine.ChangeState(combatFactory.Create());
+                    gameStateMachine.ChangeState(combatFactory.Create("CombatScene"));
                     break;
                 }
             }
