@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1f0c03023e46fb8e99c5c0d155bdc5, type: 3}
+  m_Name: StampAttack
+  m_EditorClassIdentifier: 
+  warningAreaPrefab: {fileID: 6513569807757572383, guid: 4fb9c4f51a33f3447a09f8bcd6a761ea, type: 3}
+  bulletPrefab: {fileID: 7864068102879659906, guid: ccebb92b8fd2fb546a44de51ae565da1, type: 3}
+  duration: 4
+  damage: 1
+  bulletCount: 10
+  bulletSpeed: 400
+  stampCount: 4
+  stampDelay: 1
