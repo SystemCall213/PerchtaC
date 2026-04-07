@@ -28,16 +28,25 @@ namespace CoreLoop
 
         public void LoadMainMenu()
         {
+            if (SceneManager.GetActiveScene().name == MainMenuScene) return;
             SceneManager.LoadSceneAsync(MainMenuScene);
         }
 
         public void LoadCombatScene(string levelName)
         {
-            if (currentCombatScene != levelName)
+            if (currentCombatScene == levelName) return;
+
+            for (int i = 0; i < SceneManager.sceneCount; i++)
             {
-                SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
-                currentCombatScene = levelName;
+                if (SceneManager.GetSceneAt(i).name == levelName)
+                {
+                    currentCombatScene = levelName;
+                    return;
+                }
             }
+
+            SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
+            currentCombatScene = levelName;
         }
         public void UnloadCombatScene()
         {
@@ -52,6 +61,7 @@ namespace CoreLoop
 
         public void LoadCinematicScene(string scene)
         {
+            if (SceneManager.GetActiveScene().name == scene) return;
             SceneManager.LoadSceneAsync(scene);
         }
 
