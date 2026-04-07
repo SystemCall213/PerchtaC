@@ -12,8 +12,8 @@ namespace Combat
 
         public Vector2 GetRandomPositionOutside()
         {
-            float w = width * 2;
-            float h = height * 2;
+            float w = width * 3.5f;
+            float h = height * 3.5f;
 
             int side = Random.Range(0, 4);
             float x = 0, y = 0;
@@ -58,7 +58,7 @@ namespace Combat
             Gizmos.color = Color.green;
             Gizmos.DrawWireCube(transform.position, new Vector3(width / 2f, height / 2f, 0));
             Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(transform.position, new Vector3(width * 2, height  * 2, 0));
+            Gizmos.DrawWireCube(transform.position, new Vector3(width * 3.5f, height  * 3.5f, 0));
         }
     }
 }

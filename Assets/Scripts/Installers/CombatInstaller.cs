@@ -1,5 +1,6 @@
 using Combat;
 using Combat.Interfaces;
+using Combat.Misc;
 using Glyph;
 using UnityEngine;
 using Zenject;
@@ -31,8 +32,7 @@ namespace Installers
                 Container.Bind<ICombatScenario>().FromInstance(scenario).AsSingle();
             }
             
-            Container.BindInterfacesAndSelfTo<CombatController>().AsSingle().NonLazy()
-                ;
+            Container.BindInterfacesAndSelfTo<CombatController>().AsSingle().NonLazy();
         }
     }
 }

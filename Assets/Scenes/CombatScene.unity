@@ -366,7 +366,6 @@ GameObject:
   - component: {fileID: 611498120}
   - component: {fileID: 611498122}
   - component: {fileID: 611498123}
-  - component: {fileID: 611498124}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -389,7 +388,6 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 611498123}
-  - {fileID: 611498124}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -451,20 +449,6 @@ MonoBehaviour:
   combatArena: {fileID: 1962925454}
   combatScenario: {fileID: 11400000, guid: dff294f1b45b7bb428ad35bb0961c354, type: 2}
   glyphSOInstaller: {fileID: 11400000, guid: 32ea322431d340b46b43b74054c90b54, type: 2}
---- !u!114 &611498124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 611498119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08dcea64e9814a93a3b2e530b36baf8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settingMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
 --- !u!1 &789743247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1125,7 @@ GameObject:
   - component: {fileID: 1962925458}
   - component: {fileID: 1962925457}
   - component: {fileID: 1962925462}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CombatArena
   m_TagString: Untagged
   m_Icon: {fileID: 0}
