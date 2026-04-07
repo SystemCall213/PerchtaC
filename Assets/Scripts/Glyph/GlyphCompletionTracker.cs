@@ -8,7 +8,7 @@ namespace Glyph
 {
     public class GlyphCompletionTracker : IInitializable, IDisposable
     {
-        private readonly GlyphRenderer _glyphRenderer;
+        [Inject] private readonly GlyphRenderer _glyphRenderer;
         private readonly GlyphFacade _glyphFacade;
         private readonly float _completionThreshold;
 
@@ -22,9 +22,8 @@ namespace Glyph
         private const float CheckInterval = 0.1f;
         private CancellationTokenSource _cts;
 
-        public GlyphCompletionTracker(GlyphRenderer glyphRenderer, GlyphFacade glyphFacade, [InjectOptional] float completionThreshold = 0.9f)
+        public GlyphCompletionTracker(GlyphFacade glyphFacade, [InjectOptional] float completionThreshold = 0.9f)
         {
-            _glyphRenderer = glyphRenderer;
             _glyphFacade = glyphFacade;
             _completionThreshold = completionThreshold;
         }

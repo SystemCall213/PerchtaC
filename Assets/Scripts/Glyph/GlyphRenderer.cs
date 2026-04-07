@@ -33,7 +33,7 @@ namespace Glyph
             InitializeNextGlyph();
         }
 
-        private void InitializeNextGlyph(int _damage = 0)
+        private void InitializeNextGlyph(int _damage = 1)
         {
             var glyphSO = _glyphFacade.GetNextGlyph();
             if (glyphSO != null)
