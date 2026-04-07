@@ -1,5 +1,6 @@
 using System.Threading;
 using Combat.Interfaces;
+using Combat.Misc;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
@@ -7,13 +8,14 @@ using Zenject;
 namespace Combat.Strategies
 {
     [CreateAssetMenu(fileName = "RandomSpawnAttack", menuName = "Combat/Strategies/RandomSpawn")]
-    public class RandomBulletAttackStrategy : ScriptableObject, IAttackStrategy
+    public class RandomSpawnAttackStrategy : ScriptableObject, IAttackStrategy
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private int spawnCount = 10;
         [SerializeField] private float delayBetweenSpawns = 0.5f;
 
         [Inject] private CombatArena _arena;
+        [Inject] private IInstantiator _instantiator;
         private bool _isAttacking;
 
         public void StartAttack(CancellationToken ct)
@@ -47,7 +49,7 @@ namespace Combat.Strategies
             Vector2 spawnPos = _arena.GetRandomPositionOutside();
             Vector2 targetPos = _arena.GetRandomPointInsideCenter();
             
-            GameObject proj = Instantiate(prefab, spawnPos, Quaternion.identity);
+            GameObject proj = _instantiator.InstantiatePrefab(prefab, spawnPos, Quaternion.identity, null);
             Vector2 direction = (targetPos - spawnPos).normalized;
             proj.transform.up = direction;
         }
