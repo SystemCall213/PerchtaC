@@ -60,10 +60,9 @@ namespace Glyph
         {
             while (!cancellationToken.IsCancellationRequested)
             {
-                await CheckCompletionAsync(cancellationToken);
-                if (_isCompleted)
+                if (!_isCompleted)
                 {
-                    return;
+                    await CheckCompletionAsync(cancellationToken);
                 }
                 
                 await UniTask.Delay(TimeSpan.FromSeconds(CheckInterval), cancellationToken: cancellationToken);
