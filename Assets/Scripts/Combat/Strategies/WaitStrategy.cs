@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using Combat.Interfaces;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -12,15 +13,15 @@ namespace Combat.Strategies
         [SerializeField] private float duration = 2f;
         private bool _isAttacking;
 
-        public void StartAttack()
+        public void StartAttack(CancellationToken ct)
         {
-            ExecuteAsync().Forget();
+            ExecuteAsync(ct).Forget();
         }
 
-        private async UniTaskVoid ExecuteAsync()
+        private async UniTaskVoid ExecuteAsync(CancellationToken ct)
         {
             _isAttacking = true;
-            await UniTask.Delay(TimeSpan.FromSeconds(duration));
+            await UniTask.Delay(TimeSpan.FromSeconds(duration), cancellationToken: ct);
             _isAttacking = false;
         }
 

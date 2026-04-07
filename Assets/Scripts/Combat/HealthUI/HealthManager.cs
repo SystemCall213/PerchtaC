@@ -24,6 +24,7 @@ namespace Combat.HealthUI
         
         [Inject] private readonly IGameStateMachine gameStateMachine;
         [Inject] private readonly MainMenuState.Factory mainMenuFactory;
+        [Inject] private readonly LoadGivenLevel.Factory loadGivenLevelFactory;
 
         private void Start()
         {
@@ -107,7 +108,7 @@ namespace Combat.HealthUI
             else
             {
                 // Player died - just unload combat scene
-                gameStateMachine.ChangeState(new RoomState());
+                gameStateMachine.ChangeState(loadGivenLevelFactory.Create("TestScene"));
             }
         }
 

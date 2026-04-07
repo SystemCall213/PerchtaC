@@ -33,7 +33,7 @@ namespace Combat
                 if (attack != null)
                 {
                     _container.Inject(attack);
-                    attack.StartAttack();
+                    attack.StartAttack(token);
                     await UniTask.WaitWhile(() => attack.IsAttacking(), cancellationToken: token);
                 }
 
@@ -42,7 +42,7 @@ namespace Combat
                 if (intermediate != null)
                 {
                     _container.Inject(intermediate);
-                    intermediate.StartAttack();
+                    intermediate.StartAttack(token);
                     await UniTask.WaitWhile(() => intermediate.IsAttacking(), cancellationToken: token);
                 }
             }

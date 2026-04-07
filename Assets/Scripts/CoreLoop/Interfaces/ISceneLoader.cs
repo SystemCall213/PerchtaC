@@ -3,6 +3,7 @@
     public interface ISceneLoader
     {
         void LoadNextLevel();
+        void LoadGivenLevel(string levelName);
         void LoadMainMenu();
         void LoadCombatScene(string levelName);
         void UnloadCombatScene();

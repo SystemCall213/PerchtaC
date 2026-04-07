@@ -1,3 +1,4 @@
+using System.Threading;
 using Combat.Interfaces;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -22,12 +23,12 @@ namespace Combat.Strategies
 
         private bool isAttacking;
 
-        public void StartAttack()
+        public void StartAttack(CancellationToken ct)
         {
-            ExecuteAsync().Forget();
+            ExecuteAsync(ct).Forget();
         }
 
-        private async UniTaskVoid ExecuteAsync()
+        private async UniTaskVoid ExecuteAsync(CancellationToken cancellationToken)
         {
             if (player == null) return;
             
@@ -35,15 +36,17 @@ namespace Combat.Strategies
 
             for (int i = 0; i < stampCount; i++)
             {
+                if (cancellationToken.IsCancellationRequested) break;
+
                 Vector3 spawnPos = player.transform.position;
                 GameObject warningObj = Instantiate(warningAreaPrefab, spawnPos, Quaternion.identity);
                 
                 if (warningObj.TryGetComponent<WarningArea>(out var warningArea))
                 {
-                    warningArea.Initialize(duration, damage, bulletCount, bulletPrefab, bulletSpeed);
+                    warningArea.Initialize(duration, damage, bulletCount, bulletPrefab, bulletSpeed, cancellationToken);
                 }
 
-                await UniTask.Delay((int)(stampDelay * 1000));
+                await UniTask.Delay((int)(stampDelay * 1000), cancellationToken: cancellationToken);
             }
 
             isAttacking = false;
