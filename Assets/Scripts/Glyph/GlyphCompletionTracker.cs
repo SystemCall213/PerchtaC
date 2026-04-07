@@ -22,8 +22,6 @@ namespace Glyph
         private const float CheckInterval = 0.1f;
         private CancellationTokenSource _cts;
 
-        public event Action OnGlyphPainted;
-
         public GlyphCompletionTracker(GlyphRenderer glyphRenderer, GlyphFacade glyphFacade, [InjectOptional] float completionThreshold = 0.5f)
         {
             _glyphRenderer = glyphRenderer;
@@ -41,13 +39,6 @@ namespace Glyph
         public void InitializeNewGlyph()
         {
             Sprite sprite = _glyphRenderer.Sprite;
-            if (sprite == null)
-            {
-                _glyphPixelMap = null;
-                _totalGlyphPixels = -1;
-                return;
-            }
-            
             PrepareGlyphPixelMap(sprite);
             PrepareReadableMask();
             _isCompleted = false;
@@ -69,9 +60,10 @@ namespace Glyph
         {
             while (!cancellationToken.IsCancellationRequested)
             {
-                if (!_isCompleted)
+                await CheckCompletionAsync(cancellationToken);
+                if (_isCompleted)
                 {
-                    await CheckCompletionAsync(cancellationToken);
+                    return;
                 }
                 
                 await UniTask.Delay(TimeSpan.FromSeconds(CheckInterval), cancellationToken: cancellationToken);
@@ -87,7 +79,6 @@ namespace Glyph
                 {
                     _isCompleted = true;
                     _glyphFacade.TriggerGlyphPainted();
-                    Reset();
                 }
             }
             catch (OperationCanceledException)
@@ -105,10 +96,6 @@ namespace Glyph
             }
         }
 
-        private void Reset()
-        {
-            _isCompleted = false;
-        }
 
         public async UniTask<float> CalculateFillPercentageAsync(CancellationToken cancellationToken)
         {

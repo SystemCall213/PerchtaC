@@ -10,12 +10,15 @@ namespace UI
 {
     public class UIFacade : IUIFacade
     {
-        [Inject] private readonly PauseMenu pauseMenu;
-        [Inject] private readonly DefaultActions defaultActions;
+        private readonly PauseMenu pauseMenu;
+        private readonly DefaultActions defaultActions;
         private Stack<ConfigurableCanvas> canvasStack = new Stack<ConfigurableCanvas>();
 
-        public UIFacade()
+        public UIFacade(PauseMenu pauseMenu, DefaultActions defaultActions)
         {
+            this.pauseMenu = pauseMenu;
+            this.defaultActions = defaultActions;
+            
             defaultActions.UI.CloseMenu.performed += ctx => HandleEscape();
         }
         

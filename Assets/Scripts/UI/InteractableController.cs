@@ -11,7 +11,7 @@ namespace UI
     public class InteractableController : MonoBehaviour
     {
         [Inject] private readonly IGameStateMachine gameStateMachine;
-        [Inject] private readonly LoadLevel.Factory loadLevelFactory;
+        [Inject] private readonly LoadGivenLevel.Factory loadGivenLevelFactory;
         [Inject] private readonly CombatState.Factory combatStateFactory;
         
         [SerializeField] private Button doorButton;
@@ -47,7 +47,7 @@ namespace UI
 
         private void GoToNextLevel()
         {
-            gameStateMachine.ChangeState(loadLevelFactory.Create());
+            gameStateMachine.ChangeState(loadGivenLevelFactory.Create("TestScene"));
         }
     }
 }

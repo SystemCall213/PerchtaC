@@ -26,6 +26,11 @@ namespace CoreLoop
             currentLevel++;
         }
 
+        public void LoadGivenLevel(string levelName)
+        {
+            SceneManager.LoadSceneAsync(levelName);
+        }
+
         public void LoadMainMenu()
         {
             if (SceneManager.GetActiveScene().name == MainMenuScene) return;

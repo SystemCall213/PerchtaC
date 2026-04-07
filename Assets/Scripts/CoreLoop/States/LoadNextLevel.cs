@@ -4,7 +4,7 @@ using Zenject;
 
 namespace CoreLoop.States
 {
-    public class LoadLevel : State
+    public class LoadNextLevel : State
     {
         [Inject] private readonly ISceneLoader sceneLoader;
         [Inject] private readonly IGameStateMachine gameStateMachine;
@@ -19,6 +19,6 @@ namespace CoreLoop.States
             
         }
 
-        public class Factory : PlaceholderFactory<LoadLevel> { }
+        public class Factory : PlaceholderFactory<LoadNextLevel> { }
     }
 }

@@ -11,7 +11,7 @@ namespace UI
     {
         [Inject] private readonly IGameStateMachine gameStateMachine;
         [Inject] private readonly SettingMenu settingMenu;
-        [Inject] private readonly LoadLevel.Factory loadLevelFactory;
+        [Inject] private readonly LoadNextLevel.Factory loadLevelFactory;
         [Inject] private readonly CinematicState.Factory cinematicStateFactory;
         
         [SerializeField] private Button startButton;

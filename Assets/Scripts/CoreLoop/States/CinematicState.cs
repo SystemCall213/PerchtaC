@@ -6,13 +6,15 @@ namespace CoreLoop.States
 {
     public class CinematicState : State<string>
     {
-        [Inject] private readonly ISceneLoader sceneLoader;
-        [Inject] private readonly DefaultActions defaultActions;
+        private readonly ISceneLoader sceneLoader;
+        private readonly DefaultActions defaultActions;
 
         [Inject]
-        public CinematicState(string payload)
+        public CinematicState(string payload, ISceneLoader sceneLoader, DefaultActions defaultActions)
         {
             Payload = payload;
+            this.sceneLoader = sceneLoader;
+            this.defaultActions = defaultActions;
         }
 
         public override void Enter()

@@ -37,6 +37,6 @@ namespace Glyph
             return _shuffledGlyphs[_currentIndex++];
         }
 
-        public void TriggerGlyphPainted() => OnGlyphPainted?.Invoke(1); // change static 1 to damage from glyph
+        public void TriggerGlyphPainted() => OnGlyphPainted?.Invoke(1);
     }
 }

@@ -7,12 +7,13 @@ namespace CoreLoop.States
 {
     public class DialogueState : State<DialogueSO>
     {
-        [Inject] private readonly DialogueManager dialogueManager;
+        private readonly DialogueManager dialogueManager;
 
         [Inject]
-        public DialogueState(DialogueSO dialogueSO)
+        public DialogueState(DialogueSO dialogueSO, DialogueManager dialogueManager)
         {
             Payload = dialogueSO;
+            this.dialogueManager = dialogueManager;
         }
 
         public override void Enter()

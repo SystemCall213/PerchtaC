@@ -1,3 +1,4 @@
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Combat.Misc;
@@ -18,7 +19,7 @@ namespace Combat.Strategies
         private float bulletSpeed;
         private float elapsedTime;
 
-        public void Initialize(float duration, int damage, int bulletCount, GameObject bulletPrefab, float bulletSpeed)
+        public void Initialize(float duration, int damage, int bulletCount, GameObject bulletPrefab, float bulletSpeed, CancellationToken cancellationToken)
         {
             this.duration = duration;
             this.damage = damage;
@@ -26,13 +27,19 @@ namespace Combat.Strategies
             this.bulletPrefab = bulletPrefab;
             this.bulletSpeed = bulletSpeed;
             
-            StartAttackSequence().Forget();
+            StartAttackSequence(cancellationToken).Forget();
         }
 
-        private async UniTaskVoid StartAttackSequence()
+        private async UniTaskVoid StartAttackSequence(CancellationToken cancellationToken)
         {
             while (elapsedTime < duration)
             {
+                if (cancellationToken.IsCancellationRequested)
+                {
+                    Destroy(gameObject);
+                    return;
+                }
+
                 elapsedTime += Time.deltaTime;
                 float progress = Mathf.Clamp01(elapsedTime / duration);
                 Color targetColor = Color.Lerp(Color.white, Color.red, progress);
@@ -44,7 +51,7 @@ namespace Combat.Strategies
                     spriteRenderer.color = targetColor;
                 }
 
-                await UniTask.Yield(PlayerLoopTiming.Update);
+                await UniTask.Yield(PlayerLoopTiming.Update, cancellationToken);
             }
 
             PerformStamp();

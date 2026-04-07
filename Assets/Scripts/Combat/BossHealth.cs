@@ -18,6 +18,11 @@ public class BossHealth : MonoBehaviour, IHealth
         glyphFacade.OnGlyphPainted += TakeDamage;
     }
 
+    private void OnDisable()
+    {
+        glyphFacade.OnGlyphPainted -= TakeDamage;
+    }
+
     private void Awake()
     {
         health = maxHealth;
@@ -42,7 +47,6 @@ public class BossHealth : MonoBehaviour, IHealth
 
     public void Die()
     {
-        Debug.Log("Boss Died");
         OnDeath?.Invoke();
     }
 

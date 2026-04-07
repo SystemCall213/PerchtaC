@@ -5,14 +5,15 @@ namespace CoreLoop.States
 {
     public class CombatState : State<string>
     {
-        [Inject] private readonly IGameStateMachine gameStateMachine;
-        [Inject] private readonly ISceneLoader sceneLoader;
-        [Inject] private readonly DefaultActions defaultActions;
+        private readonly ISceneLoader sceneLoader;
+        private readonly DefaultActions defaultActions;
         
         [Inject]
-        public CombatState(string combatSceneName)
+        public CombatState(string combatSceneName, ISceneLoader sceneLoader, DefaultActions defaultActions)
         {
             Payload = combatSceneName;
+            this.sceneLoader = sceneLoader;
+            this.defaultActions = defaultActions;
         }
         
         public override void Enter()

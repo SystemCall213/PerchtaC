@@ -1,3 +1,4 @@
+using System.Threading;
 using Combat.Interfaces;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -15,22 +16,26 @@ namespace Combat.Strategies
         [Inject] private CombatArena _arena;
         private bool _isAttacking;
 
-        public void StartAttack()
+        public void StartAttack(CancellationToken ct)
         {
-            ExecuteAsync().Forget();
+            ExecuteAsync(ct).Forget();
         }
 
-        private async UniTaskVoid ExecuteAsync()
+        private async UniTaskVoid ExecuteAsync(CancellationToken ct)
         {
             _isAttacking = true;
 
             for (int i = 0; i < spawnCount; i++)
             {
+                if (ct.IsCancellationRequested) break;
                 SpawnProjectile();
-                await UniTask.Delay((int)(delayBetweenSpawns * 1000));
+                await UniTask.Delay((int)(delayBetweenSpawns * 1000), cancellationToken: ct);
             }
 
-            await UniTask.Delay(1000);
+            if (!ct.IsCancellationRequested)
+            {
+                await UniTask.Delay(1000, cancellationToken: ct);
+            }
             
             _isAttacking = false;
         }
