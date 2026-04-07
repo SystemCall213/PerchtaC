@@ -11,7 +11,7 @@ namespace Glyph
         private List<GlyphSO> _shuffledGlyphs;
         private int _currentIndex;
 
-        public event Action OnGlyphPainted;
+        public event Action<int> OnGlyphPainted;
 
         public GlyphFacade([Inject(Id = "AvailableGlyphs")] List<GlyphSO> glyphs)
         {
@@ -37,6 +37,6 @@ namespace Glyph
             return _shuffledGlyphs[_currentIndex++];
         }
 
-        public void TriggerGlyphPainted() => OnGlyphPainted?.Invoke();
+        public void TriggerGlyphPainted() => OnGlyphPainted?.Invoke(1); // change static 1 to damage from glyph
     }
 }

@@ -21,7 +21,7 @@ namespace Installers
                 Container.Bind<GlyphFacade>().AsSingle();
                 Container.BindInterfacesAndSelfTo<GlyphCompletionTracker>().AsTransient();
             }
-            
+
             Container.Bind<PlayerHealth>().FromComponentInHierarchy().AsSingle();
             Container.Bind<PlayerMovement>().FromComponentInHierarchy().AsSingle();
             Container.Bind<CombatArena>().FromComponentInHierarchy().AsSingle();

@@ -24,7 +24,7 @@ namespace Glyph
 
         public event Action OnGlyphPainted;
 
-        public GlyphCompletionTracker(GlyphRenderer glyphRenderer, GlyphFacade glyphFacade, [InjectOptional] float completionThreshold = 0.9f)
+        public GlyphCompletionTracker(GlyphRenderer glyphRenderer, GlyphFacade glyphFacade, [InjectOptional] float completionThreshold = 0.5f)
         {
             _glyphRenderer = glyphRenderer;
             _glyphFacade = glyphFacade;
