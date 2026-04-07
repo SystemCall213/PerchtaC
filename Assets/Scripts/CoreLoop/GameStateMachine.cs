@@ -5,9 +5,11 @@ namespace CoreLoop
 {
     public class GameStateMachine : IGameStateMachine
     {
+        public State CurrentState => currentState;
         private State currentState;
         public void ChangeState(State state)
         {
+            if (currentState != null && currentState.GetType() == state.GetType()) return;
             currentState?.Exit();
             currentState = state;
             currentState.Enter();
@@ -15,8 +17,17 @@ namespace CoreLoop
 
         public void ChangeState<TPayload>(State<TPayload> state, TPayload payload)
         {
-            currentState?.Exit();
             state.Payload = payload;
+            if (currentState != null && currentState.GetType() == state.GetType())
+            {
+                var currentWithPayload = currentState as State<TPayload>;
+                if (currentWithPayload != null && Equals(currentWithPayload.Payload, payload))
+                {
+                    return;
+                }
+            }
+            
+            currentState?.Exit();
             currentState = state;
             currentState.Enter();
         }
