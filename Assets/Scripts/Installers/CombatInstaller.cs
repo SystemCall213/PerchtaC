@@ -20,7 +20,7 @@ namespace Installers
                 Container.Inject(glyphSOInstaller);
                 glyphSOInstaller.InstallBindings();
                 Container.Bind<GlyphFacade>().AsSingle();
-                Container.BindInterfacesAndSelfTo<GlyphCompletionTracker>().AsTransient();
+                Container.BindInterfacesAndSelfTo<GlyphCompletionTracker>().AsSingle();
             }
 
             Container.Bind<PlayerHealth>().FromComponentInHierarchy().AsSingle();
