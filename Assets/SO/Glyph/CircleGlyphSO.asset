@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6c4a023bb84205b9521ab23f51b70a, type: 3}
   m_Name: CircleGlyphSO
   m_EditorClassIdentifier: 
-  glyphSprite: {fileID: 21300000, guid: 9e2e0aa73693a0d4c830af9bb7383bc9, type: 3}
+  glyphSprite: {fileID: 21300000, guid: a1a97168d62552542acdce0bbc98be35, type: 3}

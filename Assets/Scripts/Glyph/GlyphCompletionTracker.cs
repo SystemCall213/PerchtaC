@@ -22,7 +22,7 @@ namespace Glyph
         private const float CheckInterval = 0.1f;
         private CancellationTokenSource _cts;
 
-        public GlyphCompletionTracker(GlyphRenderer glyphRenderer, GlyphFacade glyphFacade, [InjectOptional] float completionThreshold = 0.5f)
+        public GlyphCompletionTracker(GlyphRenderer glyphRenderer, GlyphFacade glyphFacade, [InjectOptional] float completionThreshold = 0.9f)
         {
             _glyphRenderer = glyphRenderer;
             _glyphFacade = glyphFacade;
