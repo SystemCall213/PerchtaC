@@ -19,9 +19,7 @@ namespace Glyph
         private bool[] _glyphPixelMap;
         private int _maskWidth;
         private int _maskHeight;
-        private float _lastCheckTime;
         private const float CheckInterval = 0.1f;
-        private bool _isChecking;
         private CancellationTokenSource _cts;
 
         public event Action OnGlyphPainted;
@@ -36,14 +34,42 @@ namespace Glyph
         public void Initialize()
         {
             _cts = new CancellationTokenSource();
+            InitializeNewGlyph();
             StartCheckingLoop(_cts.Token).Forget();
+        }
+
+        public void InitializeNewGlyph()
+        {
+            Sprite sprite = _glyphRenderer.Sprite;
+            if (sprite == null)
+            {
+                _glyphPixelMap = null;
+                _totalGlyphPixels = -1;
+                return;
+            }
+            
+            PrepareGlyphPixelMap(sprite);
+            PrepareReadableMask();
+            _isCompleted = false;
+        }
+
+        private void PrepareReadableMask()
+        {
+            RenderTexture maskRT = _glyphRenderer.MaskTexture;
+            if (maskRT == null) return;
+            
+            if (_readableMask == null || _readableMask.width != maskRT.width || _readableMask.height != maskRT.height)
+            {
+                if (_readableMask != null) UnityEngine.Object.Destroy(_readableMask);
+                _readableMask = new Texture2D(maskRT.width, maskRT.height, TextureFormat.R8, false);
+            }
         }
 
         private async UniTaskVoid StartCheckingLoop(CancellationToken cancellationToken)
         {
             while (!cancellationToken.IsCancellationRequested)
             {
-                if (!_isCompleted && !_isChecking)
+                if (!_isCompleted)
                 {
                     await CheckCompletionAsync(cancellationToken);
                 }
@@ -54,11 +80,9 @@ namespace Glyph
 
         private async UniTask CheckCompletionAsync(CancellationToken cancellationToken)
         {
-            _isChecking = true;
             try
             {
                 float fillPercent = await CalculateFillPercentageAsync(cancellationToken);
-                UnityEngine.Debug.Log($"Glyph completion check: {fillPercent}%");
                 if (fillPercent >= _completionThreshold)
                 {
                     _isCompleted = true;
@@ -68,10 +92,6 @@ namespace Glyph
             }
             catch (OperationCanceledException)
             {
-            }
-            finally
-            {
-                _isChecking = false;
             }
         }
 
@@ -88,27 +108,14 @@ namespace Glyph
         private void Reset()
         {
             _isCompleted = false;
-            _totalGlyphPixels = -1;
-            _glyphPixelMap = null;
         }
 
         public async UniTask<float> CalculateFillPercentageAsync(CancellationToken cancellationToken)
         {
-            Sprite sprite = _glyphRenderer.Sprite;
-            if (sprite == null) return 0;
-
-            if (_glyphPixelMap == null)
-            {
-                PrepareGlyphPixelMap(sprite);
-            }
-
+            if (_glyphPixelMap == null) return 0f;
             if (_totalGlyphPixels <= 0) return 1f;
             
             UpdateReadableMask();
-
-            // ReadPixels happened in UpdateReadableMask (Main Thread)
-            // Now we can move the heavy pixel loop to a background thread if needed, 
-            // but for simplicity and since we are already async, we can just yield or run on thread pool.
             
             Color32[] maskPixels = _readableMask.GetPixels32();
             
@@ -143,7 +150,6 @@ namespace Glyph
             _glyphPixelMap = new bool[_maskWidth * _maskHeight];
             _totalGlyphPixels = 0;
 
-            // Use GetPixels to avoid multiple GetPixel calls
             Color[] spritePixels = tex.GetPixels((int)spriteRect.x, (int)spriteRect.y, (int)spriteRect.width, (int)spriteRect.height);
             int spriteW = (int)spriteRect.width;
             int spriteH = (int)spriteRect.height;
@@ -170,16 +176,12 @@ namespace Glyph
         private void UpdateReadableMask()
         {
             RenderTexture maskRT = _glyphRenderer.MaskTexture;
-            if (_readableMask == null || _readableMask.width != maskRT.width || _readableMask.height != maskRT.height)
-            {
-                if (_readableMask != null) UnityEngine.Object.Destroy(_readableMask);
-                _readableMask = new Texture2D(maskRT.width, maskRT.height, TextureFormat.R8, false);
-            }
+            if (maskRT == null || _readableMask == null) return;
 
             RenderTexture previous = RenderTexture.active;
             RenderTexture.active = maskRT;
             _readableMask.ReadPixels(new Rect(0, 0, maskRT.width, maskRT.height), 0, 0);
-            _readableMask.Apply(false); // No mipmaps
+            _readableMask.Apply(false);
             RenderTexture.active = previous;
         }
     }

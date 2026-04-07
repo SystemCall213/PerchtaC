@@ -64,6 +64,8 @@ namespace Glyph
 
             _glyphMaterial = _spriteRenderer.material;
             _glyphMaterial.SetTexture("_MaskTex", _maskTexture);
+
+            glyphCompletionTracker.InitializeNewGlyph();
         }
 
         public void Paint(Vector2 uv, float radius, float hardness, float strength)
