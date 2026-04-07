@@ -1,17 +1,27 @@
 using System.Collections.Generic;
 using Combat.Interfaces;
+using CoreLoop.Interfaces;
 using UnityEngine;
 using Zenject;
 
 namespace Combat.HealthUI
 {
+    public enum HealthManagerType
+    {
+        Player,
+        Boss
+    }
+    
     public class HealthManager : MonoBehaviour
     {
         [SerializeField] private GameObject entity;
         [SerializeField] private GameObject healthKnobPrefab;
+        [SerializeField] private HealthManagerType managerType = HealthManagerType.Player;
     
         private List<GameObject> healthKnobs = new List<GameObject>();
         private IHealth health;
+        
+        [Inject] private readonly ISceneLoader sceneLoader;
 
         private void Start()
         {
@@ -86,6 +96,17 @@ namespace Combat.HealthUI
         private void OnHealthDeath()
         {
             ClearHealthKnobs();
+            
+            if (managerType == HealthManagerType.Boss)
+            {
+                // Boss died - return to main menu
+                sceneLoader.LoadMainMenu();
+            }
+            else
+            {
+                // Player died - just unload combat scene
+                sceneLoader.UnloadCombatScene();
+            }
         }
 
         private void ClearHealthKnobs()

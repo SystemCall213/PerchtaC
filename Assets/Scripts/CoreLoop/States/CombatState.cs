@@ -24,6 +24,7 @@ namespace CoreLoop.States
         public override void Exit()
         {
             defaultActions.Combat.Disable();
+            sceneLoader.UnloadCombatScene();
         }
 
         public class Factory : PlaceholderFactory<string, CombatState> { }
