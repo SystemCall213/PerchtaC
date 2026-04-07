@@ -5,7 +5,7 @@ VAR perchta = "Sprites/Perchtas/Perchta1"
 # speaker:Perchta
 Hello little girl
 # speaker:Perchta
-Epstein is on his way!
+Clean your room!
 # speaker:Girl
-Chupapi munyanya
+Okay...
 -> END
