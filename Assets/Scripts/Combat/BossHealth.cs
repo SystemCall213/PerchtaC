@@ -1,20 +1,38 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Combat.Interfaces;
+using Glyph;
 using UnityEngine;
+using Zenject;
 
 public class BossHealth : MonoBehaviour, IHealth
 {
+    [Inject] private readonly GlyphFacade glyphFacade;
     [SerializeField] private int maxHealth;
-    
+    private int health;
     public event Action<int> OnDamage;
     public event Action<int> OnHeal;
     public event Action OnDeath;
+
+    private void OnEnable()
+    {
+        glyphFacade.OnGlyphPainted += TakeDamage;
+    }
+
+    private void Awake()
+    {
+        health = maxHealth;
+    }
     
     public void TakeDamage(int damage)
     {
-        throw new NotImplementedException();
+        health -= damage;
+
+        OnDamage?.Invoke(damage);
+
+        if (IsDead())
+        {
+            Die();
+        }
     }
 
     public void Heal(int heal)
@@ -24,12 +42,13 @@ public class BossHealth : MonoBehaviour, IHealth
 
     public void Die()
     {
-        throw new NotImplementedException();
+        Debug.Log("Boss Died");
+        OnDeath?.Invoke();
     }
 
     public bool IsDead()
     {
-        throw new NotImplementedException();
+        return health <= 0;
     }
 
     public int GetMaxHealth()

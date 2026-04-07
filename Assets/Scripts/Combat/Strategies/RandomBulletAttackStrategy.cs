@@ -12,7 +12,6 @@ namespace Combat.Strategies
         [SerializeField] private int spawnCount = 10;
         [SerializeField] private float delayBetweenSpawns = 0.5f;
 
-        [Inject(Id = "CombatArena")] private GameObject _arenaObject;
         [Inject] private CombatArena _arena;
         private bool _isAttacking;
 
