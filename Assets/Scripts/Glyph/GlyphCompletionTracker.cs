@@ -32,7 +32,6 @@ namespace Glyph
         {
             _cts = new CancellationTokenSource();
             InitializeNewGlyph();
-            Debug.Log("new glyph initialized");
             StartCheckingLoop(_cts.Token).Forget();
         }
 

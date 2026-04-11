@@ -8,7 +8,7 @@ using Zenject;
 namespace Combat.Strategies
 {
     [CreateAssetMenu(fileName = "RandomSpawnAttack", menuName = "Combat/Strategies/RandomSpawn")]
-    public class RandomSpawnAttackStrategy : ScriptableObject, IAttackStrategy
+    public class RandomSpawnAttackStrategy : AttackStrategy
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private int spawnCount = 10;
@@ -18,7 +18,7 @@ namespace Combat.Strategies
         [Inject] private IInstantiator _instantiator;
         private bool _isAttacking;
 
-        public void StartAttack(CancellationToken ct)
+        public override void StartAttack(CancellationToken ct)
         {
             ExecuteAsync(ct).Forget();
         }
@@ -54,6 +54,6 @@ namespace Combat.Strategies
             proj.transform.up = direction;
         }
 
-        public bool IsAttacking() => _isAttacking;
+        public override bool IsAttacking() => _isAttacking;
     }
 }

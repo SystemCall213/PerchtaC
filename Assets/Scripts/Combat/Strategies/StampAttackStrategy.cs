@@ -7,7 +7,7 @@ using Zenject;
 namespace Combat.Strategies
 {
     [CreateAssetMenu(fileName = "StampAttack", menuName = "Combat/Strategies/StampAttack")]
-    public class StampAttackStrategy : ScriptableObject, IAttackStrategy
+    public class StampAttackStrategy : AttackStrategy
     {
         [SerializeField] private GameObject warningAreaPrefab;
         [SerializeField] private GameObject bulletPrefab;
@@ -23,7 +23,7 @@ namespace Combat.Strategies
 
         private bool isAttacking;
 
-        public void StartAttack(CancellationToken ct)
+        public override void StartAttack(CancellationToken ct)
         {
             ExecuteAsync(ct).Forget();
         }
@@ -52,6 +52,6 @@ namespace Combat.Strategies
             isAttacking = false;
         }
 
-        public bool IsAttacking() => isAttacking;
+        public override bool IsAttacking() => isAttacking;
     }
 }

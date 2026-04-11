@@ -12,31 +12,11 @@ namespace Combat
 
         public Vector2 GetRandomPositionOutside()
         {
-            float w = width * 3.5f;
-            float h = height * 3.5f;
-
-            int side = Random.Range(0, 4);
-            float x = 0, y = 0;
-
-            switch (side)
-            {
-                case 0:
-                    x = Random.Range(-w / 2f, w / 2f);
-                    y = h / 2f;
-                    break;
-                case 1:
-                    x = Random.Range(-w / 2f, w / 2f);
-                    y = -h / 2f;
-                    break;
-                case 2:
-                    x = -w / 2f;
-                    y = Random.Range(-h / 2f, h / 2f);
-                    break;
-                case 3:
-                    x = w / 2f;
-                    y = Random.Range(-h / 2f, h / 2f);
-                    break;
-            }
+            float radius = width * 1.5f;
+            float angle = Random.Range(0f, Mathf.PI * 2f);
+            
+            float x = Mathf.Cos(angle) * radius;
+            float y = Mathf.Sin(angle) * radius;
 
             return (Vector2)transform.position + new Vector2(x, y);
         }
@@ -58,7 +38,7 @@ namespace Combat
             Gizmos.color = Color.green;
             Gizmos.DrawWireCube(transform.position, new Vector3(width / 2f, height / 2f, 0));
             Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(transform.position, new Vector3(width * 3.5f, height  * 3.5f, 0));
+            Gizmos.DrawWireSphere(transform.position, width * 1.5f);
         }
     }
 }

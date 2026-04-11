@@ -18,5 +18,5 @@ MonoBehaviour:
   damage: 1
   bulletCount: 10
   bulletSpeed: 400
-  stampCount: 4
-  stampDelay: 1
+  stampCount: 6
+  stampDelay: 0.8

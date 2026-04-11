@@ -8,12 +8,12 @@ using Zenject;
 namespace Combat.Strategies
 {
     [CreateAssetMenu(fileName = "WaitStrategy", menuName = "Combat/Strategies/Wait")]
-    public class WaitStrategy : ScriptableObject, IAttackStrategy
+    public class WaitStrategy : AttackStrategy
     {
         [SerializeField] private float duration = 2f;
         private bool _isAttacking;
 
-        public void StartAttack(CancellationToken ct)
+        public override void StartAttack(CancellationToken ct)
         {
             ExecuteAsync(ct).Forget();
         }
@@ -25,6 +25,6 @@ namespace Combat.Strategies
             _isAttacking = false;
         }
 
-        public bool IsAttacking() => _isAttacking;
+        public override bool IsAttacking() => _isAttacking;
     }
 }

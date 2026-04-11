@@ -12,6 +12,9 @@ namespace Combat.Misc
         [SerializeField] private float force = 10f;
         [SerializeField] private float lifetime = 30f;
         [SerializeField] private float grabDuration = 5f;
+        [SerializeField] private float sineFrequency = 2f;
+        [SerializeField] private float sineMagnitude = 5f;
+        [SerializeField] private Rigidbody2D hold;
         
         private Rigidbody2D rb;
         private bool isGrabbing = true;
@@ -30,19 +33,39 @@ namespace Combat.Misc
         {
             await UniTask.Delay(TimeSpan.FromSeconds(grabDuration), delayTiming: PlayerLoopTiming.Update, cancellationToken: this.GetCancellationTokenOnDestroy());
             isGrabbing = false;
-            Destroy(transform.parent.gameObject, 10f);
+            Destroy(transform.parent.gameObject, 5f);
         }
 
         private void Update()
         {
-            ApplyForceTowardsPlayer();
+            if (isGrabbing)
+            {
+                ApplyForceTowardsPlayer();
+            }
+            else
+            {
+                ApplyForceBackwards();
+            }
         }
 
         private void ApplyForceTowardsPlayer()
         {
-            if (!isGrabbing) return;
-            var direction = playerMovement.transform.position - transform.position;
-            rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
+            Vector2 playerPos = playerMovement.transform.position;
+            Vector2 currentPos = transform.position;
+            Vector2 direction = (playerPos - currentPos).normalized;
+            
+            Vector2 perpendicular = new Vector2(-direction.y, direction.x);
+            
+            float offset = Mathf.Sin(Time.time * sineFrequency) * sineMagnitude;
+            
+            Vector2 finalDirection = (direction * force) + (perpendicular * offset);
+            rb.AddForce(finalDirection, ForceMode2D.Impulse);
+        }
+
+        private void ApplyForceBackwards()
+        {
+            Vector2 direction = (hold.transform.position - playerMovement.transform.position).normalized;
+            hold.AddForce(direction * (force * 400), ForceMode2D.Impulse);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
