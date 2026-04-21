@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GraspSpawn
   m_EditorClassIdentifier: 
   prefab: {fileID: 3972249085464144382, guid: e914b4375839c3b4aab0745e2c8e931c, type: 3}
-  spawnCount: 4
-  delayBetweenSpawns: 3
+  spawnCount: 6
+  delayBetweenSpawns: 2

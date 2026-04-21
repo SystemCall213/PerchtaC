@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 084f48a3411748548f8a6e3e5f1555dd, type: 3}
+  m_Name: GlyphsFirstBossInstaller
+  m_EditorClassIdentifier: 
+  glyphs:
+  - {fileID: 11400000, guid: 66e46489d1ccf6a45be761eab44ca266, type: 2}
+  - {fileID: 11400000, guid: 50538c9a964cf144095f3193081af647, type: 2}
+  - {fileID: 11400000, guid: c46bccf0dc403ba4393f35b70c89bfc7, type: 2}
+  - {fileID: 11400000, guid: 8cf7d8d49af60ec4588f8265caca0bd3, type: 2}
