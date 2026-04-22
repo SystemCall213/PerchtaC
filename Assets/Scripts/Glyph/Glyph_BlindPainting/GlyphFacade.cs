@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Glyph.Interfaces;
 using Zenject;
 
 namespace Glyph
 {
-    public class GlyphFacade
+    public class GlyphFacade : IGlyphFacade
     {
         private readonly List<GlyphSO> _allGlyphs;
         private List<GlyphSO> _shuffledGlyphs;
@@ -37,6 +38,10 @@ namespace Glyph
             return _shuffledGlyphs[_currentIndex++];
         }
 
-        public void TriggerGlyphPainted() => OnGlyphPainted?.Invoke(1);
+        public void TriggerGlyphPainted()
+        {
+            
+            OnGlyphPainted?.Invoke(1);
+        }
     }
 }

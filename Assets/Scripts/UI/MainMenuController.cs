@@ -11,7 +11,7 @@ namespace UI
     {
         [Inject] private readonly IGameStateMachine gameStateMachine;
         [Inject] private readonly SettingMenu settingMenu;
-        [Inject] private readonly LoadNextLevel.Factory loadLevelFactory;
+        [Inject] private readonly LoadGivenLevel.Factory loadLevelFactory;
         [Inject] private readonly CinematicState.Factory cinematicStateFactory;
         
         [SerializeField] private Button startButton;
@@ -37,7 +37,7 @@ namespace UI
 
         public void Play()
         { 
-            gameStateMachine.ChangeState(loadLevelFactory.Create());
+            gameStateMachine.ChangeState(loadLevelFactory.Create("TestScene"));
         }
         
         public void Settings()

@@ -2,27 +2,46 @@ using Combat;
 using Combat.Interfaces;
 using Combat.Misc;
 using Glyph;
+using Glyph.Glyph_HoldPoint;
 using UnityEngine;
 using Zenject;
+using GlyphFacade = Glyph.GlyphFacade;
 
 namespace Installers
 {
+    public enum GlyphSystemType
+    {
+        BlindPainting,
+        HoldPoint
+    }
+
     public class CombatInstaller : MonoInstaller
     {
         [SerializeField] private GameObject combatArena;
         [SerializeField] private ScriptableObject combatScenario;
+        [SerializeField] private GlyphSystemType glyphSystemType;
+        [SerializeField] private GlyphFollower glyphFollowerPrefab;
+        [SerializeField] private GlyphLinesSOInstaller glyphLinesSOInstaller;
         [SerializeField] private GlyphSOInstaller glyphSOInstaller;
+        
         
         public override void InstallBindings()
         {
-            if (glyphSOInstaller != null)
+            if (glyphSystemType == GlyphSystemType.BlindPainting && glyphSOInstaller != null)
             {
                 Container.Inject(glyphSOInstaller);
                 glyphSOInstaller.InstallBindings();
-                Container.Bind<GlyphFacade>().AsSingle();
+                Container.BindInterfacesAndSelfTo<GlyphFacade>().AsSingle();
                 Container.BindInterfacesAndSelfTo<GlyphCompletionTracker>().AsSingle();
             }
 
+            if (glyphSystemType == GlyphSystemType.HoldPoint)
+            {
+                Container.BindInterfacesAndSelfTo<Glyph.Glyph_HoldPoint.GlyphFacade>().AsSingle();
+                Container.Bind<GlyphFollower>().FromInstance(glyphFollowerPrefab).AsTransient();
+                Container.Inject(glyphLinesSOInstaller);
+                glyphLinesSOInstaller.InstallBindings();
+            }
             Container.Bind<PlayerHealth>().FromComponentInHierarchy().AsSingle();
             Container.Bind<PlayerMovement>().FromComponentInHierarchy().AsSingle();
             Container.Bind<CombatArena>().FromComponentInHierarchy().AsSingle();
