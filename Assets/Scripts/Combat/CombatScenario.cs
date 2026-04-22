@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Combat.Interfaces;
+using DefaultNamespace;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Combat
@@ -10,23 +13,30 @@ namespace Combat
     {
         [SerializeField] private List<AttackStrategy> attackQueue;
         [SerializeField] private ScriptableObject intermediateStrategy;
-
+        
+        private List<AttackStrategy> _shuffledQueue;
         private int _currentIndex = 0;
 
         private void OnEnable()
         {
+            ResetAttackQueue();
+        }
+
+        private void ResetAttackQueue()
+        {
             _currentIndex = 0;
+            _shuffledQueue = attackQueue.Shuffle();
         }
 
         public IAttackStrategy GetNextAttack()
         {
-            if (attackQueue == null || attackQueue.Count == 0) return null;
-
-            var attack = attackQueue[_currentIndex];
-            if (attack != null)
+            if (_shuffledQueue == null || _shuffledQueue.Count == 0) return null;
+            if (_currentIndex >= _shuffledQueue.Count)
             {
-                _currentIndex = (_currentIndex + 1) % attackQueue.Count;
+                ResetAttackQueue();
             }
+            var attack = _shuffledQueue[_currentIndex];
+            _currentIndex++;
             return attack;
         }
 
@@ -34,5 +44,6 @@ namespace Combat
         {
             return intermediateStrategy as IAttackStrategy;
         }
+        
     }
 }

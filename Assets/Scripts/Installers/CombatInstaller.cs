@@ -1,4 +1,5 @@
 using Combat;
+using Combat.Arena;
 using Combat.Interfaces;
 using Combat.Misc;
 using Glyph;

@@ -1,4 +1,5 @@
 using System.Threading;
+using Combat.Arena;
 using Combat.Interfaces;
 using Combat.Misc;
 using Cysharp.Threading.Tasks;
@@ -13,10 +14,16 @@ namespace Combat.Strategies
         [SerializeField] private GameObject prefab;
         [SerializeField] private int spawnCount = 10;
         [SerializeField] private float delayBetweenSpawns = 0.5f;
+        [SerializeField] private RadialPositionSelectorData positionSelectorData;
 
         [Inject] private CombatArena _arena;
         [Inject] private IInstantiator _instantiator;
         private bool _isAttacking;
+
+        private void OnEnable()
+        {
+            positionSelectorData.ValidateAndInitialize();
+        }
 
         public override void StartAttack(CancellationToken ct)
         {
@@ -26,11 +33,17 @@ namespace Combat.Strategies
         private async UniTaskVoid ExecuteAsync(CancellationToken ct)
         {
             _isAttacking = true;
-
+            
             for (int i = 0; i < spawnCount; i++)
             {
                 if (ct.IsCancellationRequested) break;
-                SpawnProjectile();
+                
+                positionSelectorData.ValidateAndInitialize();
+                if (positionSelectorData.selector != null)
+                {
+                    SpawnProjectile(positionSelectorData.selector.GetNextPositionFactor());
+                }
+                
                 await UniTask.Delay((int)(delayBetweenSpawns * 1000), cancellationToken: ct);
             }
 
@@ -42,11 +55,11 @@ namespace Combat.Strategies
             _isAttacking = false;
         }
 
-        private void SpawnProjectile()
+        private void SpawnProjectile(float factor)
         {
             if (_arena == null) return;
 
-            Vector2 spawnPos = _arena.GetRandomPositionOutside();
+            Vector2 spawnPos = _arena.GetPositionOutside(factor);
             Vector2 targetPos = _arena.GetRandomPointInsideCenter();
             
             GameObject proj = _instantiator.InstantiatePrefab(prefab, spawnPos, Quaternion.identity, null);

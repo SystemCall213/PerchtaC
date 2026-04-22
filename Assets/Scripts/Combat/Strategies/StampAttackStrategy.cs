@@ -1,4 +1,5 @@
 using System.Threading;
+using Combat.Arena;
 using Combat.Interfaces;
 using Cysharp.Threading.Tasks;
 using UnityEngine;

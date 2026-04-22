@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Combat
+namespace Combat.Arena
 {
     public class CombatArena : MonoBehaviour
     {
@@ -22,6 +21,39 @@ namespace Combat
             float y = Mathf.Sin(angle) * radius;
 
             return (Vector2)transform.position + new Vector2(x, y);
+        }
+
+        public Vector2 GetPositionOutside(float radialFactor)
+        {
+            float angle = Mathf.PI * 2f * radialFactor;
+            return (Vector2)transform.position + new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * outerRadius;
+        }
+
+        public Vector2 GetSidedPosition(ArenaPositionSideFactor factor)
+        {
+            switch (factor.Side)
+            {
+                case ArenaPositionSideFactor.SideFactor.Top:
+                {
+                    return (Vector2)transform.position + new Vector2(width * factor.Factor, height);
+                }
+                case ArenaPositionSideFactor.SideFactor.Bottom:
+                {
+                    return (Vector2)transform.position + new Vector2(width * factor.Factor, -height);
+                }
+                case ArenaPositionSideFactor.SideFactor.Left:
+                {
+                    return (Vector2)transform.position + new Vector2(-width, height * factor.Factor);
+                }
+                case ArenaPositionSideFactor.SideFactor.Right:
+                {
+                    return (Vector2)transform.position + new Vector2(width, height * factor.Factor);
+                }
+                default:
+                {
+                    return Vector2.zero;
+                }
+            }
         }
 
         public Vector2 GetRandomPointInsideCenter()
