@@ -9,9 +9,6 @@ namespace Glyph
     {
         [SerializeField] private Shader brushShader;
         
-        [Inject] private GlyphCompletionTracker glyphCompletionTracker;
-        [Inject] private GlyphFacade _glyphFacade;
-        
         private RenderTexture _maskTexture;
         private Material _glyphMaterial;
         private SpriteRenderer _spriteRenderer;
@@ -27,15 +24,10 @@ namespace Glyph
             {
                 _brushMaterial = new Material(brushShader);
             }
-            
-            _glyphFacade.OnGlyphPainted += InitializeNextGlyph;
-            
-            InitializeNextGlyph();
         }
 
-        private void InitializeNextGlyph(int _damage = 1)
+        public void InitializeNextGlyph(GlyphSO glyphSO, int _damage = 1)
         {
-            var glyphSO = _glyphFacade.GetNextGlyph();
             if (glyphSO != null)
             {
                 _spriteRenderer.sprite = glyphSO.glyphSprite;
@@ -65,7 +57,6 @@ namespace Glyph
             _glyphMaterial = _spriteRenderer.material;
             _glyphMaterial.SetTexture("_MaskTex", _maskTexture);
 
-            glyphCompletionTracker.InitializeNewGlyph();
         }
 
         public void Paint(Vector2 uv, float radius, float hardness, float strength)
@@ -85,11 +76,6 @@ namespace Glyph
 
         private void OnDestroy()
         {
-            if (_glyphFacade != null)
-            {
-                _glyphFacade.OnGlyphPainted -= InitializeNextGlyph;
-            }
-
             if (_maskTexture != null)
             {
                 _maskTexture.Release();

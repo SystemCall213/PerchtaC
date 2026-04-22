@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Combat.Misc
 {
+    [RequireComponent(typeof(DamageOnCollision))]
     public class Bullet : MonoBehaviour
     {
         [SerializeField] private float speed = 5f;
@@ -16,21 +17,12 @@ namespace Combat.Misc
         private void Start()
         {
             Destroy(gameObject, lifeTime);
+            GetComponent<DamageOnCollision>().OnDamage += _ => Destroy(gameObject);
         }
 
         private void Update()
         {
             transform.Translate(Vector3.up * (speed * Time.deltaTime));
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.TryGetComponent<PlayerHealth>(out var playerHealth))
-            {
-                if (playerHealth.IsDead() || playerHealth.IsImmune) return;
-                playerHealth.TakeDamage(damage);
-                Destroy(gameObject);
-            }
         }
     }
 }

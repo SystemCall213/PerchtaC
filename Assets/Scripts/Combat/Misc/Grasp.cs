@@ -5,6 +5,8 @@ using Zenject;
 
 namespace Combat.Misc
 {
+    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(DamageOnCollision))]
     public class Grasp : MonoBehaviour
     {
         [Inject] private PlayerMovement playerMovement;
@@ -18,6 +20,13 @@ namespace Combat.Misc
         
         private Rigidbody2D rb;
         private bool isGrabbing = true;
+        
+        public void StopGrabbing()
+        {
+            isGrabbing = false;
+            Destroy(gameObject, 10f);
+        }
+        
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -25,18 +34,26 @@ namespace Combat.Misc
 
         private void Start()
         {
-            Destroy(transform.parent.gameObject, lifetime);
+            DamageOnCollision damageOnCollision = gameObject.GetComponent<DamageOnCollision>();
+            if (damageOnCollision != null)
+            {
+                damageOnCollision.OnDamage += _ => StopGrabbing();
+            }
+            else
+            {
+                Debug.LogError("Hold object must have DamageOnCollision component");
+            }
+            Destroy(gameObject, lifetime);
             StopGrabbingAfterDelay().Forget();
         }
 
         private async UniTaskVoid StopGrabbingAfterDelay()
         {
             await UniTask.Delay(TimeSpan.FromSeconds(grabDuration), delayTiming: PlayerLoopTiming.Update, cancellationToken: this.GetCancellationTokenOnDestroy());
-            isGrabbing = false;
-            Destroy(transform.parent.gameObject, 5f);
+            StopGrabbing();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (isGrabbing)
             {
@@ -58,25 +75,14 @@ namespace Combat.Misc
             
             float offset = Mathf.Sin(Time.time * sineFrequency) * sineMagnitude;
             
-            Vector2 finalDirection = (direction * force) + (perpendicular * offset);
+            Vector2 finalDirection = (direction * (force * Time.fixedDeltaTime)) + (perpendicular * (offset * Time.fixedDeltaTime));
             rb.AddForce(finalDirection, ForceMode2D.Impulse);
         }
 
         private void ApplyForceBackwards()
         {
             Vector2 direction = (hold.transform.position - playerMovement.transform.position).normalized;
-            hold.AddForce(direction * (force * 400), ForceMode2D.Impulse);
-        }
-
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                isGrabbing = false;
-                playerHealth.TakeDamage(1); 
-                Destroy(transform.parent.gameObject, 10f);
-            }
+            hold.AddForce(direction * (force * 400 * Time.fixedDeltaTime), ForceMode2D.Impulse);
         }
     }
 }

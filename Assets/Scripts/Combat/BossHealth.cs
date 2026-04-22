@@ -1,12 +1,12 @@
 using System;
 using Combat.Interfaces;
-using Glyph;
+using Glyph.Interfaces;
 using UnityEngine;
 using Zenject;
 
 public class BossHealth : MonoBehaviour, IHealth
 {
-    [Inject] private readonly GlyphFacade glyphFacade;
+    [Inject] private readonly IGlyphFacade glyphFacade;
     [SerializeField] private int maxHealth;
     private int health;
     public event Action<int> OnDamage;

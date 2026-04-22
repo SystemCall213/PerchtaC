@@ -74,7 +74,7 @@ namespace Combat
             }
 
             CancelImmunity();
-            immunityCts = new CancellationTokenSource();
+            immunityCts = CancellationTokenSource.CreateLinkedTokenSource(this.GetCancellationTokenOnDestroy());
             
             currentImmunityTimer = duration;
 

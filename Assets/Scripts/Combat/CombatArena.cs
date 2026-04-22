@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Combat
 {
@@ -6,13 +7,15 @@ namespace Combat
     {
         [SerializeField] private float width = 10f;
         [SerializeField] private float height = 10f;
+        [SerializeField] private float outerRadius = 5f;
 
         public float Width => width;
         public float Height => height;
+        public float OuterRadius => outerRadius;
 
         public Vector2 GetRandomPositionOutside()
         {
-            float radius = width * 1.5f;
+            float radius = outerRadius;
             float angle = Random.Range(0f, Mathf.PI * 2f);
             
             float x = Mathf.Cos(angle) * radius;
@@ -38,7 +41,7 @@ namespace Combat
             Gizmos.color = Color.green;
             Gizmos.DrawWireCube(transform.position, new Vector3(width / 2f, height / 2f, 0));
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, width * 1.5f);
+            Gizmos.DrawWireSphere(transform.position, outerRadius);
         }
     }
 }

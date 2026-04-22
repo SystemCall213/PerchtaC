@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26eab38f90284eac989e3c90395e2e3e, type: 3}
-  m_Name: GraspSpawn
+  m_Script: {fileID: 11500000, guid: 2e05e7d23df042859f16778ee71b0dca, type: 3}
+  m_Name: GlyphLinesSOInstaller
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1947835764234944162, guid: 7cae24d733072a14cb3537b312f9e558, type: 3}
-  spawnCount: 4
-  delayBetweenSpawns: 3
+  lines:
+  - {fileID: 2841563616047837627, guid: b35edfbb3594d1b4eaf7817e76a89515, type: 3}
+  - {fileID: 2338946981561860448, guid: a63a0f2301ddc6b4c90a458067a66779, type: 3}
