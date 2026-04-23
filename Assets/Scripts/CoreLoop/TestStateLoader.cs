@@ -2,6 +2,7 @@ using CoreLoop.Interfaces;
 using CoreLoop.States;
 using Dialogue;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace CoreLoop
@@ -41,7 +42,7 @@ namespace CoreLoop
                 }
                 case TestState.Cinematic:
                 {
-                    gameStateMachine.ChangeState(cinematicFactory.Create("CinematicScene"));
+                    gameStateMachine.ChangeState(cinematicFactory.Create(SceneManager.GetActiveScene().name));
                     break;
                 }
                 case TestState.Dialogue:
@@ -51,7 +52,7 @@ namespace CoreLoop
                 }
                 case TestState.Combat:
                 {
-                    gameStateMachine.ChangeState(combatFactory.Create("CombatScene"));
+                    gameStateMachine.ChangeState(combatFactory.Create(SceneManager.GetActiveScene().name));
                     break;
                 }
             }
