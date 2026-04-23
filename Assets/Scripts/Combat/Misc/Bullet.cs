@@ -1,13 +1,16 @@
+using Combat.Arena;
 using UnityEngine;
+using Zenject;
 
 namespace Combat.Misc
 {
     [RequireComponent(typeof(DamageOnCollision))]
     public class Bullet : MonoBehaviour
     {
-        [SerializeField] private float speed = 5f;
-        [SerializeField] private float lifeTime = 5f;
-        [SerializeField] private int damage = 1;
+        [SerializeField] protected float speed = 5f;
+        [SerializeField] protected float lifeTime = 5f;
+        
+        [Inject] protected CombatArena _arena;
 
         public void SetSpeed(float speed)
         {
@@ -18,9 +21,23 @@ namespace Combat.Misc
         {
             Destroy(gameObject, lifeTime);
             GetComponent<DamageOnCollision>().OnDamage += _ => Destroy(gameObject);
+            
+            CalculateBulletDirection();
+        }
+
+        protected virtual void CalculateBulletDirection()
+        {
+            Vector2 targetPos = _arena.GetRandomPointInsideCenter();
+            Vector2 direction = (targetPos - (Vector2)transform.position).normalized;
+            transform.up = direction;
         }
 
         private void Update()
+        {
+            TranslateBullet();
+        }
+
+        protected virtual void TranslateBullet()
         {
             transform.Translate(Vector3.up * (speed * Time.deltaTime));
         }

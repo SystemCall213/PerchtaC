@@ -9,7 +9,7 @@ using Zenject;
 namespace Combat.Strategies
 {
     [CreateAssetMenu(fileName = "RandomSpawnAttack", menuName = "Combat/Strategies/RandomSpawn")]
-    public class RandomSpawnAttackStrategy : AttackStrategy
+    public class DelayedSpawnAttackStrategy : AttackStrategy
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private int spawnCount = 10;
@@ -38,12 +38,7 @@ namespace Combat.Strategies
             {
                 if (ct.IsCancellationRequested) break;
                 
-                positionSelectorData.ValidateAndInitialize();
-                if (positionSelectorData.selector != null)
-                {
-                    SpawnProjectile(positionSelectorData.selector.GetNextPositionFactor());
-                }
-                
+                SpawnProjectile(positionSelectorData.selector.GetNextPositionFactor());
                 await UniTask.Delay((int)(delayBetweenSpawns * 1000), cancellationToken: ct);
             }
 
@@ -57,14 +52,8 @@ namespace Combat.Strategies
 
         private void SpawnProjectile(float factor)
         {
-            if (_arena == null) return;
-
             Vector2 spawnPos = _arena.GetPositionOutside(factor);
-            Vector2 targetPos = _arena.GetRandomPointInsideCenter();
-            
             GameObject proj = _instantiator.InstantiatePrefab(prefab, spawnPos, Quaternion.identity, null);
-            Vector2 direction = (targetPos - spawnPos).normalized;
-            proj.transform.up = direction;
         }
 
         public override bool IsAttacking() => _isAttacking;

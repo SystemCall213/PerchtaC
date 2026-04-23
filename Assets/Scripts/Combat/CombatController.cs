@@ -26,25 +26,20 @@ namespace Combat
 
         private async UniTaskVoid RunCombatLoop(CancellationToken token)
         {
+            _scenario.Initialize();
             while (!token.IsCancellationRequested)
             {
                 // Attack Phase
                 IAttackStrategy attack = _scenario.GetNextAttack();
-                if (attack != null)
-                {
-                    _container.Inject(attack);
-                    attack.StartAttack(token);
-                    await UniTask.WaitWhile(() => attack.IsAttacking(), cancellationToken: token);
-                }
+                _container.Inject(attack);
+                attack.StartAttack(token);
+                await UniTask.WaitWhile(() => attack.IsAttacking(), cancellationToken: token);
 
                 // Intermediate Phase
                 IAttackStrategy intermediate = _scenario.GetIntermediateStrategy();
-                if (intermediate != null)
-                {
-                    _container.Inject(intermediate);
-                    intermediate.StartAttack(token);
-                    await UniTask.WaitWhile(() => intermediate.IsAttacking(), cancellationToken: token);
-                }
+                _container.Inject(intermediate);
+                intermediate.StartAttack(token);
+                await UniTask.WaitWhile(() => intermediate.IsAttacking(), cancellationToken: token);
             }
         }
 

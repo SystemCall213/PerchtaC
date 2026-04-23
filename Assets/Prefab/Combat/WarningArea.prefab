@@ -186,3 +186,4 @@ MonoBehaviour:
   shimmerFrequency: 5
   shimmerMinAlpha: 0.3
   shimmerMaxAlpha: 0.8
+  bulletPrefab: {fileID: 7864068102879659906, guid: ccebb92b8fd2fb546a44de51ae565da1, type: 3}

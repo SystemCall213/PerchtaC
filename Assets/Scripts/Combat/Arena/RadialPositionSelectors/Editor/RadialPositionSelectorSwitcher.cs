@@ -1,4 +1,4 @@
-﻿using Combat.Arena.PositionSelectors;
+﻿using Combat.Arena;
 using UnityEditor;
 using UnityEngine;
 
@@ -40,22 +40,9 @@ namespace Combat.Arena.Editor
         {
             RadialPositionSelectorType type = (RadialPositionSelectorType)typeProp.enumValueIndex;
             
-            object current = selectorProp.managedReferenceValue;
-            
-            switch (type)
+            if (!RadialPositionSelectorData.SelectorMatchesType(selectorProp.managedReferenceValue as IRadialPositionSelector, type))
             {
-                case RadialPositionSelectorType.BalancedRandom:
-                    if (!(current is BalancedRandomIRadialPositionSelector))
-                    {
-                        selectorProp.managedReferenceValue = new BalancedRandomIRadialPositionSelector();
-                    }
-                    break;
-                case RadialPositionSelectorType.Random:
-                    if (!(current is RandomRadialPositionSelector))
-                    {
-                        selectorProp.managedReferenceValue = new RandomRadialPositionSelector();
-                    }
-                    break;
+                selectorProp.managedReferenceValue = RadialPositionSelectorData.CreateSelector(type);
             }
         }
 

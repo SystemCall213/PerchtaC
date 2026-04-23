@@ -11,7 +11,6 @@ namespace Combat.Strategies
     public class StampAttackStrategy : AttackStrategy
     {
         [SerializeField] private GameObject warningAreaPrefab;
-        [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private float duration = 2.0f;
         [SerializeField] private int damage = 2;
         [SerializeField] private int bulletCount = 8;
@@ -44,7 +43,7 @@ namespace Combat.Strategies
                 
                 if (warningObj.TryGetComponent<WarningArea>(out var warningArea))
                 {
-                    warningArea.Initialize(duration, damage, bulletCount, bulletPrefab, bulletSpeed, cancellationToken);
+                    warningArea.Initialize(duration, damage, bulletCount, bulletSpeed, cancellationToken);
                 }
 
                 await UniTask.Delay((int)(stampDelay * 1000), cancellationToken: cancellationToken);

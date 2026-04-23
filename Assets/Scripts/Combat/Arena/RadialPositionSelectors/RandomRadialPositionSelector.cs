@@ -1,5 +1,9 @@
-﻿namespace Combat.Arena.PositionSelectors
+﻿using System;
+
+namespace Combat.Arena.PositionSelectors
 {
+    [Serializable]
+    [RadialPositionSelector(RadialPositionSelectorType.Random)]
     public class RandomRadialPositionSelector : IRadialPositionSelector
     {
         public float GetNextPositionFactor()

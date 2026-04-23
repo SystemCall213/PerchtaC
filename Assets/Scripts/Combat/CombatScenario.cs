@@ -17,7 +17,7 @@ namespace Combat
         private List<AttackStrategy> _shuffledQueue;
         private int _currentIndex = 0;
 
-        private void OnEnable()
+        public void Initialize()
         {
             ResetAttackQueue();
         }
@@ -30,13 +30,11 @@ namespace Combat
 
         public IAttackStrategy GetNextAttack()
         {
-            if (_shuffledQueue == null || _shuffledQueue.Count == 0) return null;
             if (_currentIndex >= _shuffledQueue.Count)
             {
                 ResetAttackQueue();
             }
-            var attack = _shuffledQueue[_currentIndex];
-            _currentIndex++;
+            var attack = _shuffledQueue[_currentIndex++];
             return attack;
         }
 

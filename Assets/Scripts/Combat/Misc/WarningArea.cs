@@ -11,20 +11,19 @@ namespace Combat.Strategies
         [SerializeField] private float shimmerFrequency = 5f;
         [SerializeField] private float shimmerMinAlpha = 0.3f;
         [SerializeField] private float shimmerMaxAlpha = 0.8f;
+        [SerializeField] private GameObject bulletPrefab;
 
         private float duration;
         private int damage;
         private int bulletCount;
-        private GameObject bulletPrefab;
         private float bulletSpeed;
         private float elapsedTime;
 
-        public void Initialize(float duration, int damage, int bulletCount, GameObject bulletPrefab, float bulletSpeed, CancellationToken cancellationToken)
+        public void Initialize(float duration, int damage, int bulletCount, float bulletSpeed, CancellationToken cancellationToken)
         {
             this.duration = duration;
             this.damage = damage;
             this.bulletCount = bulletCount;
-            this.bulletPrefab = bulletPrefab;
             this.bulletSpeed = bulletSpeed;
             
             StartAttackSequence(cancellationToken).Forget();

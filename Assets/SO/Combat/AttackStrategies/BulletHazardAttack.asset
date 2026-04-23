@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26eab38f90284eac989e3c90395e2e3e, type: 3}
-  m_Name: RandomSpawnAttack
+  m_Name: BulletHazardAttack
   m_EditorClassIdentifier: 
   prefab: {fileID: 7864068102879659906, guid: ccebb92b8fd2fb546a44de51ae565da1, type: 3}
-  spawnCount: 20
-  delayBetweenSpawns: 0.35
+  spawnCount: 150
+  delayBetweenSpawns: 0.05
   positionSelectorData:
     type: 1
     selector:
-      rid: 7613024519207780402
+      rid: 7613024527958147074
   references:
     version: 2
     RefIds:
-    - rid: 7613024519207780402
+    - rid: 7613024527958147074
       type: {class: RandomRadialPositionSelector, ns: Combat.Arena.PositionSelectors, asm: Assembly-CSharp}
       data: 
