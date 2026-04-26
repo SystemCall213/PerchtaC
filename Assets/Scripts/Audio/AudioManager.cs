@@ -4,14 +4,15 @@ using UnityEngine;
 
 namespace Audio
 {
-    public interface ISoundManager
+    public interface IAudioManager
     {
         void SetSfxVolume(float volume01);
         void SetMusicVolume(float volume01);
+        void SetMasterVolume(float volume01);
         void PauseAll(bool paused);
     }
 
-    public class AudioManager : ISoundManager
+    public class AudioManager : IAudioManager
     {
         private readonly Bus sfxBus;
         private readonly Bus musicBus;

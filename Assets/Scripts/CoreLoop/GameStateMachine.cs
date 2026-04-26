@@ -1,5 +1,7 @@
-﻿using CoreLoop.Interfaces;
+﻿using System;
+using CoreLoop.Interfaces;
 using CoreLoop.States;
+using Zenject;
 
 namespace CoreLoop
 {
@@ -7,12 +9,19 @@ namespace CoreLoop
     {
         public State CurrentState => currentState;
         private State currentState;
+        public event Action<State> OnStateChanged;
+        public GameStateMachine(MainMenuState.Factory mainMenuStateFactory)
+        {
+            
+            ChangeState(mainMenuStateFactory.Create());
+        }
         public void ChangeState(State state)
         {
             if (currentState != null && currentState.GetType() == state.GetType()) return;
             currentState?.Exit();
             currentState = state;
             currentState.Enter();
+            OnStateChanged?.Invoke(state);
         }
 
         public void ChangeState<TPayload>(State<TPayload> state, TPayload payload)
@@ -30,6 +39,7 @@ namespace CoreLoop
             currentState?.Exit();
             currentState = state;
             currentState.Enter();
+            OnStateChanged?.Invoke(state);
         }
     }
 }

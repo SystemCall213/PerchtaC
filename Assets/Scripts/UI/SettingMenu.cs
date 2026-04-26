@@ -11,7 +11,7 @@ namespace UI
 {
     public class SettingMenu : ConfigurableCanvas
     {
-        [Inject] private readonly AudioManager audioManager;
+        [Inject] private readonly IAudioManager audioManager;
         [Inject] private readonly IUIFacade uiFacade;
         
         [Header( "Audio" )]
@@ -33,6 +33,7 @@ namespace UI
         {
             base.Awake();
             DontDestroyOnLoad(gameObject);
+            gameObject.SetActive(false);
         }
         
         private void OnEnable()
@@ -45,6 +46,7 @@ namespace UI
             
             fullscreenToggle.onValueChanged.AddListener(OnFullscreenToggle);
             resolutionDropdown.onValueChanged.AddListener(OnResolutionChanged);
+            backButton.onClick.AddListener(Back);
         }
 
         private void OnDisable()
@@ -55,6 +57,7 @@ namespace UI
             
             fullscreenToggle.onValueChanged.RemoveListener(OnFullscreenToggle);
             resolutionDropdown.onValueChanged.RemoveListener(OnResolutionChanged);
+            backButton.onClick.RemoveListener(Back);
         }
         
         
@@ -78,7 +81,7 @@ namespace UI
         }
         
         
-        #region UI Events
+        #region UIEvents
 
         private void OnMasterVolumeChanged(float value)
         {
@@ -103,6 +106,11 @@ namespace UI
         private void OnResolutionChanged(int value)
         {
             Screen.SetResolution(filteredResolutions[value].width, filteredResolutions[value].height, Screen.fullScreen);
+        }
+        
+        private void Back()
+        {
+            uiFacade.CloseTopmost();
         }
         #endregion
     }

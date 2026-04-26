@@ -1,10 +1,16 @@
 using System;
+using CoreLoop.Interfaces;
+using CoreLoop.States;
 using UnityEngine;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using Zenject;
 
 public class DialogueManager
 {
+    [Inject] private IGameStateMachine gameStateMachine;
+    [Inject] private RoomState.Factory roomStateFactory;
+    [Inject] private DialogueState.Factory dialogueStateFactory;
     [Header("Ink Story")]
     private Story story;
 
@@ -22,6 +28,7 @@ public class DialogueManager
         inkDialogueVariables = new InkDialogueVariables(story);
         nextLine = new DialogueLine();
         OnDialogueEntered?.Invoke();
+        // gameStateMachine.ChangeState(dialogueStateFactory.Create(null));
         
         if (knotName != "")
         {
@@ -35,11 +42,16 @@ public class DialogueManager
         inkDialogueVariables.SyncVariablesAndStartListening(story);
 
         // Assuming we need to set girl and perchta sprites once
-        string girlSpriteName = story.variablesState["girl"].ToString();
-        nextLine.girlSprite = Resources.Load<Sprite>(girlSpriteName);
-        string perchtaSpriteName = story.variablesState["perchta"].ToString();
-        nextLine.perchtaSprite = Resources.Load<Sprite>(perchtaSpriteName);
-        
+        try
+        {
+
+            string girlSpriteName = story.variablesState["girl"].ToString();
+            nextLine.girlSprite = Resources.Load<Sprite>(girlSpriteName);
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning("No girl sprite found");
+        }
         // Start dialogue
         ContinueOrExitStory();
     }
@@ -70,6 +82,7 @@ public class DialogueManager
     private void ExitDialogue()
     {
         OnDialogueExited?.Invoke();
+        gameStateMachine.ChangeState(roomStateFactory.Create());
         inkDialogueVariables.StopListening(story);
         story.ResetState();
     }

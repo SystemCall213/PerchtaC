@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CombatScenario
   m_EditorClassIdentifier: 
   attackQueue:
-  - {fileID: 11400000, guid: 130e8eeda0d45f54082e619cdbf8015c, type: 2}
-  - {fileID: 11400000, guid: b224d17d76656584d9d5070c3ab32272, type: 2}
+  - {fileID: 11400000, guid: 6e8abc208bf15fe44ad604e3b0e5f20b, type: 2}
+  - {fileID: 11400000, guid: d252f3476f80d1c4bb1441627ddcd4c5, type: 2}
+  - {fileID: 11400000, guid: 493462eed5cefcd4d9bd1f8f9a64c6b4, type: 2}
   intermediateStrategy: {fileID: 11400000, guid: 783df9a5afc2d5c419f8125e418319cd, type: 2}

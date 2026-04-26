@@ -15,13 +15,15 @@ namespace CoreLoop
             MainMenu,
             Cinematic,
             Dialogue,
-            Combat
+            Combat,
+            Room
         }
         [Inject] private readonly IGameStateMachine gameStateMachine;
         [Inject] private readonly MainMenuState.Factory mainMenuFactory;
         [Inject] private readonly CinematicState.Factory cinematicFactory;
         [Inject] private readonly DialogueState.Factory dialogueFactory;
         [Inject] private readonly CombatState.Factory combatFactory;
+        [Inject] private readonly RoomState.Factory roomFactory;
 
         [SerializeField] private TestState State;
         [SerializeField] private DialogueSO dialogueSo;
@@ -53,6 +55,11 @@ namespace CoreLoop
                 case TestState.Combat:
                 {
                     gameStateMachine.ChangeState(combatFactory.Create(SceneManager.GetActiveScene().name));
+                    break;
+                }
+                case TestState.Room:
+                {
+                    gameStateMachine.ChangeState(roomFactory.Create());
                     break;
                 }
             }

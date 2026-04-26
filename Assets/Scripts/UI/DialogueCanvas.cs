@@ -76,7 +76,9 @@ namespace UI.Interfaces
         {
             text.text = line.text;
             speaker.text = line.speaker;
+            if (line.girlSprite == null) return;
             girlImage.sprite = line.girlSprite;
+            if (line.perchtaSprite == null) return;
             perchtaImage.sprite = line.perchtaSprite;
         }
 

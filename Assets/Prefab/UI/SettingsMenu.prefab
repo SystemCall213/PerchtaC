@@ -191,6 +191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39575ec912cf41c184254c62a9c30089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  ClosableWithEscape: 1
+  PausesTime: 1
   masterVolumeSlider: {fileID: 7246424870118439625}
   sfxVolumeSlider: {fileID: 2265787362974142080}
   musicVolumeSlider: {fileID: 2700798426407459971}

@@ -45,6 +45,7 @@ namespace Combat.Misc
             }
             Destroy(gameObject, lifetime);
             StopGrabbingAfterDelay().Forget();
+            transform.position -= hold.transform.localPosition * transform.localScale[0];
         }
 
         private async UniTaskVoid StopGrabbingAfterDelay()

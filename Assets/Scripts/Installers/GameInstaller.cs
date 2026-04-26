@@ -10,10 +10,10 @@ public class GameInstaller : MonoInstaller
     [SerializeField, Scene] private string[] levels;
     public override void InstallBindings()
     {
+        SignalBusInstaller.Install(Container);
         Container.Bind<DefaultActions>().AsSingle();
         Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle().WithArguments(levels);
-        Container.Bind<IGameStateMachine>().To<GameStateMachine>().AsSingle();
-        Container.Bind<DialogueManager>().AsSingle();
+        
 
         Container.BindFactory<string, CinematicState, CinematicState.Factory>();
         Container.BindFactory<DialogueSO, DialogueState, DialogueState.Factory>();
@@ -21,5 +21,9 @@ public class GameInstaller : MonoInstaller
         Container.BindFactory<MainMenuState, MainMenuState.Factory>();
         Container.BindFactory<string, CombatState, CombatState.Factory>();
         Container.BindFactory<string, LoadGivenLevel, LoadGivenLevel.Factory>();
+        Container.BindFactory<RoomState, RoomState.Factory>();
+        
+        Container.Bind<IGameStateMachine>().To<GameStateMachine>().AsSingle();
+        Container.Bind<DialogueManager>().AsSingle();
     }
 }

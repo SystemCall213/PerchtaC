@@ -8,7 +8,6 @@ namespace CoreLoop.States
     {
         [Inject] private readonly ISceneLoader sceneLoader;
         [Inject] private readonly IGameStateMachine gameStateMachine;
-        [Inject] private readonly DialogueState.Factory dialogueStateFactory;
         public override void Enter()
         {
             sceneLoader.LoadNextLevel();

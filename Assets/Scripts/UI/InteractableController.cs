@@ -21,6 +21,9 @@ namespace UI
         private void OnEnable()
         {
             doorButton.onClick.AddListener(GoToNextLevel);
+            gameStateMachine.OnStateChanged += CheckButtonState;
+            CheckButtonState(gameStateMachine.CurrentState);
+            
             
             for (int i = 0; i < fightButtons.Count; i++)
             {
@@ -38,6 +41,7 @@ namespace UI
             {
                 btn.onClick.RemoveAllListeners();
             }
+            gameStateMachine.OnStateChanged -= CheckButtonState;
         }
 
         private void Fight(string sceneName)
@@ -48,6 +52,27 @@ namespace UI
         private void GoToNextLevel()
         {
             gameStateMachine.ChangeState(loadGivenLevelFactory.Create("TestScene"));
+        }
+
+        private void  CheckButtonState(State state)
+        {
+            if (state is RoomState || state is LoadGivenLevel || state is LoadNextLevel)
+            {
+                foreach (var fightButton in fightButtons)
+                {
+                    fightButton.interactable = true;
+                    fightButton.gameObject.SetActive(true);
+                }
+            }
+
+            else
+            {
+                foreach (var fightButton in fightButtons)
+                {
+                    fightButton.interactable = false;
+                    fightButton.gameObject.SetActive(false);
+                }
+            }
         }
     }
 }

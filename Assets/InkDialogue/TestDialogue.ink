@@ -1,5 +1,5 @@
-VAR girl = "Sprites/GirlPeasent"
-VAR perchta = "Sprites/Perchtas/Perchta1"
+VAR girl = "Sprites/Perhta1"
+VAR perchta = ""
 
 === Perchta ===
 # speaker:Perchta

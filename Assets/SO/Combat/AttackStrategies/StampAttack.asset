@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: StampAttack
   m_EditorClassIdentifier: 
   warningAreaPrefab: {fileID: 6513569807757572383, guid: 4fb9c4f51a33f3447a09f8bcd6a761ea, type: 3}
-  bulletPrefab: {fileID: 7864068102879659906, guid: ccebb92b8fd2fb546a44de51ae565da1, type: 3}
-  duration: 4
+  duration: 2
   damage: 1
   bulletCount: 10
   bulletSpeed: 400
   stampCount: 6
-  stampDelay: 0.8
+  stampDelay: 0.6
