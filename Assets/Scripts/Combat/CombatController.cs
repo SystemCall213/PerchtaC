@@ -29,17 +29,17 @@ namespace Combat
             _scenario.Initialize();
             while (!token.IsCancellationRequested)
             {
-                // Attack Phase
-                IAttackStrategy attack = _scenario.GetNextAttack();
-                _container.Inject(attack);
-                attack.StartAttack(token);
-                await UniTask.WaitWhile(() => attack.IsAttacking(), cancellationToken: token);
-
                 // Intermediate Phase
                 IAttackStrategy intermediate = _scenario.GetIntermediateStrategy();
                 _container.Inject(intermediate);
                 intermediate.StartAttack(token);
                 await UniTask.WaitWhile(() => intermediate.IsAttacking(), cancellationToken: token);
+                
+                // Attack Phase
+                IAttackStrategy attack = _scenario.GetNextAttack();
+                _container.Inject(attack);
+                attack.StartAttack(token);
+                await UniTask.WaitWhile(() => attack.IsAttacking(), cancellationToken: token);
             }
         }
 
