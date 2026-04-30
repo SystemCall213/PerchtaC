@@ -16,13 +16,13 @@ MonoBehaviour:
   spawnCount: 200
   delayBetweenSpawns: 0.035
   positionSelectorData:
-    type: 3
+    type: 2
     selector:
-      rid: 7613024527958147073
+      rid: 8043928812459130882
   references:
     version: 2
     RefIds:
-    - rid: 7613024527958147073
-      type: {class: IncrementialRadialPositionSelector, ns: Combat.Arena.PositionSelectors, asm: Assembly-CSharp}
+    - rid: 8043928812459130882
+      type: {class: SideRelativeRandomPositionSelector, ns: Combat.Arena.PositionSelectors, asm: Assembly-CSharp}
       data:
-        increment: 10
+        maxOffset: 20
