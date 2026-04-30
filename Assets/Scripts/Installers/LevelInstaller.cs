@@ -1,4 +1,4 @@
-﻿using Dialogue;
+﻿using Interfaces;
 using UnityEngine;
 using Zenject;
 

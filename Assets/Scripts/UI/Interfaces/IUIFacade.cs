@@ -6,6 +6,6 @@ namespace UI.Interfaces
     {
         void CloseTopmost();
         void CloseAll();
-        void Open(ConfigurableCanvas canvas);
+        void Open(IConfigurableCanvas canvas);
     }
 }

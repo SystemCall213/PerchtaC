@@ -1,21 +1,21 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+using Dialogue.Interfaces;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Zenject;
-using DG.Tweening;
 
 namespace UI.Interfaces
 {
     public class DialogueCanvas : MonoBehaviour, IPointerClickHandler
     {
-        [Inject] private DialogueManager dialogueManager;
+        [Inject] private IDialogueManager dialogueManager;
         [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private TextMeshProUGUI speaker;
         [SerializeField] private Image girlImage;
         [SerializeField] private Image perchtaImage;
         [SerializeField] private CanvasGroup canvasGroup;
-        private InkDialogueVariables inkDialogueVariables;
         
         private Canvas canvas;
 
@@ -24,7 +24,6 @@ namespace UI.Interfaces
             dialogueManager.OnDialogueEntered += Open;
             dialogueManager.OnDialogueExited += Close;
             dialogueManager.OnDialogueDisplay += DisplayDialogue;
-            dialogueManager.OnUpdateInkDialogueVariable += UpdateDialogueInkVariable;
         }
 
         private void OnDisable()
@@ -32,7 +31,6 @@ namespace UI.Interfaces
             dialogueManager.OnDialogueEntered -= Open;
             dialogueManager.OnDialogueExited -= Close;
             dialogueManager.OnDialogueDisplay -= DisplayDialogue;
-            dialogueManager.OnUpdateInkDialogueVariable -= UpdateDialogueInkVariable;
         }
 
         public void Awake()
@@ -86,10 +84,6 @@ namespace UI.Interfaces
         {
             dialogueManager.ContinueOrExitStory();
         }
-
-        public void UpdateDialogueInkVariable(string name, Ink.Runtime.Object value)
-        {
-            inkDialogueVariables.UpdateVariableState(name, value);
-        }
+        
     }
 }

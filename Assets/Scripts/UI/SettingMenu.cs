@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-using Audio;
-using CoreLoop.Interfaces;
+using Audio.Interfaces;
 using TMPro;
 using UI.Interfaces;
 using UnityEngine;

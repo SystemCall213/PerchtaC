@@ -1,12 +1,12 @@
 using System;
 using CoreLoop.Interfaces;
 using CoreLoop.States;
+using Dialogue.Interfaces;
 using UnityEngine;
 using Ink.Runtime;
-using UnityEngine.EventSystems;
 using Zenject;
 
-public class DialogueManager
+public class DialogueManager : IDialogueManager
 {
     [Inject] private IGameStateMachine gameStateMachine;
     [Inject] private RoomState.Factory roomStateFactory;
@@ -20,7 +20,6 @@ public class DialogueManager
     public event Action OnDialogueEntered;
     public event Action OnDialogueExited;
     public event Action<DialogueLine> OnDialogueDisplay;
-    public event Action<string, Ink.Runtime.Object> OnUpdateInkDialogueVariable;
     
     public void EnterDialogue(TextAsset dialogue, string knotName)
     {
@@ -85,13 +84,5 @@ public class DialogueManager
         gameStateMachine.ChangeState(roomStateFactory.Create());
         inkDialogueVariables.StopListening(story);
         story.ResetState();
-    }
-
-    public void UpdateInkDialogueVariable(string name, Ink.Runtime.Object value)
-    {
-        if (OnUpdateInkDialogueVariable != null)
-        {
-            OnUpdateInkDialogueVariable.Invoke(name, value);
-        }
     }
 }

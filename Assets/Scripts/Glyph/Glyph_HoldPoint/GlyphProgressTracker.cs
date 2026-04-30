@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Combat;
+﻿using System.Collections.Generic;
+using Combat.Interfaces;
 using Glyph.Interfaces;
 using UnityEngine;
 using Zenject;
@@ -10,7 +9,7 @@ namespace Glyph.Glyph_HoldPoint
     public class GlyphProgressTracker : MonoBehaviour
     { 
         [Inject] private GlyphFollower glyphFollowerPrefab;
-        [Inject] private PlayerMovement player;
+        [Inject] private IPlayerMovement player;
         [Inject] private IGlyphFacade glyphFacade;
         [Inject] private IInstantiator instantiator;
         [Inject(Id = "GlyphLines")] private List<LineRenderer> glyphLineRenderers;

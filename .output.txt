@@ -1,0 +1,307 @@
+
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         4/28/2026   5:58 PM                Audio
+d-----         4/28/2026   5:58 PM                Combat
+d-----         4/28/2026   5:58 PM                Controls
+d-----         4/28/2026   5:58 PM                CoreLoop
+d-----         4/28/2026   5:58 PM                Dialogue
+d-----         4/28/2026   5:58 PM                Glyph
+d-----         4/28/2026   5:58 PM                Installers
+d-----         4/28/2026   5:58 PM                UI
+-a----         3/28/2026   4:51 PM             85 Audio.meta
+-a----         4/28/2026   5:58 PM             88 Combat.meta
+-a----         3/28/2026   4:51 PM             88 Controls.meta
+-a----         3/28/2026   4:51 PM             88 CoreLoop.meta
+-a----         3/28/2026   4:52 PM             88 Dialogue.meta
+-a----         4/28/2026   5:58 PM            350 ExtensionMethods.cs
+-a----         4/28/2026   5:58 PM             88 ExtensionMethods.cs.meta
+-a----         4/28/2026   5:58 PM             88 Glyph.meta
+-a----         3/28/2026   4:51 PM            180 Installers.meta
+-a----         3/28/2026   4:51 PM             88 UI.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Audio
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         4/28/2026   5:58 PM           1365 AudioManager.cs
+-a----         3/28/2026   4:51 PM            254 AudioManager.cs.meta
+-a----         3/28/2026   4:51 PM            521 MusicCatalog.cs
+-a----         3/28/2026   4:51 PM            254 MusicCatalog.cs.meta
+-a----         3/28/2026   4:51 PM             83 MusicId.cs
+-a----         3/28/2026   4:51 PM            254 MusicId.cs.meta
+-a----         3/28/2026   4:51 PM            620 MusicRouter.cs
+-a----         3/28/2026   4:51 PM            254 MusicRouter.cs.meta
+-a----         3/28/2026   4:51 PM           4916 MusicService.cs
+-a----         3/28/2026   4:51 PM            254 MusicService.cs.meta
+-a----         3/28/2026   4:51 PM            652 SoundCatalog.cs
+-a----         3/28/2026   4:51 PM            254 SoundCatalog.cs.meta
+-a----         3/28/2026   4:51 PM             83 SoundId.cs
+-a----         3/28/2026   4:51 PM            254 SoundId.cs.meta
+-a----         4/28/2026   5:58 PM            917 SoundInstaller.cs
+-a----         4/28/2026   5:58 PM            254 SoundInstaller.cs.meta
+-a----         3/28/2026   4:51 PM            878 SoundService.cs
+-a----         3/28/2026   4:51 PM            254 SoundService.cs.meta
+-a----         3/28/2026   4:51 PM            730 SoundSignalRouterTyped.cs
+-a----         3/28/2026   4:51 PM            254 SoundSignalRouterTyped.cs.met
+                                                  a
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Combat
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         4/28/2026   5:58 PM                Arena
+d-----         4/28/2026   5:58 PM                HealthUI
+d-----         4/28/2026   5:58 PM                Interfaces
+d-----         4/28/2026   5:58 PM                Misc
+d-----         4/28/2026   5:58 PM                Strategies
+-a----         4/28/2026   5:58 PM             88 Arena.meta
+-a----         4/28/2026   5:58 PM           1160 BossHealth.cs
+-a----         4/28/2026   5:58 PM            254 BossHealth.cs.meta
+-a----         4/28/2026   5:58 PM           1648 CombatController.cs
+-a----         4/28/2026   5:58 PM             85 CombatController.cs.meta
+-a----         4/28/2026   5:58 PM           1279 CombatScenario.cs
+-a----         4/28/2026   5:58 PM             85 CombatScenario.cs.meta
+-a----         4/28/2026   5:58 PM            180 HealthUI.meta
+-a----         4/28/2026   5:58 PM             85 Interfaces.meta
+-a----         4/28/2026   5:58 PM             85 Misc.meta
+-a----         4/28/2026   5:58 PM           3343 PlayerHealth.cs
+-a----         4/28/2026   5:58 PM             85 PlayerHealth.cs.meta
+-a----         4/28/2026   5:58 PM            781 PlayerMovement.cs
+-a----         4/28/2026   5:58 PM             85 PlayerMovement.cs.meta
+-a----         4/28/2026   5:58 PM             85 Strategies.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Combat\Arena
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         4/28/2026   5:58 PM                RadialPositionSelectors
+-a----         4/28/2026   5:58 PM            318 ArenaPositionSideFactor.cs
+-a----         4/28/2026   5:58 PM             88 ArenaPositionSideFactor.cs.me
+                                                  ta
+-a----         4/28/2026   5:58 PM           2862 CombatArena.cs
+-a----         4/28/2026   5:58 PM             85 CombatArena.cs.meta
+-a----         4/28/2026   5:58 PM             88 RadialPositionSelectors.meta
+    Каталог:
+    E:\Projects\PerchtaC\Assets\Scripts\Combat\Arena\RadialPositionSelectors
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         4/28/2026   5:58 PM                Editor
+-a----         4/28/2026   5:58 PM            788 BalancedRandomIRadialPosition
+                                                  Selector.cs
+-a----         4/28/2026   5:58 PM             88 BalancedRandomIRadialPosition
+                                                  Selector.cs.meta
+-a----         4/28/2026   5:58 PM             88 Editor.meta
+-a----         4/28/2026   5:58 PM            702 IncrementialRadialPositionSel
+                                                  ector.cs
+-a----         4/28/2026   5:58 PM             88 IncrementialRadialPositionSel
+                                                  ector.cs.meta
+-a----         4/28/2026   5:58 PM            131 IRadialPositionSelector.cs
+-a----         4/28/2026   5:58 PM             88 IRadialPositionSelector.cs.me
+                                                  ta
+-a----         4/28/2026   5:58 PM           2323 RadialPositionSelectorType.cs
+-a----         4/28/2026   5:58 PM             88 RadialPositionSelectorType.cs
+                                                  .meta
+-a----         4/28/2026   5:58 PM            360 RandomRadialPositionSelector.
+                                                  cs
+-a----         4/28/2026   5:58 PM             88 RandomRadialPositionSelector.
+                                                  cs.meta
+-a----         4/28/2026   5:58 PM            867 SideRelativeRandomPositionSel
+                                                  ector.cs
+-a----         4/28/2026   5:58 PM             88 SideRelativeRandomPositionSel
+                                                  ector.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Combat\Arena\RadialPositionSel
+    ectors\Editor
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         4/28/2026   5:58 PM           2650 RadialPositionSelectorSwitche
+                                                  r.cs
+-a----         4/28/2026   5:58 PM             88 RadialPositionSelectorSwitche
+                                                  r.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Combat\HealthUI
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         4/28/2026   5:58 PM           3684 HealthManager.cs
+-a----         4/28/2026   5:58 PM            254 HealthManager.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Combat\Interfaces
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         4/28/2026   5:58 PM            287 AttackStrategy.cs
+-a----         4/28/2026   5:58 PM             88 AttackStrategy.cs.meta
+-a----         4/28/2026   5:58 PM            190 IAttackStrategy.cs
+-a----         4/28/2026   5:58 PM             85 IAttackStrategy.cs.meta
+-a----         4/28/2026   5:58 PM            207 ICombatScenario.cs
+-a----         4/28/2026   5:58 PM             85 ICombatScenario.cs.meta
+-a----         4/28/2026   5:58 PM            349 IHealth.cs
+-a----         4/28/2026   5:58 PM             85 IHealth.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Combat\Misc
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         4/28/2026   5:58 PM           1212 Bullet.cs
+-a----         4/28/2026   5:58 PM             85 Bullet.cs.meta
+-a----         4/28/2026   5:58 PM            383 CenterPointingBullet.cs
+-a----         4/28/2026   5:58 PM             88 CenterPointingBullet.cs.meta
+-a----         4/28/2026   5:58 PM            505 Chaser.cs
+-a----         4/28/2026   5:58 PM             85 Chaser.cs.meta
+-a----         4/28/2026   5:58 PM            797 DamageOnCollision.cs
+-a----         4/28/2026   5:58 PM             88 DamageOnCollision.cs.meta
+-a----         4/28/2026   5:58 PM           3079 Grasp.cs
+-a----         4/28/2026   5:58 PM             88 Grasp.cs.meta
+-a----         4/28/2026   5:58 PM           3134 WarningArea.cs
+-a----         4/28/2026   5:58 PM             85 WarningArea.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Combat\Strategies
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         4/28/2026   5:58 PM           2002 DelayedSpawnAttackStrategy.cs
+-a----         4/28/2026   5:58 PM             85 DelayedSpawnAttackStrategy.cs
+                                                  .meta
+-a----         4/28/2026   5:58 PM           1963 StampAttackStrategy.cs
+-a----         4/28/2026   5:58 PM             85 StampAttackStrategy.cs.meta
+-a----         4/28/2026   5:58 PM            854 WaitStrategy.cs
+-a----         4/28/2026   5:58 PM             85 WaitStrategy.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Controls
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         4/28/2026   5:58 PM          24807 DefaultActions.cs
+-a----         3/28/2026   4:51 PM            254 DefaultActions.cs.meta
+-a----         4/28/2026   5:58 PM           4647 DefaultActions.inputactions
+-a----         3/28/2026   4:51 PM            390 DefaultActions.inputactions.m
+                                                  eta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\CoreLoop
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         4/28/2026   5:58 PM                Interfaces
+d-----         4/28/2026   5:58 PM                States
+-a----         4/28/2026   5:58 PM           1462 GameStateMachine.cs
+-a----         3/28/2026   4:51 PM             88 GameStateMachine.cs.meta
+-a----         3/28/2026   4:51 PM             88 Interfaces.meta
+-a----         4/28/2026   5:58 PM           2146 SceneLoader.cs
+-a----         3/28/2026   4:51 PM             88 SceneLoader.cs.meta
+-a----         3/28/2026   4:51 PM             88 States.meta
+-a----         4/28/2026   5:58 PM           2164 TestStateLoader.cs
+-a----         4/28/2026   5:58 PM             85 TestStateLoader.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\CoreLoop\Interfaces
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         4/28/2026   5:58 PM            309 IGameStateMachine.cs
+-a----         3/28/2026   4:51 PM             88 IGameStateMachine.cs.meta
+-a----         4/28/2026   5:58 PM            396 ISceneLoader.cs
+-a----         3/28/2026   4:51 PM             88 ISceneLoader.cs.meta
+-a----         3/28/2026   4:52 PM            289 State.cs
+-a----         3/28/2026   4:51 PM             88 State.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\CoreLoop\States
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         4/28/2026   5:58 PM           1020 CinematicState.cs
+-a----         3/28/2026   4:51 PM             88 CinematicState.cs.meta
+-a----         4/28/2026   5:58 PM            941 CombatState.cs
+-a----         4/28/2026   5:58 PM             88 CombatState.cs.meta
+-a----         4/28/2026   5:58 PM            757 DialogueState.cs
+-a----         3/28/2026   4:52 PM             88 DialogueState.cs.meta
+-a----         4/28/2026   5:58 PM            651 LoadGivenLevel.cs
+-a----         4/28/2026   5:58 PM             88 LoadGivenLevel.cs.meta
+-a----         4/28/2026   5:58 PM            532 LoadNextLevel.cs
+-a----         4/28/2026   5:58 PM             88 LoadNextLevel.cs.meta
+-a----         4/28/2026   5:58 PM            554 MainMenuState.cs
+-a----         3/28/2026   4:51 PM             88 MainMenuState.cs.meta
+-a----         4/28/2026   5:58 PM            318 RoomState.cs
+-a----         4/28/2026   5:58 PM            254 RoomState.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Dialogue
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         4/28/2026   5:58 PM                SO
+-a----         4/28/2026   5:58 PM            173 DialogueLine.cs
+-a----         4/28/2026   5:58 PM            254 DialogueLine.cs.meta
+-a----         4/28/2026   5:58 PM           2889 DialogueManager.cs
+-a----         4/28/2026   5:58 PM            254 DialogueManager.cs.meta
+-a----         4/28/2026   5:58 PM            260 DialogueSO.cs
+-a----         3/28/2026   4:52 PM             88 DialogueSO.cs.meta
+-a----         4/28/2026   5:58 PM            475 DialogueStarter.cs
+-a----         4/28/2026   5:58 PM            254 DialogueStarter.cs.meta
+-a----         4/28/2026   5:58 PM           1700 InkDialogueVariables.cs
+-a----         4/28/2026   5:58 PM            254 InkDialogueVariables.cs.meta
+-a----         3/28/2026   4:52 PM            180 SO.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Dialogue\SO
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         4/28/2026   5:58 PM            512 TestDialogue.asset
+-a----         3/28/2026   4:52 PM            197 TestDialogue.asset.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Glyph
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         4/28/2026   5:58 PM                Glyph_BlindPainting
+d-----         4/28/2026   5:58 PM                Glyph_HoldPoint
+d-----         4/28/2026   5:58 PM                Interfaces
+-a----         4/28/2026   5:58 PM             88 Glyph_BlindPainting.meta
+-a----         4/28/2026   5:58 PM             88 Glyph_HoldPoint.meta
+-a----         4/28/2026   5:58 PM             88 Interfaces.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Glyph\Glyph_BlindPainting
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         4/28/2026   5:58 PM           6249 GlyphCompletionTracker.cs
+-a----         4/28/2026   5:58 PM             88 GlyphCompletionTracker.cs.met
+                                                  a
+-a----         4/28/2026   5:58 PM           1166 GlyphFacade.cs
+-a----         4/28/2026   5:58 PM             88 GlyphFacade.cs.meta
+-a----         4/28/2026   5:58 PM           3000 GlyphRenderer.cs
+-a----         4/28/2026   5:58 PM            336 GlyphRenderer.cs.meta
+-a----         4/28/2026   5:58 PM            214 GlyphSO.cs
+-a----         4/28/2026   5:58 PM             88 GlyphSO.cs.meta
+-a----         4/28/2026   5:58 PM           1095 PlayerPainting.cs
+-a----         4/28/2026   5:58 PM             88 PlayerPainting.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Glyph\Glyph_HoldPoint
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         4/28/2026   5:58 PM            306 GlyphFacade.cs
+-a----         4/28/2026   5:58 PM             88 GlyphFacade.cs.meta
+-a----         4/28/2026   5:58 PM           3112 GlyphFollower.cs
+-a----         4/28/2026   5:58 PM             88 GlyphFollower.cs.meta
+-a----         4/28/2026   5:58 PM            528 GlyphLinesSOInstaller.cs
+-a----         4/28/2026   5:58 PM             88 GlyphLinesSOInstaller.cs.meta
+-a----         4/28/2026   5:58 PM           2421 GlyphProgressTracker.cs
+-a----         4/28/2026   5:58 PM             88 GlyphProgressTracker.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Glyph\Interfaces
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         4/28/2026   5:58 PM            181 IGlyphFacade.cs
+-a----         4/28/2026   5:58 PM             88 IGlyphFacade.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Installers
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         4/28/2026   5:58 PM                Editor
+-a----         4/28/2026   5:58 PM           2324 CombatInstaller.cs
+-a----         4/28/2026   5:58 PM             85 CombatInstaller.cs.meta
+-a----         4/28/2026   5:58 PM            180 Editor.meta
+-a----         4/28/2026   5:58 PM           1169 GameInstaller.cs
+-a----         3/28/2026   4:51 PM            254 GameInstaller.cs.meta
+-a----         4/28/2026   5:58 PM            518 GlyphSOInstaller.cs
+-a----         4/28/2026   5:58 PM             88 GlyphSOInstaller.cs.meta
+-a----         4/28/2026   5:58 PM            373 LevelInstaller.cs
+-a----         3/28/2026   4:52 PM             88 LevelInstaller.cs.meta
+-a----         4/28/2026   5:58 PM            631 UIInstaller.cs
+-a----         3/28/2026   4:51 PM             88 UIInstaller.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\Installers\Editor
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         4/28/2026   5:58 PM           1901 CombatInstallerEditor.cs
+-a----         4/28/2026   5:58 PM            254 CombatInstallerEditor.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\UI
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         3/28/2026   4:51 PM                Interfaces
+-a----         3/28/2026   7:24 PM            577 ConfigurableCanvas.cs
+-a----         3/28/2026   4:51 PM             88 ConfigurableCanvas.cs.meta
+-a----         4/28/2026   5:58 PM           3023 DialogueCanvas.cs
+-a----         3/28/2026   4:52 PM             88 DialogueCanvas.cs.meta
+-a----         4/28/2026   5:58 PM           2581 InteractableController.cs
+-a----         4/28/2026   5:58 PM            254 InteractableController.cs.met
+                                                  a
+-a----         3/28/2026   4:51 PM             88 Interfaces.meta
+-a----         4/28/2026   5:58 PM           1790 MainMenuController.cs
+-a----         3/28/2026   4:51 PM             88 MainMenuController.cs.meta
+-a----         3/28/2026   7:24 PM           1437 PauseMenu.cs
+-a----         3/28/2026   4:51 PM             88 PauseMenu.cs.meta
+-a----         4/28/2026   5:58 PM           3990 SettingMenu.cs
+-a----         3/28/2026   4:51 PM             88 SettingMenu.cs.meta
+-a----         4/28/2026   5:58 PM           1747 UIFacade.cs
+-a----         3/28/2026   4:51 PM             88 UIFacade.cs.meta
+    Каталог: E:\Projects\PerchtaC\Assets\Scripts\UI\Interfaces
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         3/28/2026   4:51 PM            203 IUIFacade.cs
+-a----         3/28/2026   4:51 PM             88 IUIFacade.cs.meta
