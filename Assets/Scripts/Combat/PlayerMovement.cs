@@ -1,15 +1,17 @@
 using System;
-using CoreLoop.Interfaces;
+using Combat.Interfaces;
 using UnityEngine;
 using Zenject;
 
 namespace Combat
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour, IPlayerMovement
     {
         [SerializeField] private float moveSpeed = 5f;
         [Inject] private readonly DefaultActions defaultActions;
         private Rigidbody2D rb;
+
+        public Vector2 Position => transform.position;
         
         private void Awake()
         {

@@ -1,6 +1,6 @@
 using CoreLoop.Interfaces;
 using CoreLoop.States;
-using Dialogue;
+using Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;

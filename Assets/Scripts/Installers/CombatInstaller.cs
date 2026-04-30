@@ -1,12 +1,11 @@
 using Combat;
 using Combat.Arena;
 using Combat.Interfaces;
-using Combat.Misc;
 using Glyph;
 using Glyph.Glyph_HoldPoint;
 using UnityEngine;
 using Zenject;
-using GlyphFacade = Glyph.GlyphFacade;
+using GlyphFacade = Glyph.Glyph_HoldPoint.GlyphFacade;
 
 namespace Installers
 {

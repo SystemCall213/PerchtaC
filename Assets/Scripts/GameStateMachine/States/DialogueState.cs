@@ -1,16 +1,16 @@
 ﻿using CoreLoop.Interfaces;
-using Dialogue;
-using UI.Interfaces;
+using Dialogue.Interfaces;
+using Interfaces;
 using Zenject;
 
 namespace CoreLoop.States
 {
     public class DialogueState : State<DialogueSO>
     {
-        private readonly DialogueManager dialogueManager;
+        private readonly IDialogueManager dialogueManager;
 
         [Inject]
-        public DialogueState(DialogueSO dialogueSO, DialogueManager dialogueManager)
+        public DialogueState(DialogueSO dialogueSO, IDialogueManager dialogueManager)
         {
             Payload = dialogueSO;
             this.dialogueManager = dialogueManager;

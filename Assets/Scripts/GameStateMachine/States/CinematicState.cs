@@ -1,5 +1,4 @@
 ﻿using CoreLoop.Interfaces;
-using UI.Interfaces;
 using Zenject;
 
 namespace CoreLoop.States

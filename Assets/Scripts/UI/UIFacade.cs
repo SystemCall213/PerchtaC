@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CoreLoop.Interfaces;
-using ModestTree;
 using UI.Interfaces;
 using UnityEngine;
-using Zenject;
 
 namespace UI
 {
@@ -12,7 +9,7 @@ namespace UI
     {
         private readonly PauseMenu pauseMenu;
         private readonly DefaultActions defaultActions;
-        private Stack<ConfigurableCanvas> canvasStack = new Stack<ConfigurableCanvas>();
+        private Stack<IConfigurableCanvas> canvasStack = new Stack<IConfigurableCanvas>();
 
         public UIFacade(PauseMenu pauseMenu, DefaultActions defaultActions)
         {
@@ -25,8 +22,7 @@ namespace UI
         public void CloseTopmost()
         {
             if (canvasStack.Count == 0) return;
-            ConfigurableCanvas canvas = canvasStack.Pop();
-            canvas.gameObject.SetActive(false);
+            IConfigurableCanvas canvas = canvasStack.Pop();
         }
 
         public void CloseAll()
@@ -37,25 +33,25 @@ namespace UI
             }
         }
 
-        public void Open(ConfigurableCanvas canvas)
+        public void Open(IConfigurableCanvas canvas)
         {
-            canvas.gameObject.SetActive(true);
+            canvas.Open();
             canvasStack.Push(canvas);
         }
         
         private void UpdateTimeScale()
         {
-            bool shouldPause = canvasStack.Any(x => x.PausesTime);
+            bool shouldPause = canvasStack.Any(x => x.PausesTime());
             Time.timeScale = shouldPause ? 0 : 1;
         }
 
         private void HandleEscape()
         {
-            if (canvasStack.IsEmpty())
+            if (canvasStack.Count == 0)
             {
                 pauseMenu.Open();
             }
-            else if (canvasStack.Peek().ClosableWithEscape)
+            else if (canvasStack.Peek().ClosableWithEscape())
             {
                 CloseTopmost();
             }

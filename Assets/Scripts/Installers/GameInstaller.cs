@@ -1,7 +1,7 @@
+using Controls;
 using CoreLoop;
 using CoreLoop.Interfaces;
-using CoreLoop.States;
-using Dialogue;
+using Dialogue.Interfaces;
 using UnityEngine;
 using Zenject;
 
@@ -11,19 +11,8 @@ public class GameInstaller : MonoInstaller
     public override void InstallBindings()
     {
         SignalBusInstaller.Install(Container);
-        Container.Bind<DefaultActions>().AsSingle();
+        ControlsInstaller.Install(Container);
         Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle().WithArguments(levels);
-        
-
-        Container.BindFactory<string, CinematicState, CinematicState.Factory>();
-        Container.BindFactory<DialogueSO, DialogueState, DialogueState.Factory>();
-        Container.BindFactory<LoadNextLevel, LoadNextLevel.Factory>();
-        Container.BindFactory<MainMenuState, MainMenuState.Factory>();
-        Container.BindFactory<string, CombatState, CombatState.Factory>();
-        Container.BindFactory<string, LoadGivenLevel, LoadGivenLevel.Factory>();
-        Container.BindFactory<RoomState, RoomState.Factory>();
-        
-        Container.Bind<IGameStateMachine>().To<GameStateMachine>().AsSingle();
-        Container.Bind<DialogueManager>().AsSingle();
+        Container.Bind<IDialogueManager>().To<DialogueManager>().AsSingle();
     }
 }
