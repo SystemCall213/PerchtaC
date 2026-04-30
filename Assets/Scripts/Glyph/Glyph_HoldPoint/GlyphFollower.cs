@@ -1,7 +1,6 @@
 ﻿using System;
-using Combat;
+using Combat.Interfaces;
 using UnityEngine;
-using Zenject;
 
 namespace Glyph.Glyph_HoldPoint
 {
@@ -12,11 +11,11 @@ namespace Glyph.Glyph_HoldPoint
         
         private Vector3[] points;
         private int currentPointIndex = 0;
-        private PlayerMovement player;
+        private IPlayerMovement player;
         private GlyphProgressTracker glyphProgressTracker;
         private Action onReachedEnd;
 
-        public void Initialize(Vector3[] linePoints, PlayerMovement playerMovement, GlyphProgressTracker progressTracker, Action onComplete)
+        public void Initialize(Vector3[] linePoints, IPlayerMovement playerMovement, GlyphProgressTracker progressTracker, Action onComplete)
         {
             points = linePoints;
             player = playerMovement;
@@ -35,7 +34,7 @@ namespace Glyph.Glyph_HoldPoint
             if (player == null || points == null || currentPointIndex >= points.Length)
                 return;
 
-            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+            float distanceToPlayer = Vector3.Distance(transform.position, player.Position);
 
             if (distanceToPlayer <= radius)
             {
@@ -43,7 +42,7 @@ namespace Glyph.Glyph_HoldPoint
             }
             else
             {
-                float distanceFromOutsideRadius = Vector3.Distance(glyphProgressTracker.transform.position, player.transform.position);
+                float distanceFromOutsideRadius = Vector3.Distance(glyphProgressTracker.transform.position, player.Position);
                 if(distanceFromOutsideRadius >= glyphProgressTracker.GlyphResetRadius)
                 {
                     MoveBackwards();

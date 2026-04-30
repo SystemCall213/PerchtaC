@@ -1,17 +1,10 @@
-﻿using FMOD.Studio;
+﻿using Audio.Interfaces;
+using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
 
 namespace Audio
 {
-    public interface IAudioManager
-    {
-        void SetSfxVolume(float volume01);
-        void SetMusicVolume(float volume01);
-        void SetMasterVolume(float volume01);
-        void PauseAll(bool paused);
-    }
-
     public class AudioManager : IAudioManager
     {
         private readonly Bus sfxBus;

@@ -48,8 +48,7 @@ namespace Combat.Arena
         {
             if (_selectorTypes == null)
             {
-                _selectorTypes = AppDomain.CurrentDomain.GetAssemblies()
-                    .SelectMany(a => a.GetTypes())
+                _selectorTypes = typeof(IRadialPositionSelector).Assembly.GetTypes()
                     .Where(t => typeof(IRadialPositionSelector).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract)
                     .Select(t => new { Type = t, Attr = t.GetCustomAttribute<RadialPositionSelectorAttribute>() })
                     .Where(x => x.Attr != null)

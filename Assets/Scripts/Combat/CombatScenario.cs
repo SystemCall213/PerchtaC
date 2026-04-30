@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Combat.Interfaces;
 using DefaultNamespace;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace Combat

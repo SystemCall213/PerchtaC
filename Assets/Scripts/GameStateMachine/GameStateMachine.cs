@@ -1,7 +1,6 @@
 ﻿using System;
 using CoreLoop.Interfaces;
 using CoreLoop.States;
-using Zenject;
 
 namespace CoreLoop
 {
