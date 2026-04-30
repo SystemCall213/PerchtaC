@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b2d6d06ce14250acefeecb842b4bb7, type: 3}
+  m_Name: FeathersAttack
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 6669249070528491976, guid: c3e1e67d744ee674790a4d8f6ceb9d12, type: 3}
+  - {fileID: 5500220901536111801, guid: 6b9e976c83530324986e0406d6095e49, type: 3}
+  - {fileID: 4752539241189136523, guid: 1bf9ded32732b6142b1e686c9674d7ca, type: 3}
+  - {fileID: 1086055745835262714, guid: 393895f76ebe7154ba73a4715d47164d, type: 3}
+  - {fileID: 6788445523162221319, guid: 0974a276136d27f4490595d9e0078831, type: 3}
+  spawnCount: 50
+  delayBetweenSpawns: 0.25
+  positionSelectorData:
+    type: 4
+    selector:
+      rid: 8043928812459130884
+  references:
+    version: 2
+    RefIds:
+    - rid: 8043928812459130884
+      type: {class: TopRandomPositionSelector, ns: Combat.Arena.RadialPositionSelectors, asm: Assembly-CSharp}
+      data:
+        spread: 20

@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatArena: {fileID: 1962925454}
-  combatScenario: {fileID: 11400000, guid: dff294f1b45b7bb428ad35bb0961c354, type: 2}
+  combatScenario: {fileID: 11400000, guid: ea3200ced9b68244a9d210cf716e42eb, type: 2}
   glyphSystemType: 0
   glyphFollowerPrefab: {fileID: 0}
   glyphLinesSOInstaller: {fileID: 0}

@@ -10,12 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 844a7419f6524f93b7f6e943a51912e1, type: 3}
-  m_Name: CombatScenario
+  m_Name: FeathersAttackOnly
   m_EditorClassIdentifier: 
   attackQueue:
-  - {fileID: 11400000, guid: 6e8abc208bf15fe44ad604e3b0e5f20b, type: 2}
-  - {fileID: 11400000, guid: d252f3476f80d1c4bb1441627ddcd4c5, type: 2}
-  - {fileID: 11400000, guid: 493462eed5cefcd4d9bd1f8f9a64c6b4, type: 2}
-  - {fileID: 11400000, guid: b224d17d76656584d9d5070c3ab32272, type: 2}
   - {fileID: 11400000, guid: d8ab469c9d11c9547824ea5af8d242e5, type: 2}
   intermediateStrategy: {fileID: 11400000, guid: 783df9a5afc2d5c419f8125e418319cd, type: 2}
