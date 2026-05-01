@@ -5,7 +5,7 @@ VAR perchta = ""
 # speaker:Perchta
 Hello little girl
 # speaker:Perchta
-Clean your room!
+Clean <shiver>your</shiver> room!
 # speaker:Girl
 Okay...
 -> END
