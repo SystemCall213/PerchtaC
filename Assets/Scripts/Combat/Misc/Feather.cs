@@ -7,17 +7,18 @@ namespace Combat.Misc
     {
         [SerializeField] protected float speed = 5f;
         [SerializeField] protected float lifeTime = 10f;
-        [SerializeField] protected float swingAmplitude = 1f;
+        [SerializeField] protected float pendulumLength = 2f;
         [SerializeField] protected float swingFrequency = 2f;
         [SerializeField] protected float rotationAmplitude = 30f;
 
         private float _startTime;
-        private Vector3 _startPosition;
+        private Vector3 _pivotPosition;
         
         private void Start()
         {
             _startTime = Time.time;
-            _startPosition = transform.position;
+            // The pivot starts above the feather
+            _pivotPosition = transform.position + Vector3.up * pendulumLength;
             Destroy(gameObject, lifeTime);
             GetComponent<DamageOnCollision>().OnDamage += _ => Destroy(gameObject);
         }
@@ -31,18 +32,21 @@ namespace Combat.Misc
         {
             float elapsed = Time.time - _startTime;
             
-            // Vertical movement
-            _startPosition += Vector3.down * (speed * Time.deltaTime);
+            // Pivot movement downwards
+            _pivotPosition += Vector3.down * (speed * Time.deltaTime);
             
-            // Horizontal swing
-            float horizontalOffset = Mathf.Sin(elapsed * swingFrequency) * swingAmplitude;
+            // Calculate swing angle
+            float angle = Mathf.Sin(elapsed * swingFrequency) * rotationAmplitude;
+            
+            // Calculate position relative to pivot
+            // 0 degrees is straight down (Vector3.down)
+            Vector3 offset = Quaternion.Euler(0, 0, angle) * (Vector3.down * pendulumLength);
             
             // Update position
-            transform.position = _startPosition + Vector3.right * horizontalOffset;
+            transform.position = _pivotPosition + offset;
             
-            // Rotation swing
-            float rotationOffset = Mathf.Cos(elapsed * swingFrequency) * rotationAmplitude;
-            transform.rotation = Quaternion.Euler(0, 0, rotationOffset);
+            // Rotation swing matches the angle
+            transform.rotation = Quaternion.Euler(0, 0, angle);
         }
     }
 }
