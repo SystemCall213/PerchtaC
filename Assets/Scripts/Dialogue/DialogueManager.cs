@@ -27,7 +27,6 @@ public class DialogueManager : IDialogueManager
         inkDialogueVariables = new InkDialogueVariables(story);
         nextLine = new DialogueLine();
         OnDialogueEntered?.Invoke();
-        // gameStateMachine.ChangeState(dialogueStateFactory.Create(null));
         
         if (knotName != "")
         {
@@ -70,6 +69,7 @@ public class DialogueManager : IDialogueManager
                 }
             }
             
+            nextLine.choices = story.currentChoices;
             OnDialogueDisplay?.Invoke(nextLine);
         }
         else
@@ -84,5 +84,11 @@ public class DialogueManager : IDialogueManager
         gameStateMachine.ChangeState(roomStateFactory.Create());
         inkDialogueVariables.StopListening(story);
         story.ResetState();
+    }
+    
+    public void ChooseChoice(int choiceIndex)
+    {
+        story.ChooseChoiceIndex(choiceIndex);
+        ContinueOrExitStory();
     }
 }
