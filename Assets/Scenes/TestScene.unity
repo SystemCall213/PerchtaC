@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 327388432}
   - component: {fileID: 327388434}
   - component: {fileID: 327388433}
+  - component: {fileID: 327388435}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -382,6 +383,29 @@ MonoBehaviour:
   _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
   _parentContractNames: []
+--- !u!114 &327388435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327388431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f7ea314a6c4713bfaeebd8beb6bdef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialState:
+    stateType: 4
+    payload:
+      rid: 5803789762553970690
+  references:
+    version: 2
+    RefIds:
+    - rid: 5803789762553970690
+      type: {class: RoomStatePayload, ns: CoreLoop.StatePayload, asm: GameStateMAchine}
+      data:
+        musicId: 11
 --- !u!1 &369772942
 GameObject:
   m_ObjectHideFlags: 0

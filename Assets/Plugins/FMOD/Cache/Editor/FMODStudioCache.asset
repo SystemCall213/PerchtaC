@@ -15,11 +15,38 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639103135148760450
+  lastModified: 639132759439365405
   FileSizes:
   - Name: Desktop
-    Value: 506
+    Value: 3999840
   Exists: 1
+--- !u!114 &-5269323688162405965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Menu
+  m_EditorClassIdentifier: 
+  Path: event:/Menu
+  Guid:
+    Data1: 172120642
+    Data2: 1265067085
+    Data3: 1685465519
+    Data4: 400516320
+  Banks:
+  - {fileID: -8413986079484656142}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 42853
 --- !u!114 &-5199378761368018898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,7 +62,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639103135148770443
+  lastModified: 639132513247213446
   FileSizes:
   - Name: Desktop
     Value: 506
@@ -57,15 +84,24 @@ MonoBehaviour:
   - {fileID: 1324369379720746212}
   - {fileID: -8413986079484656142}
   - {fileID: -5199378761368018898}
-  EditorEvents: []
+  EditorEvents:
+  - {fileID: 4517112354074352585}
+  - {fileID: -5269323688162405965}
+  - {fileID: 1247661965921163226}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1324369379720746212}
   StringsBanks:
   - {fileID: 350716027781193484}
   cacheVersion: 131858
-  cacheTime: 639103135148770443
-  SerializableEventsDict: []
+  cacheTime: 639132759439365405
+  SerializableEventsDict:
+  - key: event:/Room1
+    index: 0
+  - key: event:/Menu
+    index: 1
+  - key: event:/Boss1
+    index: 2
 --- !u!114 &350716027781193484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,11 +117,38 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639103135148750503
+  lastModified: 639132759408265111
   FileSizes:
   - Name: Desktop
-    Value: 816
+    Value: 942
   Exists: 1
+--- !u!114 &1247661965921163226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Boss1
+  m_EditorClassIdentifier: 
+  Path: event:/Boss1
+  Guid:
+    Data1: -1643966708
+    Data2: 1248051688
+    Data3: 403658670
+    Data4: 1275486249
+  Banks:
+  - {fileID: -8413986079484656142}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 183829
 --- !u!114 &1324369379720746212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,8 +164,35 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639103135148740506
+  lastModified: 639132759408246093
   FileSizes:
   - Name: Desktop
     Value: 1074
   Exists: 1
+--- !u!114 &4517112354074352585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Room1
+  m_EditorClassIdentifier: 
+  Path: event:/Room1
+  Guid:
+    Data1: -300445172
+    Data2: 1292968733
+    Data3: -2041787977
+    Data4: -602156811
+  Banks:
+  - {fileID: -8413986079484656142}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 68085

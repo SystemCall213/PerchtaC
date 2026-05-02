@@ -22,10 +22,7 @@ namespace Combat.HealthUI
         private List<GameObject> healthKnobs = new List<GameObject>();
         private IHealth health;
         
-        [Inject] private readonly IGameStateMachine gameStateMachine;
-        [Inject] private readonly MainMenuState.Factory mainMenuFactory;
-        [Inject] private readonly LoadGivenLevel.Factory loadGivenLevelFactory;
-
+        [Inject] private readonly ISceneLoader sceneLoader;
         private void Start()
         {
             if (entity == null)
@@ -103,12 +100,12 @@ namespace Combat.HealthUI
             if (managerType == HealthManagerType.Boss)
             {
                 // Boss died - return to main menu
-                gameStateMachine.ChangeState(mainMenuFactory.Create());
+                sceneLoader.LoadMainMenu();
             }
             else
             {
                 // Player died - just unload combat scene
-                gameStateMachine.ChangeState(loadGivenLevelFactory.Create("TestScene"));
+                sceneLoader.UnloadCombatScene();
             }
         }
 

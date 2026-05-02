@@ -1,5 +1,6 @@
 using System;
 using CoreLoop.Interfaces;
+using CoreLoop.StatePayload;
 using CoreLoop.States;
 using Dialogue.Interfaces;
 using UnityEngine;
@@ -80,9 +81,9 @@ public class DialogueManager : IDialogueManager
 
     private void ExitDialogue()
     {
-        OnDialogueExited?.Invoke();
-        gameStateMachine.ChangeState(roomStateFactory.Create());
         inkDialogueVariables.StopListening(story);
         story.ResetState();
+        gameStateMachine.ChangeState(roomStateFactory.Create(new RoomStatePayload()));
+        OnDialogueExited?.Invoke();
     }
 }

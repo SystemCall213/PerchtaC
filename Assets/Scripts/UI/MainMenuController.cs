@@ -9,10 +9,8 @@ namespace UI
     [RequireComponent(typeof(Canvas))]
     public class MainMenuController : MonoBehaviour
     {
-        [Inject] private readonly IGameStateMachine gameStateMachine;
+        [Inject] private readonly ISceneLoader sceneLoader;
         [Inject] private readonly SettingMenu settingMenu;
-        [Inject] private readonly LoadGivenLevel.Factory loadLevelFactory;
-        [Inject] private readonly CinematicState.Factory cinematicStateFactory;
         
         [SerializeField] private Button startButton;
         [SerializeField] private Button settingsButton;
@@ -37,7 +35,7 @@ namespace UI
 
         public void Play()
         { 
-            gameStateMachine.ChangeState(loadLevelFactory.Create("TestScene"));
+            sceneLoader.LoadNextLevel();
         }
         
         public void Settings()
@@ -46,7 +44,7 @@ namespace UI
         }
         public void Credits()
         {
-            gameStateMachine.ChangeState(cinematicStateFactory.Create("CreditsLevel"));
+            sceneLoader.LoadCreditsScene();
         }
         
         public void Quit()
