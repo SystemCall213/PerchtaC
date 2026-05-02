@@ -2,10 +2,74 @@ VAR girl = "Sprites/Perhta1"
 VAR perchta = ""
 
 === Perchta ===
-# speaker:Perchta
-Hello little girl
-# speaker:Perchta
-Clean your room!
-# speaker:Girl
-Okay...
+# speaker:<b><size=120%>Perchta</size=120%></b>
+Oh, little child. Pardon my visit.
+# speaker:<b><size=120%>Perchta</size=120%></b>
+As you see, I came for your mommy…
+# speaker:<b>Girl</b>
+\*scared\*
+    + [<i><shiver>W-w-what are you…?</shiver></i>]
+        -> what
+    + [<i><shiver>W-w-why…?</shiver></i>]
+        -> why
+        
+=== what ===
+# speaker:<b><size=120%>Perchta</size=120%></b>
+We are <b>Schnabelperchten</b>, dear.
+# speaker:<b><size=120%>Perchta</size=120%></b>
+We seek out the folk that live in filth…
+# speaker:<b><size=120%>Perchta</size=120%></b>
+Like <b>you</b> are.
+-> kill_me
+
+=== why ===
+# speaker:<b><size=120%>Perchta</size=120%></b>
+Because your <i>mommy</i> is rotten, of course!
+# speaker:<b><size=120%>Perchta</size=120%></b>
+She dared to turn <i>this little</i> house into a <b><size=120%>BUGHOLE</size=120%><b>
+-> kill_me
+
+=== kill_me ===
+# speaker:<b>Girl</b>
+\*frightened\*
+    + [<i><shiver>W-w-will you kill me now?</shiver></i>]
+        -> frightened
+    + [<i><shiver>It’s… It’s not her fault!</shiver></i>]
+        -> fault
+
+=== frightened ===
+# speaker:<b><size=120%>Perchta</size=120%></b>
+Kill you? I should, really.
+# speaker:<b><size=120%>Perchta</size=120%></b>
+Yet it is not your fault that this house is a mess, is it?
+-> end_dialogue
+
+=== fault
+# speaker:<b><size=120%>Perchta</size=120%></b>
+Is it now?! Maybe it is your fault then?
+-> end_dialogue
+
+=== end_dialogue === 
+# speaker:<b><size=120%>Perchta</size=120%></b>
+I have an <shiver>idea</shiver>, <i>little one</i>.
+# speaker:<b><size=120%>Perchta</size=120%></b>
+Clean all the mess here, and then Me with my <b>Sisters</b> let you live.
+# speaker:<b><size=120%>Perchta</size=120%></b>
+<b>They</b> will check if you’re any good further in the night, be a good <i>little child.</i>
+# speaker:<b><size=120%>Perchta</size=120%></b>
+Don’t be scared now, these shadows are nothing but your imagination. <i>He-he-he.</i>
+
 -> END
+
+
+
+
+
+
+
+
+
+
+
+
+
