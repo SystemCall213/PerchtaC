@@ -84,6 +84,18 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.key1.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2841563616047837627, guid: b35edfbb3594d1b4eaf7817e76a89515, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.08275604
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595744440952332414, guid: b35edfbb3594d1b4eaf7817e76a89515, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595744440952332414, guid: b35edfbb3594d1b4eaf7817e76a89515, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 3595744440952332414, guid: b35edfbb3594d1b4eaf7817e76a89515, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -124,9 +136,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3595744440952332414, guid: b35edfbb3594d1b4eaf7817e76a89515, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8010301321875165172, guid: b35edfbb3594d1b4eaf7817e76a89515, type: 3}
       propertyPath: m_Name
-      value: SquareLine Variant
+      value: PGLyph
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
