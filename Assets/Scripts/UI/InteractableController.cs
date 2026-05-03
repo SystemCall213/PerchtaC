@@ -11,7 +11,9 @@ namespace UI
     public class InteractableController : MonoBehaviour
     {
         [Inject] private readonly IGameStateMachine gameStateMachine;
-        [Inject] private readonly ISceneLoader sceneLoader;
+        [Inject] private readonly LoadGivenLevel.Factory loadGivenLevelFactory;
+        [Inject] private readonly CombatState.Factory combatStateFactory;
+        
         [SerializeField] private Button doorButton;
         [SerializeField] private List<Button> fightButtons;
         [SerializeField] private List<string> fightSceneNames;
@@ -44,17 +46,17 @@ namespace UI
 
         private void Fight(string sceneName)
         {
-            sceneLoader.LoadCombatScene(sceneName);
+            gameStateMachine.ChangeState(combatStateFactory.Create(sceneName));
         }
 
         private void GoToNextLevel()
         {
-            sceneLoader.LoadNextLevel();
+            gameStateMachine.ChangeState(loadGivenLevelFactory.Create("TestScene"));
         }
 
         private void  CheckButtonState(State state)
         {
-            if (state is RoomState)
+            if (state is RoomState || state is LoadGivenLevel || state is LoadNextLevel)
             {
                 foreach (var fightButton in fightButtons)
                 {

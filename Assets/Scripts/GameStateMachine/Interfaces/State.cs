@@ -6,7 +6,7 @@
         public abstract void Exit();
     }
 
-    public abstract class State<TPayload>: State where TPayload : IStatePayload
+    public abstract class State<TPayload> : State
     {
         public TPayload Payload { get; set; }
     }

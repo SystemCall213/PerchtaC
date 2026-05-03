@@ -22,7 +22,7 @@ namespace CoreLoop
 
         public void LoadNextLevel()
         {
-            SceneManager.LoadSceneAsync(levels[currentLevel%levels.Length]);
+            SceneManager.LoadSceneAsync(levels[currentLevel]);
             currentLevel++;
         }
 

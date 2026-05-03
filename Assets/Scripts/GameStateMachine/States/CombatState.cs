@@ -1,37 +1,33 @@
-﻿using Audio;
-using CoreLoop.Interfaces;
-using CoreLoop.StatePayload;
+﻿using CoreLoop.Interfaces;
 using Zenject;
 
 namespace CoreLoop.States
 {
-    [SceneState(SceneStateType.Combat)]
-    public class CombatState : State<CombatStatePayload>
+    public class CombatState : State<string>
     {
-        private readonly MusicId combatMusic;
-        private readonly IMusicService musicService;
+        private readonly ISceneLoader sceneLoader;
         private readonly DefaultActions defaultActions;
         
         [Inject]
-        public CombatState(CombatStatePayload payload,IMusicService musicService, DefaultActions defaultActions)
+        public CombatState(string combatSceneName, ISceneLoader sceneLoader, DefaultActions defaultActions)
         {
-            Payload = payload;
-            combatMusic = payload.MusicId;
-            this.musicService = musicService;
+            Payload = combatSceneName;
+            this.sceneLoader = sceneLoader;
             this.defaultActions = defaultActions;
         }
         
         public override void Enter()
         {
+            sceneLoader.LoadCombatScene(Payload);
             defaultActions.Combat.Enable();
-            musicService.Request(combatMusic);
         }
 
         public override void Exit()
         {
             defaultActions.Combat.Disable();
+            sceneLoader.UnloadCombatScene();
         }
 
-        public class Factory : PlaceholderFactory<CombatStatePayload, CombatState> { }
+        public class Factory : PlaceholderFactory<string, CombatState> { }
     }
 }

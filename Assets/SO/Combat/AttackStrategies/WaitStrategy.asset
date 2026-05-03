@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3850374defc47f6a19573c7a4df021a, type: 3}
   m_Name: WaitStrategy
   m_EditorClassIdentifier: 
-  duration: 10
+  duration: 4

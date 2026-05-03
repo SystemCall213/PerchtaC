@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catalog: {fileID: 0}
-  musicCatalog: {fileID: 11400000, guid: 29059bf27b386194e8498be64f34a46f, type: 2}
+  musicCatalog: {fileID: 0}
 --- !u!114 &401597899243606905
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,8 +11,9 @@ namespace CoreLoop
         public event Action<State> OnStateChanged;
         public GameStateMachine(MainMenuState.Factory mainMenuStateFactory)
         {
+            
+            ChangeState(mainMenuStateFactory.Create());
         }
-        
         public void ChangeState(State state)
         {
             if (currentState != null && currentState.GetType() == state.GetType()) return;
@@ -22,7 +23,7 @@ namespace CoreLoop
             OnStateChanged?.Invoke(state);
         }
 
-        public void ChangeState<TPayload>(State<TPayload> state, TPayload payload) where TPayload : IStatePayload
+        public void ChangeState<TPayload>(State<TPayload> state, TPayload payload)
         {
             state.Payload = payload;
             if (currentState != null && currentState.GetType() == state.GetType())

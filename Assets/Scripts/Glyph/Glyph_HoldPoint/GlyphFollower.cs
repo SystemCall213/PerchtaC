@@ -8,6 +8,7 @@ namespace Glyph.Glyph_HoldPoint
     {
         [SerializeField] private float radius;
         [SerializeField] private float moveSpeed;
+        [SerializeField] private float spinSpeed = 100f;
         
         private Vector3[] points;
         private int currentPointIndex = 0;
@@ -31,6 +32,8 @@ namespace Glyph.Glyph_HoldPoint
 
         private void Update()
         {
+            Spin();
+
             if (player == null || points == null || currentPointIndex >= points.Length)
                 return;
 
@@ -48,6 +51,11 @@ namespace Glyph.Glyph_HoldPoint
                     MoveBackwards();
                 }
             }
+        }
+
+        private void Spin()
+        {
+            transform.Rotate(Vector3.forward, spinSpeed * Time.deltaTime);
         }
 
         private void MoveTowardsNextPoint()

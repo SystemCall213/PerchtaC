@@ -447,7 +447,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatArena: {fileID: 1962925454}
-  combatScenario: {fileID: 11400000, guid: dff294f1b45b7bb428ad35bb0961c354, type: 2}
+  combatScenario: {fileID: 11400000, guid: ea3200ced9b68244a9d210cf716e42eb, type: 2}
+  glyphSystemType: 0
+  glyphFollowerPrefab: {fileID: 0}
+  glyphLinesSOInstaller: {fileID: 0}
   glyphSOInstaller: {fileID: 11400000, guid: 32ea322431d340b46b43b74054c90b54, type: 2}
 --- !u!1 &789743247
 GameObject:
@@ -1018,7 +1021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e2dd17e1ae4ae5b977123f72944c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 350
+  moveSpeed: 500
 --- !u!50 &1904736118
 Rigidbody2D:
   serializedVersion: 4

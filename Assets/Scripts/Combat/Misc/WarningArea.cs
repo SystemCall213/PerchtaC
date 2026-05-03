@@ -2,7 +2,6 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Combat.Misc;
-using Zenject;
 
 namespace Combat.Strategies
 {
@@ -13,8 +12,6 @@ namespace Combat.Strategies
         [SerializeField] private float shimmerMinAlpha = 0.3f;
         [SerializeField] private float shimmerMaxAlpha = 0.8f;
         [SerializeField] private GameObject bulletPrefab;
-        
-        [Inject] private IInstantiator instantiator; 
 
         private float duration;
         private int damage;
@@ -79,7 +76,7 @@ namespace Combat.Strategies
             {
                 float angle = i * angleStep;
                 Quaternion rotation = Quaternion.Euler(0, 0, angle);
-                GameObject bulletObj = instantiator.InstantiatePrefab(bulletPrefab, transform.position, rotation, null);
+                GameObject bulletObj = Instantiate(bulletPrefab, transform.position, rotation);
                 
                 if (bulletObj.TryGetComponent<Bullet>(out var bullet))
                 {
