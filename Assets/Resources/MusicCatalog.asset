@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e99c9260fe583e49b9b820b9693b8ae, type: 3}
+  m_Name: MusicCatalog
+  m_EditorClassIdentifier: 
+  eventsMap:
+    _serializedList:
+    - Key: 1
+      Value:
+        Guid:
+          Data1: 172120642
+          Data2: 1265067085
+          Data3: 1685465519
+          Data4: 400516320
+        Path: event:/Menu
+    - Key: 11
+      Value:
+        Guid:
+          Data1: -300445172
+          Data2: 1292968733
+          Data3: -2041787977
+          Data4: -602156811
+        Path: event:/Room1
+    - Key: 21
+      Value:
+        Guid:
+          Data1: -1643966708
+          Data2: 1248051688
+          Data3: 403658670
+          Data4: 1275486249
+        Path: event:/Boss1

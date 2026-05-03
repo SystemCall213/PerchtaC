@@ -1,5 +1,7 @@
 ﻿using System;
+using Combat.Interfaces;
 using Cysharp.Threading.Tasks;
+using DefaultNamespace;
 using UnityEngine;
 using Zenject;
 
@@ -9,7 +11,7 @@ namespace Combat.Misc
     [RequireComponent(typeof(DamageOnCollision))]
     public class Grasp : MonoBehaviour
     {
-        [Inject] private PlayerMovement playerMovement;
+        [Inject] private IPlayerMovement playerMovement;
         
         [SerializeField] private float force = 10f;
         [SerializeField] private float lifetime = 30f;
@@ -68,7 +70,7 @@ namespace Combat.Misc
 
         private void ApplyForceTowardsPlayer()
         {
-            Vector2 playerPos = playerMovement.transform.position;
+            Vector2 playerPos = playerMovement.Position;
             Vector2 currentPos = transform.position;
             Vector2 direction = (playerPos - currentPos).normalized;
             
@@ -82,7 +84,7 @@ namespace Combat.Misc
 
         private void ApplyForceBackwards()
         {
-            Vector2 direction = (hold.transform.position - playerMovement.transform.position).normalized;
+            Vector2 direction = (hold.transform.position.ConvertToVector2() - playerMovement.Position).normalized;
             hold.AddForce(direction * (force * 400 * Time.fixedDeltaTime), ForceMode2D.Impulse);
         }
     }

@@ -11,6 +11,6 @@ namespace Dialogue.Interfaces
 
         void EnterDialogue(TextAsset dialogue, string knotName);
         void ContinueOrExitStory();
-        void ChooseChoice(int choiceIndex);
+
     }
 }

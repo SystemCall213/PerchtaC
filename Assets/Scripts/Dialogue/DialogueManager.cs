@@ -1,5 +1,6 @@
 using System;
 using CoreLoop.Interfaces;
+using CoreLoop.StatePayload;
 using CoreLoop.States;
 using Dialogue.Interfaces;
 using UnityEngine;
@@ -27,6 +28,7 @@ public class DialogueManager : IDialogueManager
         inkDialogueVariables = new InkDialogueVariables(story);
         nextLine = new DialogueLine();
         OnDialogueEntered?.Invoke();
+        // gameStateMachine.ChangeState(dialogueStateFactory.Create(null));
         
         if (knotName != "")
         {
@@ -69,7 +71,6 @@ public class DialogueManager : IDialogueManager
                 }
             }
             
-            nextLine.choices = story.currentChoices;
             OnDialogueDisplay?.Invoke(nextLine);
         }
         else
@@ -80,15 +81,9 @@ public class DialogueManager : IDialogueManager
 
     private void ExitDialogue()
     {
-        OnDialogueExited?.Invoke();
-        gameStateMachine.ChangeState(roomStateFactory.Create());
         inkDialogueVariables.StopListening(story);
         story.ResetState();
-    }
-    
-    public void ChooseChoice(int choiceIndex)
-    {
-        story.ChooseChoiceIndex(choiceIndex);
-        ContinueOrExitStory();
+        gameStateMachine.ChangeState(roomStateFactory.Create(new RoomStatePayload()));
+        OnDialogueExited?.Invoke();
     }
 }

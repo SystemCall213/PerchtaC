@@ -1,14 +1,5 @@
 {
   "dependencies": {
-    "com.oneir0mancer.tmpro-custom-tags": {
-      "version": "https://github.com/oneir0mancer/tmpro-custom-tags.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.textmeshpro": "1.0.0"
-      },
-      "hash": "b9c3fc02c007b314974a89e86401bccf83307a99"
-    },
     "com.unity.2d.animation": {
       "version": "9.2.0",
       "depth": 1,

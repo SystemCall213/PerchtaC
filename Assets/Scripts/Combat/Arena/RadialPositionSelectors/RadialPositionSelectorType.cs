@@ -11,8 +11,7 @@ namespace Combat.Arena
         BalancedRandom,
         Random,
         SideRelativeRandom,
-        Incremential,
-        TopRandom
+        Incremential
     }
 
     [AttributeUsage(AttributeTargets.Class)]

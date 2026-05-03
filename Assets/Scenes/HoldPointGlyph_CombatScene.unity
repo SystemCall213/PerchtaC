@@ -432,8 +432,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f7ea314a6c4713bfaeebd8beb6bdef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 4
-  dialogueSo: {fileID: 0}
+  initialState:
+    stateType: 3
+    payload:
+      rid: 5803789762553970689
+  references:
+    version: 2
+    RefIds:
+    - rid: 5803789762553970689
+      type: {class: CombatStatePayload, ns: CoreLoop.StatePayload, asm: GameStateMAchine}
+      data:
+        musicId: 21
 --- !u!114 &611498123
 MonoBehaviour:
   m_ObjectHideFlags: 0

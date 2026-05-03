@@ -5,7 +5,9 @@
         "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
         "GUID:8a0da74f872b8e04791489b1a90b522d",
         "GUID:75469ad4d38634e559750d17036d5f7c",
-        "Ink-Libraries"
+        "GUID:58776e30307fcdb4691b258c08442cba",
+        "AYellowpaper.SerializedCollections",
+        "FMODUnity"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

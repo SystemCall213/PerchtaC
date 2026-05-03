@@ -18,8 +18,9 @@ namespace Combat.Strategies
         [SerializeField] private int stampCount = 3;
         [SerializeField] private float stampDelay = 1f;
 
-        [Inject] private PlayerMovement player;
+        [Inject] private IPlayerMovement player;
         [Inject] private CombatArena arena;
+        [Inject] private IInstantiator instantiator;
 
         private bool isAttacking;
 
@@ -38,8 +39,8 @@ namespace Combat.Strategies
             {
                 if (cancellationToken.IsCancellationRequested) break;
 
-                Vector3 spawnPos = player.transform.position;
-                GameObject warningObj = Instantiate(warningAreaPrefab, spawnPos, Quaternion.identity);
+                Vector3 spawnPos = player.Position;
+                GameObject warningObj = instantiator.InstantiatePrefab(warningAreaPrefab, spawnPos, Quaternion.identity, null);
                 
                 if (warningObj.TryGetComponent<WarningArea>(out var warningArea))
                 {

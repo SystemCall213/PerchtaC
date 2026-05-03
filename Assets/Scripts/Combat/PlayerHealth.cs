@@ -67,6 +67,7 @@ namespace Combat
 
         public async UniTaskVoid GainImmunity(float duration)
         {
+            
             if (IsImmune)
             {
                 currentImmunityTimer = Mathf.Max(currentImmunityTimer, duration);
@@ -111,14 +112,16 @@ namespace Combat
         {
             immunityTween?.Kill();
             immunityTween = null;
-            Color color = spriteRenderer.color;
-            color.a = 1f;
-            spriteRenderer.color = color;
+            if(spriteRenderer != null)
+            {
+                Color color = spriteRenderer.color;
+                color.a = 1f;
+                spriteRenderer.color = color;
+            }
         }
 
         public void Die()
         {
-            Debug.Log("Player Died");
             OnDeath?.Invoke();
         }
 
