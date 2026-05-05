@@ -12,9 +12,9 @@ namespace Combat.Arena
         public float Height => height;
         public float OuterRadius => outerRadius;
 
-        public Vector2 GetRandomPositionOutside()
+        public Vector2 GetRandomPositionOutside(float? customRadius = null)
         {
-            float radius = outerRadius;
+            float radius =  customRadius.HasValue ? customRadius.Value : outerRadius;
             float angle = Random.Range(0f, Mathf.PI * 2f);
             
             float x = Mathf.Cos(angle) * radius;

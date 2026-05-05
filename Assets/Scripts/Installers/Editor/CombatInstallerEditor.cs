@@ -1,6 +1,5 @@
-﻿using Glyph.Glyph_HoldPoint;
-using UnityEditor;
-using Installers;
+﻿using UnityEditor;
+
 
 namespace Installers.Editor
 {

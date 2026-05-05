@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf1f0c03023e46fb8e99c5c0d155bdc5, type: 3}
-  m_Name: StampAttack
+  m_Script: {fileID: 11500000, guid: 844a7419f6524f93b7f6e943a51912e1, type: 3}
+  m_Name: Boss2
   m_EditorClassIdentifier: 
-  warningAreaPrefab: {fileID: 6513569807757572383, guid: 4fb9c4f51a33f3447a09f8bcd6a761ea, type: 3}
-  duration: 2
-  damage: 1
-  bulletCount: 8
-  bulletSpeed: 3
-  stampCount: 6
-  stampDelay: 0.6
+  attackQueue:
+  - {fileID: 11400000, guid: 9d88d434e3332234298d53bd583a7bec, type: 2}
+  intermediateStrategy: {fileID: 11400000, guid: 783df9a5afc2d5c419f8125e418319cd, type: 2}

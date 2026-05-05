@@ -89,8 +89,12 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4452627963562574385, guid: d2c855aeb38c84e4e8c6238457314b6f, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452627963562574385, guid: d2c855aeb38c84e4e8c6238457314b6f, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.08275604
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8471240231442250878, guid: d2c855aeb38c84e4e8c6238457314b6f, type: 3}
       propertyPath: m_Name

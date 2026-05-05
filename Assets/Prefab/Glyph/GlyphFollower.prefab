@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c969e96b0fb4d82a97dad3d3fd0afba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.5
+  radius: 1.5
   moveSpeed: 1
 --- !u!212 &2698024706551389456
 SpriteRenderer:

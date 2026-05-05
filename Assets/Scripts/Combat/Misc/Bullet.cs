@@ -27,9 +27,6 @@ namespace Combat.Misc
 
         protected virtual void CalculateBulletDirection()
         {
-            Vector2 targetPos = _arena.GetRandomPointInsideCenter();
-            Vector2 direction = (targetPos - (Vector2)transform.position).normalized;
-            transform.up = direction;
         }
 
         private void Update()
