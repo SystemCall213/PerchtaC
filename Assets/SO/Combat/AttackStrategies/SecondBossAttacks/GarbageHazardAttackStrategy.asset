@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec64ff005b4a4bf594472b72b9caddae, type: 3}
   m_Name: GarbageHazardAttackStrategy
   m_EditorClassIdentifier: 
+  uxElements: []
   prefab: {fileID: 4438594437845392663, guid: e0c61425c0ca6544f9f2190cfdf8c073, type: 3}
   spawnCount: 30
   delayBetweenSpawns: 0.5
   positionSelectorData:
-    type: 3
+    type: 2
     selector:
-      rid: 6936453968434036740
+      rid: 2596928973488783360
+  projectileOffset: 0
   references:
     version: 2
     RefIds:
-    - rid: 6936453968434036740
-      type: {class: RandomPredifienedSidePositionSelector, ns: Combat.Arena.SideRelativePositionSelectors, asm: Assembly-CSharp}
-      data:
-        side: 2
+    - rid: 2596928973488783360
+      type: {class: BalancedRandomSideRelativePositionSelector, ns: Combat.Arena.SideRelativePositionSelectors, asm: Assembly-CSharp}
+      data: 

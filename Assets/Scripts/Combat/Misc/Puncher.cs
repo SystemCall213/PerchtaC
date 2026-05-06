@@ -18,6 +18,9 @@ namespace Combat.Misc
         
         [Header("Cleanup")]
         [SerializeField] private float returnDuration = 1f;
+        
+        [Header("LifeTime")]
+        [SerializeField] private float lifeTime = 5f;
 
         private bool _isPunching;
 
@@ -25,6 +28,7 @@ namespace Combat.Misc
         private void Start()
         {
             Punch();
+            Destroy(gameObject, lifeTime);
         }
 
         public void Punch()

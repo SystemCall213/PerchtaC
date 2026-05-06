@@ -17,6 +17,7 @@ namespace Combat.HealthUI
     {
         [SerializeField] private GameObject entity;
         [SerializeField] private GameObject healthKnobPrefab;
+        [SerializeField] private List<HealthPieceUI> healthPieces;
         [SerializeField] private HealthManagerType managerType = HealthManagerType.Player;
         
         private List<GameObject> healthKnobs = new List<GameObject>();
@@ -49,10 +50,13 @@ namespace Combat.HealthUI
             ClearHealthKnobs();
 
             // Instantiate new knobs
-            for (int i = 0; i < maxHealth; i++)
+            if (managerType == HealthManagerType.Boss)
             {
-                GameObject knob = Instantiate(healthKnobPrefab, transform);
-                healthKnobs.Add(knob);
+                for (int i = 0; i < maxHealth; i++)
+                {
+                    GameObject knob = Instantiate(healthKnobPrefab, transform);
+                    healthKnobs.Add(knob);
+                }
             }
         }
 
@@ -76,11 +80,24 @@ namespace Combat.HealthUI
         private void OnHealthDamaged(int damage)
         {
             // Remove health knobs equal to damage taken
-            for (int i = 0; i < damage && healthKnobs.Count > 0; i++)
+            if (managerType == HealthManagerType.Boss)
             {
-                GameObject knob = healthKnobs[healthKnobs.Count - 1];
-                healthKnobs.RemoveAt(healthKnobs.Count - 1);
-                Destroy(knob);
+                for (int i = 0; i < damage && healthKnobs.Count > 0; i++)
+                {
+                    GameObject knob = healthKnobs[healthKnobs.Count - 1];
+                    healthKnobs.RemoveAt(healthKnobs.Count - 1);
+                    Destroy(knob);
+                }
+            }
+            else
+            {
+                // For player, update health pieces instead of removing knobs
+                for (int i = 0; i < damage && healthPieces.Count > 0; i++)
+                {
+                    HealthPieceUI piece = healthPieces[healthPieces.Count - 1];
+                    healthPieces.RemoveAt(healthPieces.Count - 1);
+                    piece.Destroy();
+                }
             }
         }
 

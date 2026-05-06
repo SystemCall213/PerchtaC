@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackQueue:
   - {fileID: 11400000, guid: c2573ce562786f64ba501e72f52e74df, type: 2}
+  - {fileID: 11400000, guid: cd9d2cb99ef1b4c41845b317a4f9bfd4, type: 2}
+  - {fileID: 11400000, guid: 0ddea6b75c70bca468cd626d21296c45, type: 2}
+  - {fileID: 11400000, guid: 9d88d434e3332234298d53bd583a7bec, type: 2}
   intermediateStrategy: {fileID: 11400000, guid: 783df9a5afc2d5c419f8125e418319cd, type: 2}
