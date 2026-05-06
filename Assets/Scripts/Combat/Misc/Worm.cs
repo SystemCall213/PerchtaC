@@ -45,7 +45,7 @@ namespace Combat.Misc
         private void FixedUpdate()
         {
             float angle = isChasing ? Vector2.SignedAngle((playerMovement.Position - transform.position.ConvertToVector2()).normalized,transform.up) : 0;
-            direction = -transform.up * forwardForce;
+            direction = -transform.up * (forwardForce * (isChasing? Math.Clamp(-Mathf.Cos(angle * Mathf.Deg2Rad), 0, 1) : 1));
             rb.AddTorque(angle * turnSpeed * Time.fixedDeltaTime);
             rb.AddForce(direction, ForceMode2D.Force);
         }

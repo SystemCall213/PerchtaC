@@ -11,7 +11,7 @@ namespace Combat.Misc
         {
             float distance = Vector2.Distance(transform.position, target.transform.position);
             if (distance < maxDistance) return;
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, (distance - maxDistance) * 0.3f);
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, (distance - maxDistance) * damping);
             transform.rotation = Quaternion.Slerp(transform.rotation, target.transform.rotation, Time.fixedDeltaTime * 3);
         }
         

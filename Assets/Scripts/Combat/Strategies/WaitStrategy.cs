@@ -16,6 +16,7 @@ namespace Combat.Strategies
         public override void StartAttack(CancellationToken ct)
         {
             ExecuteAsync(ct).Forget();
+            RaiseAttackStarted();
         }
 
         private async UniTaskVoid ExecuteAsync(CancellationToken ct)
@@ -23,6 +24,7 @@ namespace Combat.Strategies
             _isAttacking = true;
             await UniTask.Delay(TimeSpan.FromSeconds(duration), cancellationToken: ct);
             _isAttacking = false;
+            RaiseAttackFinished();
         }
 
         public override bool IsAttacking() => _isAttacking;

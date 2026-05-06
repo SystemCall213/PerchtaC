@@ -1,20 +1,22 @@
 using System.Threading;
 using Combat.Arena;
+using Combat.Arena.SideRelativePositionSelectors;
 using Combat.Interfaces;
-using Combat.Misc;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
 namespace Combat.Strategies
 {
-    [CreateAssetMenu(fileName = "RandomSpawnAttack", menuName = "Combat/Strategies/RandomSpawn")]
-    public class DelayedSpawnAttackStrategy : AttackStrategy
+    [CreateAssetMenu(fileName = "SideRelativeDelayedSpawnAttack", menuName = "Combat/Strategies/SideRelativeDelayedSpawn")]
+    public class SideRelativeDelayedSpawnAttackStrategy : AttackStrategy
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private int spawnCount = 10;
         [SerializeField] private float delayBetweenSpawns = 0.5f;
-        [SerializeField] private RadialPositionSelectorData positionSelectorData;
+        [SerializeField] private SideRelativePositionSelectorData positionSelectorData;
+        
+        [SerializeField] private float projectileOffset = 0f;
 
         [Inject] private CombatArena _arena;
         [Inject] private IInstantiator _instantiator;
@@ -52,9 +54,9 @@ namespace Combat.Strategies
             RaiseAttackFinished();
         }
 
-        private void SpawnProjectile(float factor)
+        private void SpawnProjectile(ArenaPositionSideFactor factor)
         {
-            Vector2 spawnPos = _arena.GetPositionOutside(factor);
+            Vector2 spawnPos = _arena.GetSidedPosition(factor, projectileOffset);
             GameObject proj = _instantiator.InstantiatePrefab(prefab, spawnPos, Quaternion.identity, null);
         }
 

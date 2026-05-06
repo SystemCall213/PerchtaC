@@ -15,4 +15,15 @@ MonoBehaviour:
   prefab: {fileID: 6001118551583906984, guid: 4cf415ecc4fafc0468fa564ce03a9294, type: 3}
   spawnCountPerWave: 2
   waveCount: 2
-  delayBetweenSpawns: 12
+  delayBetweenSpawns: 9
+  positionSelectorData:
+    type: 3
+    selector:
+      rid: 6936453951511592963
+  references:
+    version: 2
+    RefIds:
+    - rid: 6936453951511592963
+      type: {class: IncrementialRadialPositionSelector, ns: Combat.Arena.PositionSelectors, asm: Assembly-CSharp}
+      data:
+        increment: 90
