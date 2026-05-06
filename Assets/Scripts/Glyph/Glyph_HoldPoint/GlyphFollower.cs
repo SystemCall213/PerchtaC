@@ -31,9 +31,6 @@ namespace Glyph.Glyph_HoldPoint
 
         private void Update()
         {
-            if (player == null || points == null || currentPointIndex >= points.Length)
-                return;
-
             float distanceToPlayer = Vector3.Distance(transform.position, player.Position);
 
             if (distanceToPlayer <= radius)

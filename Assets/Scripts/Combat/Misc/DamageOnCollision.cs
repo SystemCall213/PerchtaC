@@ -10,13 +10,18 @@ namespace Combat.Misc
         public event Action<int> OnDamage;
         protected void OnCollisionEnter2D(Collision2D collision)
         {
-            ApplyDamageOnCollision(collision);
+            ApplyDamageOnCollision(collision.gameObject);
         }
 
-        private void ApplyDamageOnCollision(Collision2D collision)
+        protected void OnTriggerEnter2D(Collider2D other)
         {
-            if (collision == null) return;
-            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            ApplyDamageOnCollision(other.gameObject);
+        }
+
+        private void ApplyDamageOnCollision(GameObject other)
+        {
+            if (other == null) return;
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
             if (playerHealth != null && !playerHealth.IsDead() && !playerHealth.IsImmune)
             {
                 playerHealth.TakeDamage(damage);

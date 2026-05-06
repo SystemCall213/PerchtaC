@@ -12,9 +12,9 @@ namespace Combat.Arena
         public float Height => height;
         public float OuterRadius => outerRadius;
 
-        public Vector2 GetRandomPositionOutside()
+        public Vector2 GetRandomPositionOutside(float? customRadius = null)
         {
-            float radius = outerRadius;
+            float radius =  customRadius.HasValue ? customRadius.Value : outerRadius;
             float angle = Random.Range(0f, Mathf.PI * 2f);
             
             float x = Mathf.Cos(angle) * radius;
@@ -23,31 +23,32 @@ namespace Combat.Arena
             return (Vector2)transform.position + new Vector2(x, y);
         }
 
-        public Vector2 GetPositionOutside(float radialFactor)
+        public Vector2 GetPositionOutside(float radialFactor, float? customRadius = null)
         {
             float angle = Mathf.PI * 2f * radialFactor;
-            return (Vector2)transform.position + new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * outerRadius;
+            float radius = customRadius.HasValue ? customRadius.Value : outerRadius;
+            return (Vector2)transform.position + new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * radius;
         }
 
-        public Vector2 GetSidedPosition(ArenaPositionSideFactor factor)
+        public Vector2 GetSidedPosition(ArenaPositionSideFactor factor, float offset = 0f)
         {
             switch (factor.Side)
             {
                 case ArenaPositionSideFactor.SideFactor.Top:
                 {
-                    return (Vector2)transform.position + new Vector2(width * factor.Factor, height);
+                    return (Vector2)transform.position + new Vector2(width * factor.Factor -  width * 0.5f, height + offset);
                 }
                 case ArenaPositionSideFactor.SideFactor.Bottom:
                 {
-                    return (Vector2)transform.position + new Vector2(width * factor.Factor, -height);
+                    return (Vector2)transform.position + new Vector2(width * factor.Factor - width * 0.5f, -height - offset);
                 }
                 case ArenaPositionSideFactor.SideFactor.Left:
                 {
-                    return (Vector2)transform.position + new Vector2(-width, height * factor.Factor);
+                    return (Vector2)transform.position + new Vector2(-width - offset, height * factor.Factor - height * 0.5f);
                 }
                 case ArenaPositionSideFactor.SideFactor.Right:
                 {
-                    return (Vector2)transform.position + new Vector2(width, height * factor.Factor);
+                    return (Vector2)transform.position + new Vector2(width + offset, height * factor.Factor - height * 0.5f);
                 }
                 default:
                 {
@@ -66,7 +67,7 @@ namespace Combat.Arena
             );
         }
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireCube(transform.position, new Vector3(width, height, 0));

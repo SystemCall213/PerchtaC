@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f58347b97cd49988b0090183cb4a30e, type: 3}
+  m_Name: WormSpawnAttackStrategy
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6001118551583906984, guid: 4cf415ecc4fafc0468fa564ce03a9294, type: 3}
+  spawnCountPerWave: 2
+  waveCount: 2
+  delayBetweenSpawns: 9
+  positionSelectorData:
+    type: 3
+    selector:
+      rid: 6936453951511592963
+  references:
+    version: 2
+    RefIds:
+    - rid: 6936453951511592963
+      type: {class: IncrementialRadialPositionSelector, ns: Combat.Arena.PositionSelectors, asm: Assembly-CSharp}
+      data:
+        increment: 90

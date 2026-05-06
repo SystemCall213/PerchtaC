@@ -63,11 +63,5 @@ namespace Glyph.Glyph_HoldPoint
             follower.Initialize(positions, player,this, () => {
                 glyphFacade.TriggerGlyphPainted();});
         }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, glyphResetRadius);
-        }
     }
 }

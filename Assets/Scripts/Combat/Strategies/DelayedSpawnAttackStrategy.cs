@@ -28,6 +28,7 @@ namespace Combat.Strategies
         public override void StartAttack(CancellationToken ct)
         {
             ExecuteAsync(ct).Forget();
+            RaiseAttackStarted();
         }
 
         private async UniTaskVoid ExecuteAsync(CancellationToken ct)
@@ -48,6 +49,7 @@ namespace Combat.Strategies
             }
             
             _isAttacking = false;
+            RaiseAttackFinished();
         }
 
         private void SpawnProjectile(float factor)

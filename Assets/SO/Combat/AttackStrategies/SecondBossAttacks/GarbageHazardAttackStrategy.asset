@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec64ff005b4a4bf594472b72b9caddae, type: 3}
+  m_Name: GarbageHazardAttackStrategy
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4438594437845392663, guid: e0c61425c0ca6544f9f2190cfdf8c073, type: 3}
+  spawnCount: 30
+  delayBetweenSpawns: 0.5
+  positionSelectorData:
+    type: 3
+    selector:
+      rid: 6936453968434036740
+  references:
+    version: 2
+    RefIds:
+    - rid: 6936453968434036740
+      type: {class: RandomPredifienedSidePositionSelector, ns: Combat.Arena.SideRelativePositionSelectors, asm: Assembly-CSharp}
+      data:
+        side: 2
