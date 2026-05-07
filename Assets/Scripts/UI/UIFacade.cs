@@ -7,22 +7,29 @@ namespace UI
 {
     public class UIFacade : IUIFacade
     {
-        private readonly PauseMenu pauseMenu;
+        private IPauseMenu pauseMenu;
         private readonly DefaultActions defaultActions;
         private Stack<IConfigurableCanvas> canvasStack = new Stack<IConfigurableCanvas>();
 
-        public UIFacade(PauseMenu pauseMenu, DefaultActions defaultActions)
+        public UIFacade(DefaultActions defaultActions)
         {
-            this.pauseMenu = pauseMenu;
             this.defaultActions = defaultActions;
             
             defaultActions.UI.CloseMenu.performed += ctx => HandleEscape();
+        }
+
+        public void Setup(IPauseMenu pauseMenu)
+        {
+            this.pauseMenu = pauseMenu;
+            Debug.Log("UI Facade setup");
         }
         
         public void CloseTopmost()
         {
             if (canvasStack.Count == 0) return;
             IConfigurableCanvas canvas = canvasStack.Pop();
+            canvas.Close();
+            UpdateTimeScale();
         }
 
         public void CloseAll()
@@ -37,6 +44,7 @@ namespace UI
         {
             canvas.Open();
             canvasStack.Push(canvas);
+            UpdateTimeScale();
         }
         
         private void UpdateTimeScale()
@@ -49,7 +57,7 @@ namespace UI
         {
             if (canvasStack.Count == 0)
             {
-                pauseMenu.Open();
+                Open(pauseMenu);
             }
             else if (canvasStack.Peek().ClosableWithEscape())
             {

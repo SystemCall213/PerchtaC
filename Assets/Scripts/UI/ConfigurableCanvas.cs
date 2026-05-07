@@ -10,10 +10,11 @@ namespace UI
     {
         [Inject] private readonly IUIFacade uiFacade;
         
-        [HideInInspector] public Canvas canvas;
         [SerializeField] private bool closableWithEscape = true;
         [SerializeField] private bool pausesTime = true;
-
+        
+        private Canvas canvas;
+    
         public void Awake()
         {
             canvas = GetComponent<Canvas>();
@@ -33,6 +34,7 @@ namespace UI
         {
             canvas.gameObject.SetActive(true);
         }
+        
         
         public void Close()
         {

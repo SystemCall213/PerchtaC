@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Combat.Interfaces;
 using Glyph.Interfaces;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace Glyph.Glyph_HoldPoint
         [Inject] private IInstantiator instantiator;
         [Inject(Id = "GlyphLines")] private List<LineRenderer> glyphLineRenderers;
         
-        [SerializeField] private float glyphResetRadius = 250f;
+        [SerializeField] private float glyphResetRadius = 3;
         public float GlyphResetRadius => glyphResetRadius;
         
         private LineRenderer lineRenderer;
@@ -62,6 +63,12 @@ namespace Glyph.Glyph_HoldPoint
 
             follower.Initialize(positions, player,this, () => {
                 glyphFacade.TriggerGlyphPainted();});
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, glyphResetRadius);
         }
     }
 }

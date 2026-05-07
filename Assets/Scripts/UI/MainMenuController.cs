@@ -1,5 +1,6 @@
 ﻿using CoreLoop.Interfaces;
 using CoreLoop.States;
+using UI.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -11,6 +12,7 @@ namespace UI
     {
         [Inject] private readonly ISceneLoader sceneLoader;
         [Inject] private readonly SettingMenu settingMenu;
+        [Inject] private readonly IUIFacade uiFacade;
         
         [SerializeField] private Button startButton;
         [SerializeField] private Button settingsButton;
@@ -40,7 +42,7 @@ namespace UI
         
         public void Settings()
         {
-            settingMenu.Open();
+            uiFacade.Open(settingMenu);
         }
         public void Credits()
         {

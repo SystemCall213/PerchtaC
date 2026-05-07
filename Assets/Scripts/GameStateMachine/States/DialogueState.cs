@@ -8,16 +8,19 @@ namespace CoreLoop.States
     public class DialogueState : State<DialogueSO>
     {
         private readonly IDialogueManager dialogueManager;
+        private readonly DefaultActions defaultActions;
 
         [Inject]
-        public DialogueState(DialogueSO dialogueSO, IDialogueManager dialogueManager)
+        public DialogueState(DialogueSO dialogueSO, IDialogueManager dialogueManager, DefaultActions defaultActions)
         {
             Payload = dialogueSO;
             this.dialogueManager = dialogueManager;
+            this.defaultActions = defaultActions;
         }
 
         public override void Enter()
         {
+            defaultActions.UI.CloseMenu.Enable();
             dialogueManager.EnterDialogue(Payload.json, Payload.knotName);
         }
 

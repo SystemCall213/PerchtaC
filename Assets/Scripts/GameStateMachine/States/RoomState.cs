@@ -9,16 +9,20 @@ namespace CoreLoop.States
     public class RoomState : State<RoomStatePayload>
     {
         private readonly IMusicService musicService;
+        private readonly DefaultActions defaultActions;
 
         [Inject]
-        public RoomState(RoomStatePayload payload, IMusicService musicService)
+        public RoomState(RoomStatePayload payload, IMusicService musicService, DefaultActions defaultActions)
         {
             Payload = payload;
             this.musicService = musicService;
+            this.defaultActions = defaultActions;
         }
         
         public override void Enter()
         {
+            defaultActions.UI.CloseMenu.Enable();
+            
             if (Payload.MusicId != MusicId.None)
             { 
                 musicService.Request(Payload.MusicId);

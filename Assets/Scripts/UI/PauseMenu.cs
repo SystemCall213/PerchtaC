@@ -7,7 +7,7 @@ using Zenject;
 
 namespace UI
 {
-    public class PauseMenu : ConfigurableCanvas
+    public class PauseMenu : ConfigurableCanvas, IPauseMenu
     {
         [Inject] private readonly IUIFacade uiFacade;
         [Inject] private readonly ISceneLoader sceneLoader;
@@ -22,7 +22,13 @@ namespace UI
             base.Awake();
             DontDestroyOnLoad(gameObject);
         }
-        
+
+        private void Start()
+        {
+            uiFacade.Setup(this);
+            gameObject.SetActive(false);
+        }
+
         private void OnEnable()
         {
             resumeButton.onClick.AddListener(Resume);
@@ -43,7 +49,7 @@ namespace UI
         }
         private void Settings()
         {
-            settingMenu.Open();
+            uiFacade.Open(settingMenu);
         }
         private void Exit()
         {

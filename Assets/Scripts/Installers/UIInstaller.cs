@@ -14,8 +14,8 @@ namespace Installers
         public override void InstallBindings()
         {
             Container.Bind<IUIFacade>().To<UIFacade>().AsSingle();
-            Container.Bind<SettingMenu>().FromComponentInNewPrefab(settingMenu).AsSingle();
-            Container.Bind<PauseMenu>().FromInstance(pauseMenu).AsSingle();
+            Container.Bind<SettingMenu>().FromComponentInNewPrefab(settingMenu).AsSingle().NonLazy();
+            Container.Bind<PauseMenu>().FromComponentInNewPrefab(pauseMenu).AsSingle().NonLazy();
         }
     }
 }

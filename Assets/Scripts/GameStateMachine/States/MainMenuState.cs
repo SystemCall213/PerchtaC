@@ -9,9 +9,11 @@ namespace CoreLoop.States
     public class MainMenuState : State
     {
         [Inject] private readonly IUIFacade uiFacade;
+        [Inject] private readonly DefaultActions defaultActions;
         [Inject] private readonly IMusicService musicService;
         public override void Enter()
         {
+            defaultActions.UI.CloseMenu.Enable();
             musicService.Request(MusicId.MainMenu);
             uiFacade.CloseAll();
         }

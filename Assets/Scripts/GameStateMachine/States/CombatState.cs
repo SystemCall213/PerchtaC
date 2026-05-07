@@ -23,6 +23,7 @@ namespace CoreLoop.States
         
         public override void Enter()
         {
+            defaultActions.UI.CloseMenu.Enable();
             defaultActions.Combat.Enable();
             musicService.Request(combatMusic);
         }
