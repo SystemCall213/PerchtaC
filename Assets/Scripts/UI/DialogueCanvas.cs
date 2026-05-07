@@ -67,12 +67,11 @@ namespace UI.Interfaces
 
             canvasGroup.alpha = 0;
             canvasGroup.interactable = false;
-            canvasGroup.blocksRaycasts = false;
+            canvasGroup.blocksRaycasts = true;
 
             canvasGroup.DOFade(1f, 2f).OnComplete(() =>
             {
                 canvasGroup.interactable = true;
-                canvasGroup.blocksRaycasts = true;
             });
             
             choicesText = new TextMeshProUGUI[choices.Length];
@@ -84,10 +83,10 @@ namespace UI.Interfaces
         public void Close()
         {
             canvasGroup.interactable = false;
-            canvasGroup.blocksRaycasts = false;
 
-            canvasGroup.DOFade(0f, 2f).OnComplete(() =>
+            canvasGroup.DOFade(0f, 1.5f).OnComplete(() =>
             {
+                canvasGroup.blocksRaycasts = false;
                 canvas.gameObject.SetActive(false);
             });
         }

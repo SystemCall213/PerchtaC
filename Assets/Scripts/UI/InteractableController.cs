@@ -15,13 +15,15 @@ namespace UI
         [SerializeField] private Button doorButton;
         [SerializeField] private List<Button> fightButtons;
         [SerializeField] private List<string> fightSceneNames;
+        [SerializeField] private Sprite cleanRoomImage;
+        [SerializeField] private Image background;
 
         private void OnEnable()
         {
             doorButton.onClick.AddListener(GoToNextLevel);
             gameStateMachine.OnStateChanged += CheckButtonState;
             CheckButtonState(gameStateMachine.CurrentState);
-            
+            sceneLoader.BattleEnded += CleanRoom;
             
             for (int i = 0; i < fightButtons.Count; i++)
             {
@@ -71,6 +73,20 @@ namespace UI
                     fightButton.gameObject.SetActive(false);
                 }
             }
+        }
+        
+        private void CleanRoom()
+        {
+            foreach (var fightButton in fightButtons)
+            {
+                fightButton.interactable = false;
+                fightButton.gameObject.SetActive(false);
+            }
+            
+            doorButton.interactable = true;
+            doorButton.gameObject.SetActive(true);
+
+            background.sprite = cleanRoomImage;
         }
     }
 }
