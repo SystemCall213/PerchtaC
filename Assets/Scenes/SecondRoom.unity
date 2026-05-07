@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bdc4e6d7ad4c7787aa27857ba80152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDialogue: {fileID: 0}
+  initialDialogue: {fileID: 11400000, guid: 583dfffaf5fa2d24e8b6249c556783c8, type: 2}
 --- !u!114 &327388434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,7 +677,9 @@ MonoBehaviour:
   fightButtons:
   - {fileID: 844027456}
   fightSceneNames:
-  - HoldPointGlyph_CombatScene
+  - Boss2
+  cleanRoomImage: {fileID: 21300000, guid: ce87b8e64011ae046b5eb10754ff67f4, type: 3}
+  background: {fileID: 1708911909}
 --- !u!1 &740743173
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,7 +799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -85, y: -33}
+  m_AnchoredPosition: {x: 306, y: -114}
   m_SizeDelta: {x: 999, y: 773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &844027456
@@ -864,7 +866,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 121626b6ceb1930439b4762a32cfa6cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 332f60c549cfae046abd388590862740, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2068,8 +2070,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 686, y: 149}
-  m_SizeDelta: {x: 200, y: 500}
+  m_AnchoredPosition: {x: 503, y: 0}
+  m_SizeDelta: {x: 683, y: 904}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1703998204
 MonoBehaviour:
@@ -2135,8 +2137,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: cb82d32a46bdf2f41857b25f6d2df756, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2210,7 +2212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5dd1e18dc7ba65648b194a1ba954fa01, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14766f5a6f4ea0744a13cb1f00148635, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
