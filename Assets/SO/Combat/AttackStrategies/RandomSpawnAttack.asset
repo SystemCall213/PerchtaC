@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: RandomSpawnAttack
   m_EditorClassIdentifier: 
   uxElements: []
-  prefab: {fileID: 7864068102879659906, guid: ccebb92b8fd2fb546a44de51ae565da1, type: 3}
+  prefab: {fileID: 5583829441603358880, guid: 37e1b116df981504294ae95dca7e7316, type: 3}
   spawnCount: 40
   delayBetweenSpawns: 0.2
   positionSelectorData:
     type: 1
     selector:
-      rid: 7613024519207780402
+      rid: 2596928988750020609
   references:
     version: 2
     RefIds:
-    - rid: 7613024519207780402
+    - rid: 2596928988750020609
       type: {class: RandomRadialPositionSelector, ns: Combat.Arena.PositionSelectors, asm: Assembly-CSharp}
       data: 

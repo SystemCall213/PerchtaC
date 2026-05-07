@@ -7,7 +7,7 @@ Oh, little child. Pardon my visit.
 # speaker:<b><size=120%>Perchta</size=120%></b>
 As you see, I came for your mommy…
 # speaker:<b>Girl</b>
-\*scared\*
+<color="black">.</color="black">
     + [<i><shiver>W-w-what are you…?</shiver></i>]
         -> what
     + [<i><shiver>W-w-why…?</shiver></i>]
@@ -31,7 +31,7 @@ She dared to turn <i>this little</i> house into a <b><size=120%>BUGHOLE</size=12
 
 === kill_me ===
 # speaker:<b>Girl</b>
-\*frightened\*
+<color="black">.</color="black">
     + [<i><shiver>W-w-will you kill me now?</shiver></i>]
         -> frightened
     + [<i><shiver>It’s… It’s not her fault!</shiver></i>]

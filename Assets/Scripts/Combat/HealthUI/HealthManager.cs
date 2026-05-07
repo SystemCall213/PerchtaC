@@ -117,7 +117,7 @@ namespace Combat.HealthUI
             if (managerType == HealthManagerType.Boss)
             {
                 // Boss died - return to main menu
-                sceneLoader.UnloadCombatScene();
+                sceneLoader.LoadNextLevel();
             }
             else
             {

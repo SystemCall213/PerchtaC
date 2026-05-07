@@ -24,8 +24,15 @@ namespace CoreLoop
 
         public void LoadNextLevel()
         {
-            SceneManager.LoadSceneAsync(levels[currentLevel%levels.Length]);
-            currentLevel++;
+            if (currentLevel%levels.Length == 0 && currentLevel != 0)
+            {
+                LoadMainMenu();
+            }
+            else
+            {
+                SceneManager.LoadSceneAsync(levels[currentLevel%levels.Length]);
+                currentLevel++;    
+            }
         }
 
         public void LoadGivenLevel(string levelName)

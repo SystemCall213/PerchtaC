@@ -127,7 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc52ff1eae6485c9ff4b9a3fe600944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impulse: 7
+  minImpulse: 5
+  maxImpulse: 10
   lifetime: 10
 --- !u!70 &5011850397577218705
 CapsuleCollider2D:
@@ -176,4 +177,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79592292c3a49e78f69adab9a58c0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
