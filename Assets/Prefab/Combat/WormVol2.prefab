@@ -2004,7 +2004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 2
-  forwardForce: 250
+  forwardForce: 150
   rb: {fileID: 30848680448510833}
   lifetime: 20
   chaseTime: 10

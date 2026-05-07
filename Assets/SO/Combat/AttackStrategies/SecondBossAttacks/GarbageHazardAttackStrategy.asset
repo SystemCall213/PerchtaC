@@ -17,13 +17,14 @@ MonoBehaviour:
   spawnCount: 30
   delayBetweenSpawns: 0.5
   positionSelectorData:
-    type: 2
+    type: 3
     selector:
-      rid: 2596928973488783360
+      rid: 2596928974888108032
   projectileOffset: 0
   references:
     version: 2
     RefIds:
-    - rid: 2596928973488783360
-      type: {class: BalancedRandomSideRelativePositionSelector, ns: Combat.Arena.SideRelativePositionSelectors, asm: Assembly-CSharp}
-      data: 
+    - rid: 2596928974888108032
+      type: {class: RandomPredifienedSidePositionSelector, ns: Combat.Arena.SideRelativePositionSelectors, asm: Assembly-CSharp}
+      data:
+        side: 2

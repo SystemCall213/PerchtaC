@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26eab38f90284eac989e3c90395e2e3e, type: 3}
   m_Name: RandomSpawnAttack
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5583829441603358880, guid: 37e1b116df981504294ae95dca7e7316, type: 3}
+  uxElements: []
+  prefab: {fileID: 7864068102879659906, guid: ccebb92b8fd2fb546a44de51ae565da1, type: 3}
   spawnCount: 40
   delayBetweenSpawns: 0.2
   positionSelectorData:
