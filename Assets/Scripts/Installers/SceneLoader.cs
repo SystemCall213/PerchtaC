@@ -43,6 +43,8 @@ namespace CoreLoop
         public void LoadMainMenu()
         {
             if (SceneManager.GetActiveScene().name == MainMenuScene) return;
+            ResetPlaythrough();
+            currentCombatScene = null;
             SceneManager.LoadSceneAsync(MainMenuScene);
         }
 

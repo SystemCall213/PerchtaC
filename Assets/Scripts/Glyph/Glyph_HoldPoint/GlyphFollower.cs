@@ -8,6 +8,7 @@ namespace Glyph.Glyph_HoldPoint
     {
         [SerializeField] private float radius;
         [SerializeField] private float moveSpeed;
+        [SerializeField] private float rotationSpeedZ = 45f;
         
         private Vector3[] points;
         private int currentPointIndex = 0;
@@ -32,7 +33,9 @@ namespace Glyph.Glyph_HoldPoint
         private void Update()
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.Position);
-
+            
+            transform.Rotate(0, 0, rotationSpeedZ * Time.deltaTime);
+            
             if (distanceToPlayer <= radius)
             {
                 MoveTowardsNextPoint();

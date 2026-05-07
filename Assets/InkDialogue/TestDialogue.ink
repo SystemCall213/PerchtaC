@@ -19,7 +19,7 @@ We are <b>Schnabelperchten</b>, dear.
 # speaker:<b><size=120%>Perchta</size=120%></b>
 We seek out the folk that live in filth…
 # speaker:<b><size=120%>Perchta</size=120%></b>
-Like <b>you</b> are.
+Like <b>you and your Mommy</b> are.
 -> kill_me
 
 === why ===
@@ -53,9 +53,9 @@ Is it now?! Maybe it is your fault then?
 # speaker:<b><size=120%>Perchta</size=120%></b>
 I have an <shiver>idea</shiver>, <i>little one</i>.
 # speaker:<b><size=120%>Perchta</size=120%></b>
-Clean all the mess here, and then Me with my <b>Sisters</b> let you live.
+Clean all the mess here, and then I, with my sisters, will let you live. 
 # speaker:<b><size=120%>Perchta</size=120%></b>
-<b>They</b> will check if you’re any good further in the night, be a good <i>little child.</i>
+<b>They</b> will decide <b>if you are worthy of life</b> later tonight. Be a good <i>little child.</i>
 # speaker:<b><size=120%>Perchta</size=120%></b>
 Don’t be scared now, these shadows are nothing but your imagination. <i>He-he-he.</i>
 
