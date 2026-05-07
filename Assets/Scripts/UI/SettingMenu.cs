@@ -77,7 +77,7 @@ namespace UI
             
             fullscreenToggle.onValueChanged.AddListener(OnFullscreenToggle);
             resolutionDropdown.onValueChanged.AddListener(OnResolutionChanged);
-            backButton.onClick.AddListener(Back);
+            backButton.onClick.AddListener(Close);
         }
 
         private void UpdateUI()
@@ -99,7 +99,7 @@ namespace UI
             
             fullscreenToggle.onValueChanged.RemoveListener(OnFullscreenToggle);
             resolutionDropdown.onValueChanged.RemoveListener(OnResolutionChanged);
-            backButton.onClick.RemoveListener(Back);
+            backButton.onClick.RemoveListener(Close);
         }
         
         

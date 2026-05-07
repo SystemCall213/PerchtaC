@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 341185106335545737}
   - component: {fileID: 2919554878508656797}
   - component: {fileID: 7930187570177460013}
+  - component: {fileID: 3908943594955034829}
   m_Layer: 0
   m_Name: Chair1
   m_TagString: Untagged
@@ -184,3 +185,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+--- !u!114 &3908943594955034829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4438594437845392663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0650c33d6a4471b92bbe6ea58c5048f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 10
+  rotationDuration: 1

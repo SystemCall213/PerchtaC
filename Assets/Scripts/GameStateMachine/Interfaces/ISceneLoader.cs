@@ -1,7 +1,10 @@
-﻿namespace CoreLoop.Interfaces
+﻿using System;
+
+namespace CoreLoop.Interfaces
 {
     public interface ISceneLoader
     {
+        event Action BattleEnded;
         void LoadNextLevel();
         void LoadGivenLevel(string levelName);
         void LoadMainMenu();

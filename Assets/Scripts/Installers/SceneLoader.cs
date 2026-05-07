@@ -20,6 +20,8 @@ namespace CoreLoop
             this.levels = levels;
         }
 
+        public event Action BattleEnded;
+
         public void LoadNextLevel()
         {
             SceneManager.LoadSceneAsync(levels[currentLevel%levels.Length]);
@@ -56,6 +58,7 @@ namespace CoreLoop
         public void UnloadCombatScene()
         {
             SceneManager.UnloadSceneAsync(currentCombatScene);
+            BattleEnded.Invoke();
             currentCombatScene = null;
         }
 
