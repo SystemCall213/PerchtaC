@@ -20,7 +20,6 @@ namespace UI
         private void Awake()
         {
             base.Awake();
-            DontDestroyOnLoad(gameObject);
         }
 
         private void Start()

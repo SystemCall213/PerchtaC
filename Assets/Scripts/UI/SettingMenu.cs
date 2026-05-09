@@ -36,7 +36,6 @@ namespace UI
         private void Awake()
         {
             base.Awake();
-            DontDestroyOnLoad(gameObject);
             LoadAndApplySettings();
             gameObject.SetActive(false);
         }
@@ -77,7 +76,7 @@ namespace UI
             
             fullscreenToggle.onValueChanged.AddListener(OnFullscreenToggle);
             resolutionDropdown.onValueChanged.AddListener(OnResolutionChanged);
-            backButton.onClick.AddListener(Close);
+            backButton.onClick.AddListener(Back);
         }
 
         private void UpdateUI()
@@ -99,7 +98,7 @@ namespace UI
             
             fullscreenToggle.onValueChanged.RemoveListener(OnFullscreenToggle);
             resolutionDropdown.onValueChanged.RemoveListener(OnResolutionChanged);
-            backButton.onClick.RemoveListener(Close);
+            backButton.onClick.RemoveListener(Back);
         }
         
         

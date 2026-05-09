@@ -8,5 +8,6 @@ namespace CoreLoop.Interfaces
         void ChangeState(State state);
         void ChangeState<TPayload>(State<TPayload> state, TPayload payload) where TPayload : IStatePayload;
         event Action<State> OnStateChanged;
+        bool IsInMainMenu { get; }
     }
 }

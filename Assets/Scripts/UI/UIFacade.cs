@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using CoreLoop.Interfaces;
 using UI.Interfaces;
 using UnityEngine;
 
@@ -7,13 +8,15 @@ namespace UI
 {
     public class UIFacade : IUIFacade
     {
+        private IGameStateMachine gameStateMachine;
         private IPauseMenu pauseMenu;
         private readonly DefaultActions defaultActions;
         private Stack<IConfigurableCanvas> canvasStack = new Stack<IConfigurableCanvas>();
 
-        public UIFacade(DefaultActions defaultActions)
+        public UIFacade(DefaultActions defaultActions, IGameStateMachine gameStateMachine)
         {
             this.defaultActions = defaultActions;
+            this.gameStateMachine = gameStateMachine;
             
             defaultActions.UI.CloseMenu.performed += ctx => HandleEscape();
         }
@@ -21,7 +24,6 @@ namespace UI
         public void Setup(IPauseMenu pauseMenu)
         {
             this.pauseMenu = pauseMenu;
-            Debug.Log("UI Facade setup");
         }
         
         public void CloseTopmost()
@@ -57,6 +59,10 @@ namespace UI
         {
             if (canvasStack.Count == 0)
             {
+                if (gameStateMachine.IsInMainMenu)
+                {
+                    return;
+                }
                 Open(pauseMenu);
             }
             else if (canvasStack.Peek().ClosableWithEscape())

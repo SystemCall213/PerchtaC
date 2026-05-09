@@ -9,6 +9,9 @@ namespace CoreLoop
         public State CurrentState => currentState;
         private State currentState;
         public event Action<State> OnStateChanged;
+
+        public bool IsInMainMenu => currentState is MainMenuState;
+
         public GameStateMachine(MainMenuState.Factory mainMenuStateFactory)
         {
         }
