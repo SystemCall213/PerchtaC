@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26eab38f90284eac989e3c90395e2e3e, type: 3}
   m_Name: GraspSpawnAttack
   m_EditorClassIdentifier: 
+  uxElements: []
   prefab: {fileID: 1947835764234944162, guid: 7cae24d733072a14cb3537b312f9e558, type: 3}
-  spawnCount: 6
-  delayBetweenSpawns: 3
+  spawnCount: 4
+  delayBetweenSpawns: 5
   positionSelectorData:
     type: 0
     selector:
