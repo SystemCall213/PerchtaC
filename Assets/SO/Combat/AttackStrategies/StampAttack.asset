@@ -15,12 +15,12 @@ MonoBehaviour:
   uxElements: []
   warningAreaPrefabs:
   - {fileID: 6513569807757572383, guid: 4fb9c4f51a33f3447a09f8bcd6a761ea, type: 3}
-  duration: 2
+  duration: 1
   damage: 1
   bulletCount: 8
   bulletSpeed: 3
-  stampCount: 6
-  stampDelay: 0.6
+  stampCount: 4
+  stampDelay: 1.5
   references:
     version: 2
     RefIds: []
