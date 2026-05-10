@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1f0c03023e46fb8e99c5c0d155bdc5, type: 3}
   m_Name: StampAttack
   m_EditorClassIdentifier: 
-  warningAreaPrefab: {fileID: 6513569807757572383, guid: 4fb9c4f51a33f3447a09f8bcd6a761ea, type: 3}
-  duration: 2
+  uxElements: []
+  warningAreaPrefabs:
+  - {fileID: 6513569807757572383, guid: 4fb9c4f51a33f3447a09f8bcd6a761ea, type: 3}
+  duration: 1
   damage: 1
   bulletCount: 8
   bulletSpeed: 3
-  stampCount: 6
-  stampDelay: 0.6
+  stampCount: 4
+  stampDelay: 1.5
+  references:
+    version: 2
+    RefIds: []

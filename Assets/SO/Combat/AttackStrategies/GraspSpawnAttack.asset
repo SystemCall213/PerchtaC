@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uxElements: []
   prefab: {fileID: 1947835764234944162, guid: 7cae24d733072a14cb3537b312f9e558, type: 3}
-  spawnCount: 4
-  delayBetweenSpawns: 5
+  spawnCount: 3
+  delayBetweenSpawns: 4
   positionSelectorData:
     type: 0
     selector:
