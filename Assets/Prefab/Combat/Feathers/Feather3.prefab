@@ -112,11 +112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b445bbaec44a5a81e4078e89ae9f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1.4
   lifeTime: 15
-  pendulumLength: 20
-  swingFrequency: 2.5
-  rotationAmplitude: 6
+  pendulumLength: 3
+  swingFrequency: 2
+  rotationAmplitude: 40
 --- !u!70 &6150608072105466807
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
