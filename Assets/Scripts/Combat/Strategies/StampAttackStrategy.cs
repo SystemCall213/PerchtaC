@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading;
 using Combat.Arena;
 using Combat.Interfaces;
@@ -10,7 +11,7 @@ namespace Combat.Strategies
     [CreateAssetMenu(fileName = "StampAttack", menuName = "Combat/Strategies/StampAttack")]
     public class StampAttackStrategy : AttackStrategy
     {
-        [SerializeField] private GameObject warningAreaPrefab;
+        [SerializeField] private List<GameObject> warningAreaPrefabs;
         [SerializeField] private float duration = 2.0f;
         [SerializeField] private int damage = 2;
         [SerializeField] private int bulletCount = 8;
@@ -41,7 +42,7 @@ namespace Combat.Strategies
                 if (cancellationToken.IsCancellationRequested) break;
 
                 Vector3 spawnPos = player.Position;
-                GameObject warningObj = instantiator.InstantiatePrefab(warningAreaPrefab, spawnPos, Quaternion.identity, null);
+                GameObject warningObj = instantiator.InstantiatePrefab(warningAreaPrefabs[i % warningAreaPrefabs.Count], spawnPos, Quaternion.identity, null);
                 
                 if (warningObj.TryGetComponent<WarningArea>(out var warningArea))
                 {

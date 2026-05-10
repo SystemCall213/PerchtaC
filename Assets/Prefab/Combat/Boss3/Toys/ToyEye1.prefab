@@ -130,7 +130,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 3904
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -177,3 +177,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impulse: 3
   direction: {x: 0, y: 1}
+  lifetime: 20

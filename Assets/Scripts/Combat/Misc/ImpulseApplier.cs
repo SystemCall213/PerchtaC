@@ -7,6 +7,7 @@ namespace Combat.Misc
     {
         [SerializeField] protected float impulse = 10f;
         [SerializeField] protected Vector2 direction = Vector2.up;
+        [SerializeField] protected float lifetime = 20f;
         
         private Rigidbody2D rb;
 
@@ -18,6 +19,7 @@ namespace Combat.Misc
         private void Start()
         {
             ApplyImpulse();
+            Destroy(gameObject, lifetime);
         }
         
         protected virtual void Configure()
