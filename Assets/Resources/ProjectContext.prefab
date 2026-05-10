@@ -81,8 +81,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - Assets/Scenes/TestScene.unity
-  - Assets/Scenes/SecondRoom.unity
+  - Assets/Scenes/Room1.unity
+  - Assets/Scenes/Room2.unity
+  - Assets/Scenes/Room3.unity
 --- !u!114 &8926279751076572044
 MonoBehaviour:
   m_ObjectHideFlags: 0
