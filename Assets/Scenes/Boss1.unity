@@ -1485,7 +1485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 12
   height: 6
-  outerRadius: 12
+  outerRadius: 15.5
 --- !u!4 &1104253049850943993
 Transform:
   m_ObjectHideFlags: 0

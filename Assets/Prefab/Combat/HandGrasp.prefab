@@ -1152,11 +1152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cecd1e3a2e9346c2a3e48f8c0237fbf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 45
+  force: 70
   lifetime: 30
   grabDuration: 4
   sineFrequency: 5
-  sineMagnitude: 60
+  sineMagnitude: 90
   hold: {fileID: 6736442816002826892}
 --- !u!114 &6759214363350178074
 MonoBehaviour:
