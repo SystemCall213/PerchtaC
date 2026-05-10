@@ -950,7 +950,7 @@ MonoBehaviour:
   fightButtons:
   - {fileID: 236535864}
   fightSceneNames:
-  - Boss2
+  - Boss3
   cleanRoomImage: {fileID: 21300000, guid: ce87b8e64011ae046b5eb10754ff67f4, type: 3}
   background: {fileID: 1708911909}
 --- !u!114 &945410389
