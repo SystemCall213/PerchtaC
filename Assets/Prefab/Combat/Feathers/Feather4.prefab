@@ -114,9 +114,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   lifeTime: 25
-  pendulumLength: 50
+  pendulumLength: 5
   swingFrequency: 1
-  rotationAmplitude: 7
+  rotationAmplitude: 45
 --- !u!70 &3806463591476444865
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
