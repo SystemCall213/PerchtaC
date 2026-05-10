@@ -46,7 +46,8 @@ namespace UI
         }
         public void Credits()
         {
-            sceneLoader.LoadCreditsScene();
+            // do nothing for now, credits scene not ready
+            // sceneLoader.LoadCreditsScene();
         }
         
         public void Quit()
