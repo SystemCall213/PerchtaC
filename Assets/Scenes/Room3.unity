@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bdc4e6d7ad4c7787aa27857ba80152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDialogue: {fileID: 11400000, guid: 583dfffaf5fa2d24e8b6249c556783c8, type: 2}
+  initialDialogue: {fileID: 11400000, guid: 2f49b2ddb95c4be479db10506fd152cb, type: 2}
 --- !u!114 &327388434
 MonoBehaviour:
   m_ObjectHideFlags: 0
