@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 844a7419f6524f93b7f6e943a51912e1, type: 3}
-  m_Name: FeathersAttackOnly
+  m_Name: Boss3
   m_EditorClassIdentifier: 
   attackQueue:
   - {fileID: 11400000, guid: d8ab469c9d11c9547824ea5af8d242e5, type: 2}
