@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f476aa81aa1a4b0081e5a6aadc129dfe, type: 3}
+  m_Name: ToyThrow
+  m_EditorClassIdentifier: 
+  uxElements: []
+  prefabs:
+  - {fileID: 3321753871512799819, guid: b1b3d7f7b0e4ba84182040413c805773, type: 3}
+  - {fileID: 7969560208118685525, guid: 0748171fd5e53fd42a130c1eba1f930a, type: 3}
+  - {fileID: 1186577261208634036, guid: 7a626dc511518f14b828ba195a834f9f, type: 3}
+  - {fileID: 2945801687878480496, guid: f884aaefd6b897e4baad51891f259ee8, type: 3}
+  - {fileID: 5045488462433531450, guid: e1fd109e4582cd845b40365857305a0c, type: 3}
+  - {fileID: 7397069146178356838, guid: 2cb16793cf9d872478e3634a1381da71, type: 3}
+  - {fileID: 2749789233723297876, guid: 6462f99593bed4b4ba516d994bf91fad, type: 3}
+  spawnCount: 20
+  delayBetweenSpawns: 0.5
+  references:
+    version: 2
+    RefIds: []

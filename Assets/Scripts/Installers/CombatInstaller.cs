@@ -53,6 +53,7 @@ namespace Installers
             }
             
             Container.BindInterfacesAndSelfTo<CombatController>().AsSingle().NonLazy();
+            Container.Bind<SpawnerPositionSelector>().AsTransient();
         }
     }
 }

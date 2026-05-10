@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Boss3
   m_EditorClassIdentifier: 
   attackQueue:
+  - {fileID: 11400000, guid: 4772a6a13ca0b7a4eab13ab393f14285, type: 2}
   - {fileID: 11400000, guid: d8ab469c9d11c9547824ea5af8d242e5, type: 2}
   intermediateStrategy: {fileID: 11400000, guid: 783df9a5afc2d5c419f8125e418319cd, type: 2}

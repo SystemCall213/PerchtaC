@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading;
-using Combat.Arena;
 using Combat.Interfaces;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -8,26 +7,22 @@ using Zenject;
 
 namespace Combat.Strategies
 {
-    [CreateAssetMenu(fileName = "MultipleObjectsAttack", menuName = "Combat/Strategies/MultipleObjects")]
-    public class MultipleObjectsSpawnAttackStrategy : AttackStrategy
+    [CreateAssetMenu(fileName = "SpawnerDelayedAttack", menuName = "Combat/Strategies/SpawnerDelayedAttack")]
+    public class SpawnerDelayedAttackStrategy : AttackStrategy
     {
         [SerializeField] private List<GameObject> prefabs;
         [SerializeField] private int spawnCount = 10;
         [SerializeField] private float delayBetweenSpawns = 0.5f;
-        [SerializeField] private RadialPositionSelectorData positionSelectorData;
 
-        [Inject] private CombatArena _arena;
+        [Inject] private SpawnerPositionSelector _spawnerSelector;
         [Inject] private IInstantiator _instantiator;
+        
         private bool _isAttacking;
-
-        private void OnEnable()
-        {
-            positionSelectorData.ValidateAndInitialize();
-        }
 
         public override void StartAttack(CancellationToken ct)
         {
             ExecuteAsync(ct).Forget();
+            RaiseAttackStarted();
         }
 
         private async UniTaskVoid ExecuteAsync(CancellationToken ct)
@@ -38,25 +33,23 @@ namespace Combat.Strategies
             {
                 if (ct.IsCancellationRequested) break;
                 
-                SpawnProjectile(positionSelectorData.selector.GetNextPositionFactor());
+                SpawnProjectile(_spawnerSelector.GetNextPosition());
                 await UniTask.Delay((int)(delayBetweenSpawns * 1000), cancellationToken: ct);
             }
 
             if (!ct.IsCancellationRequested)
             {
-                await UniTask.Delay(5000, cancellationToken: ct);
+                await UniTask.Delay(1000, cancellationToken: ct);
             }
             
             _isAttacking = false;
+            RaiseAttackFinished();
         }
 
-        private void SpawnProjectile(float factor)
+        private void SpawnProjectile(Vector3 position)
         {
-            if (prefabs == null || prefabs.Count == 0) return;
-            
             GameObject prefab = prefabs[Random.Range(0, prefabs.Count)];
-            Vector2 spawnPos = _arena.GetPositionOutside(factor);
-            GameObject proj = _instantiator.InstantiatePrefab(prefab, spawnPos, Quaternion.identity, null);
+            GameObject spawned = _instantiator.InstantiatePrefab(prefab, position, Quaternion.identity, null);
         }
 
         public override bool IsAttacking() => _isAttacking;
