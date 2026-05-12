@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4281162589706951370, guid: b35edfbb3594d1b4eaf7817e76a89515, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e1f0f00e7db574428634377186d4c49, type: 2}
     - target: {fileID: 5841273118739629186, guid: b35edfbb3594d1b4eaf7817e76a89515, type: 3}
       propertyPath: m_Name
       value: GrayBack
