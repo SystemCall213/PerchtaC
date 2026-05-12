@@ -43,7 +43,11 @@ namespace Glyph.Glyph_HoldPoint
                 currentGlyphIndex = 0;
             }
             LineRenderer lineRend = glyphLineRenderers[currentGlyphIndex++];
-            Destroy(lineRenderer);
+            if (lineRenderer != null)
+            {
+                Destroy(lineRenderer.gameObject);
+                lineRenderer = null;
+            }
             lineRenderer = Instantiate(lineRend, transform);
         }
 
@@ -52,16 +56,9 @@ namespace Glyph.Glyph_HoldPoint
             if (lineRenderer == null || lineRenderer.positionCount == 0 || glyphFollowerPrefab == null) return;
 
             GlyphFollower follower = instantiator.InstantiatePrefabForComponent<GlyphFollower>(glyphFollowerPrefab);
-
-            Vector3[] positions = new Vector3[lineRenderer.positionCount];
-            lineRenderer.GetPositions(positions);
             
-            for (int i = 0; i < positions.Length; i++)
-            {
-                positions[i] = lineRenderer.transform.TransformPoint(positions[i]);
-            }
 
-            follower.Initialize(positions, player,this, () => {
+            follower.Initialize(lineRenderer, player,this, () => {
                 glyphFacade.TriggerGlyphPainted();});
         }
 
