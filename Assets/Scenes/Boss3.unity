@@ -592,7 +592,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 789743248}
     m_Modifications:
-    - target: {fileID: 3956013066394103563, guid: 76712183bb0144143af9138e9be405b8, type: 3}
+    - target: {fileID: 5379041159367086962, guid: 76712183bb0144143af9138e9be405b8, type: 3}
       propertyPath: entity
       value: 
       objectReference: {fileID: 1558898380}
@@ -658,11 +658,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8501256683052381057, guid: 76712183bb0144143af9138e9be405b8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 7.97
+      value: 8.34
       objectReference: {fileID: 0}
     - target: {fileID: 8501256683052381057, guid: 76712183bb0144143af9138e9be405b8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 4.23
       objectReference: {fileID: 0}
     - target: {fileID: 8501256683052381057, guid: 76712183bb0144143af9138e9be405b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2126,7 +2126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe4a059738c0e744b7faf9b3c7a51f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
 --- !u!114 &1558898383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2940,7 +2939,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab42accf02444791a942f15f0a0399c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 9
   ImmunityTime: 2
 --- !u!114 &1904736121
 MonoBehaviour:
