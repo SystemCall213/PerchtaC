@@ -17,12 +17,11 @@ namespace UI
         [SerializeField] private List<string> fightSceneNames;
         [SerializeField] private Sprite cleanRoomImage;
         [SerializeField] private Image background;
+        [SerializeField] private Animator bgAnimator;
 
         private void OnEnable()
         {
             doorButton.onClick.AddListener(GoToNextLevel);
-            gameStateMachine.OnStateChanged += CheckButtonState;
-            CheckButtonState(gameStateMachine.CurrentState);
             sceneLoader.BattleEnded += CleanRoom;
             
             for (int i = 0; i < fightButtons.Count; i++)
@@ -41,7 +40,7 @@ namespace UI
             {
                 btn.onClick.RemoveAllListeners();
             }
-            gameStateMachine.OnStateChanged -= CheckButtonState;
+            sceneLoader.BattleEnded -= CleanRoom;
         }
 
         private void Fight(string sceneName)
@@ -52,27 +51,6 @@ namespace UI
         private void GoToNextLevel()
         {
             sceneLoader.LoadNextLevel();
-        }
-
-        private void  CheckButtonState(State state)
-        {
-            if (state is RoomState)
-            {
-                foreach (var fightButton in fightButtons)
-                {
-                    fightButton.interactable = true;
-                    fightButton.gameObject.SetActive(true);
-                }
-            }
-
-            else
-            {
-                foreach (var fightButton in fightButtons)
-                {
-                    fightButton.interactable = false;
-                    fightButton.gameObject.SetActive(false);
-                }
-            }
         }
         
         private void CleanRoom()
@@ -85,7 +63,8 @@ namespace UI
             
             doorButton.interactable = true;
             doorButton.gameObject.SetActive(true);
-
+            
+            bgAnimator.enabled = false;
             background.sprite = cleanRoomImage;
         }
     }

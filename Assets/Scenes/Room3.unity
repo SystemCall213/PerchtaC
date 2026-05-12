@@ -337,6 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDialogue: {fileID: 11400000, guid: 2f49b2ddb95c4be479db10506fd152cb, type: 2}
+  cleanedRoomDialogue: {fileID: 0}
 --- !u!114 &327388434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -951,8 +952,9 @@ MonoBehaviour:
   - {fileID: 236535864}
   fightSceneNames:
   - Boss3
-  cleanRoomImage: {fileID: 21300000, guid: ce87b8e64011ae046b5eb10754ff67f4, type: 3}
+  cleanRoomImage: {fileID: 21300000, guid: 881b54f42cc0d694cae3f6c524a333b1, type: 3}
   background: {fileID: 1708911909}
+  bgAnimator: {fileID: 1708911911}
 --- !u!114 &945410389
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -336,7 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bdc4e6d7ad4c7787aa27857ba80152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDialogue: {fileID: 11400000, guid: 583dfffaf5fa2d24e8b6249c556783c8, type: 2}
+  initialDialogue: {fileID: 0}
+  cleanedRoomDialogue: {fileID: 11400000, guid: 2f49b2ddb95c4be479db10506fd152cb, type: 2}
 --- !u!114 &327388434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -953,6 +954,7 @@ MonoBehaviour:
   - Boss2
   cleanRoomImage: {fileID: 21300000, guid: ce87b8e64011ae046b5eb10754ff67f4, type: 3}
   background: {fileID: 1708911909}
+  bgAnimator: {fileID: 1708911911}
 --- !u!114 &945410389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2077,6 +2079,7 @@ GameObject:
   - component: {fileID: 1708911908}
   - component: {fileID: 1708911910}
   - component: {fileID: 1708911909}
+  - component: {fileID: 1708911911}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -2141,6 +2144,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708911907}
   m_CullTransparentMesh: 1
+--- !u!95 &1708911911
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708911907}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1802296229
 GameObject:
   m_ObjectHideFlags: 0

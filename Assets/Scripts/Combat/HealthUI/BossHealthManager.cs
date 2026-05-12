@@ -61,7 +61,7 @@ namespace Combat.HealthUI
 
         private void OnHealthDeath()
         {
-            sceneLoader.LoadNextLevel();
+            sceneLoader.UnloadCombatScene();
         }
     }
 }

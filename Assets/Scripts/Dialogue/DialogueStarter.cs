@@ -1,3 +1,4 @@
+using System;
 using CoreLoop.Interfaces;
 using CoreLoop.States;
 using Dialogue;
@@ -9,9 +10,28 @@ public class DialogueStarter : MonoBehaviour
 {
     [Inject] private readonly IGameStateMachine gameStateMachine;
     [Inject] private readonly DialogueState.Factory dialogueStateFactory;
-    [Inject] private readonly DialogueSO dialogueSo;
+    [Inject] private readonly ISceneLoader sceneLoader;
+    [Inject(Id = "InitialDialogue")] private readonly DialogueSO initialDialogueSO;
+    [Inject(Id = "CleanedRoomDialogue")] private readonly DialogueSO cleanedRoomDialogueSO;
     private void Start()
     {
-        gameStateMachine.ChangeState(dialogueStateFactory.Create(dialogueSo));
+        if (initialDialogueSO)
+            gameStateMachine.ChangeState(dialogueStateFactory.Create(initialDialogueSO));
+    }
+
+    private void OnEnable()
+    {
+        sceneLoader.BattleEnded += StartCleanedRoomDialogue;
+    }
+    
+    private void OnDisable()
+    {
+        sceneLoader.BattleEnded -= StartCleanedRoomDialogue;
+    }
+
+    public void StartCleanedRoomDialogue()
+    {
+        if (cleanedRoomDialogueSO)
+            gameStateMachine.ChangeState(dialogueStateFactory.Create(cleanedRoomDialogueSO));
     }
 }

@@ -7,10 +7,12 @@ namespace Installers
     public class LevelInstaller : MonoInstaller
     {
         [SerializeField] private DialogueSO initialDialogue;
+        [SerializeField] private DialogueSO cleanedRoomDialogue;
         
         public override void InstallBindings()
         {
-            Container.Bind<DialogueSO>().FromInstance(initialDialogue).AsSingle();
+            Container.Bind<DialogueSO>().WithId("InitialDialogue").FromInstance(initialDialogue);
+            Container.Bind<DialogueSO>().WithId("CleanedRoomDialogue").FromInstance(cleanedRoomDialogue);
         }
     }
 }

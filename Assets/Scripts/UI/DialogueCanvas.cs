@@ -63,7 +63,7 @@ namespace UI.Interfaces
 
         public void Open()
         {
-            canvas.gameObject.SetActive(true);
+            canvas.enabled = true;
 
             canvasGroup.alpha = 0;
             canvasGroup.interactable = false;
@@ -87,7 +87,7 @@ namespace UI.Interfaces
             canvasGroup.DOFade(0f, 1.5f).OnComplete(() =>
             {
                 canvasGroup.blocksRaycasts = false;
-                canvas.gameObject.SetActive(false);
+                canvas.enabled = false;
             });
         }
 
