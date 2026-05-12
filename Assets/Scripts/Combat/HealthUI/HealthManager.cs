@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Combat.Interfaces;
 using CoreLoop.Interfaces;
-using CoreLoop.States;
 using UnityEngine;
 using Zenject;
 
@@ -32,7 +31,8 @@ namespace Combat.HealthUI
                 return;
             }
             health = entity.GetComponent<IHealth>();
-
+            health.SetMaxHealth(healthPieces.Count);
+            
             InitializeHealthKnobs();
             SubscribeToHealthEvents();
         }

@@ -7,7 +7,7 @@ using Zenject;
 public class BossHealth : MonoBehaviour, IHealth
 {
     [Inject] private readonly IGlyphFacade glyphFacade;
-    [SerializeField] private int maxHealth;
+    private int maxHealth;
     private int health;
     public event Action<int> OnDamage;
     public event Action<int> OnHeal;
@@ -55,6 +55,12 @@ public class BossHealth : MonoBehaviour, IHealth
         return health <= 0;
     }
 
+    public void SetMaxHealth(int _maxHealth)
+    {
+        maxHealth = _maxHealth;
+        health = maxHealth;
+    }
+    
     public int GetMaxHealth()
     {
         return maxHealth;

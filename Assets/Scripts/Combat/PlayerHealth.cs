@@ -9,11 +9,11 @@ namespace Combat
 {
     public class PlayerHealth : MonoBehaviour, IHealth
     {
-        [SerializeField] private int maxHealth;
         [SerializeField] private float ImmunityTime;
         
         private SpriteRenderer spriteRenderer;
         private int health;
+        private int maxHealth;
         private float currentImmunityTimer;
         private CancellationTokenSource immunityCts;
         private Tween immunityTween;
@@ -63,6 +63,12 @@ namespace Combat
         public bool IsDead()
         {
             return health <= 0;
+        }
+
+        public void SetMaxHealth(int _maxHealth)
+        {
+            maxHealth = _maxHealth;
+            health = maxHealth;
         }
 
         public async UniTaskVoid GainImmunity(float duration)

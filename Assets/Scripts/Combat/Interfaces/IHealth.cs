@@ -12,6 +12,7 @@ namespace Combat.Interfaces
         void Heal(int heal);
         void Die();
         bool IsDead();
+        void SetMaxHealth(int maxHealth);
         int GetMaxHealth();
     }
 }
