@@ -53,7 +53,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e1f0f00e7db574428634377186d4c49, type: 2}
+  - {fileID: 2100000, guid: 79c514768d1993f46b6340e329e2eb72, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,7 +81,7 @@ LineRenderer:
   - {x: 0.7, y: 1, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.12
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -252,7 +252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4452627963562574385, guid: d2c855aeb38c84e4e8c6238457314b6f, type: 3}
       propertyPath: m_Parameters.widthMultiplier
-      value: 0.1
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 4452627963562574385, guid: d2c855aeb38c84e4e8c6238457314b6f, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
