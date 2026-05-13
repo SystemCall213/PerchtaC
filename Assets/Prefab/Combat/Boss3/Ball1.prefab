@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.82, y: -1.08, z: 0}
-  m_LocalScale: {x: 0.075, y: 0.075, z: 0.075}
+  m_LocalScale: {x: 0.065, y: 0.065, z: 0.065}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,7 +101,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: b1b5db12438615e4ca6d6fd4df8a2dcb, type: 2}
@@ -165,7 +165,7 @@ MonoBehaviour:
   _scaleUpDuration: 0.5
   _scaleDownDuration: 0.5
   _normalScale: {x: 0.075, y: 0.075, z: 1}
-  _impulseForce: 7
+  _impulseForce: 9
   _bounceDuration: 10
   _delayBetweenBounces: 0.5
   _bounceRandomYOffset: 3

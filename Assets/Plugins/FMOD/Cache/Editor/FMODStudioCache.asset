@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639142855886695566
+  lastModified: 639142833015822168
   FileSizes:
   - Name: Desktop
     Value: 9501760
@@ -87,7 +87,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639142817590090220
+  lastModified: 639142801144314877
   FileSizes:
   - Name: Desktop
     Value: 23744
@@ -173,7 +173,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 350716027781193484}
   cacheVersion: 131858
-  cacheTime: 639142855886695566
+  cacheTime: 639142833015822168
   SerializableEventsDict:
   - key: event:/dmg effect quick
     index: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639142817745003887
+  lastModified: 639142820535571631
   FileSizes:
   - Name: Desktop
     Value: 1168
@@ -247,7 +247,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639142817745003887
+  lastModified: 639142820535550146
   FileSizes:
   - Name: Desktop
     Value: 1554
