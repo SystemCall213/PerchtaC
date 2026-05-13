@@ -9,7 +9,6 @@ namespace CoreLoop.StatePayload
     public class CombatStatePayload : IStatePayload
     {
         [SerializeField] private MusicId musicId;
-
         public MusicId MusicId => musicId;
     }
 }

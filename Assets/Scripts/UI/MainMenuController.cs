@@ -37,7 +37,7 @@ namespace UI
 
         public void Play()
         { 
-            sceneLoader.LoadNextLevel();
+            sceneLoader.LoadCinematicScene("IntroCinematic");
         }
         
         public void Settings()

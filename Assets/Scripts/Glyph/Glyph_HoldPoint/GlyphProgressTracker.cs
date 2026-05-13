@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Combat.Interfaces;
 using Glyph.Interfaces;
 using UnityEngine;
@@ -24,13 +25,13 @@ namespace Glyph.Glyph_HoldPoint
 
         private void Start()
         {
+            glyphLineRenderers = glyphLineRenderers.OrderBy(_ => Guid.NewGuid()).ToList();
             UpdateLineRenderer(0);
             glyphFacade.OnGlyphPainted += UpdateLineRenderer;
         }
 
         public void UpdateLineRenderer(int damage)
         {
-            
             SpawnLineRenderer();
             SpawnFollower();
         }

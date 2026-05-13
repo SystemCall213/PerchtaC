@@ -1,17 +1,22 @@
-﻿using CoreLoop.Interfaces;
+﻿using Audio;
+using CoreLoop.Interfaces;
+using CoreLoop.StatePayload;
 using Zenject;
 
 namespace CoreLoop.States
 {
     [SceneState(SceneStateType.Cinematic)]
-    public class CinematicState : State
+    public class CinematicState : State<CinematicStatePayload>
     {
+        private readonly MusicId cinematicMusic;
         private readonly ISceneLoader sceneLoader;
         private readonly DefaultActions defaultActions;
 
         [Inject]
-        public CinematicState(ISceneLoader sceneLoader, DefaultActions defaultActions)
+        public CinematicState(CinematicStatePayload payload, ISceneLoader sceneLoader, DefaultActions defaultActions)
         {
+            Payload = payload;
+            cinematicMusic = payload.MusicId;
             this.sceneLoader = sceneLoader;
             this.defaultActions = defaultActions;
         }

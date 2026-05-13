@@ -3,7 +3,7 @@ VAR perchta = ""
 
 === Perchta ===
 # speaker:<b><size=120%>Perchta</size=120%></b>
-Oh, little child. Pardon my visit.
+Oh, <wave>little child</wave>. Pardon my visit.
 # speaker:<b><size=120%>Perchta</size=120%></b>
 As you see, I came for your mommy…
 # speaker:<b>Girl</b>
