@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PuncherWormAttackStrategy
   m_EditorClassIdentifier: 
   uxElements: []
-  prefab: {fileID: 4064746131741947710, guid: 09afaaab3e773aa48a84d2fae947e6f9, type: 3}
+  prefabs:
+  - {fileID: 4064746131741947710, guid: 09afaaab3e773aa48a84d2fae947e6f9, type: 3}
   spawnCount: 10
   delayBetweenSpawns: 1.5
   positionSelectorData:

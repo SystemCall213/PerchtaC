@@ -1,7 +1,7 @@
+using System.Collections.Generic;
 using System.Threading;
 using Combat.Arena;
 using Combat.Interfaces;
-using Combat.Misc;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
@@ -11,7 +11,7 @@ namespace Combat.Strategies
     [CreateAssetMenu(fileName = "RandomSpawnAttack", menuName = "Combat/Strategies/RandomSpawn")]
     public class DelayedSpawnAttackStrategy : AttackStrategy
     {
-        [SerializeField] private GameObject prefab;
+        [SerializeField] private List<GameObject> prefabs;
         [SerializeField] private int spawnCount = 10;
         [SerializeField] private float delayBetweenSpawns = 0.5f;
         [SerializeField] private RadialPositionSelectorData positionSelectorData;
@@ -55,8 +55,10 @@ namespace Combat.Strategies
         private void SpawnProjectile(float factor)
         {
             Vector2 spawnPos = _arena.GetPositionOutside(factor);
-            GameObject proj = _instantiator.InstantiatePrefab(prefab, spawnPos, Quaternion.identity, null);
+            GameObject randomPrefab = prefabs[Random.Range(0, prefabs.Count)];
+            GameObject proj = _instantiator.InstantiatePrefab(randomPrefab, spawnPos, Quaternion.identity, null);
         }
+
 
         public override bool IsAttacking() => _isAttacking;
     }

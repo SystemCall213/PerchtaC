@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: BottleFallingAttackStrategy
   m_EditorClassIdentifier: 
   uxElements: []
-  prefab: {fileID: 7478421085417571250, guid: 615daf0e2aacb074c99b60820ef4db44, type: 3}
+  prefabs:
+  - {fileID: 7478421085417571250, guid: 615daf0e2aacb074c99b60820ef4db44, type: 3}
+  - {fileID: 4399521891984506810, guid: 4543e5ed5cc6e924c9c0ffed11166bd1, type: 3}
+  - {fileID: 4927288280626411541, guid: ed7a5e6cffac26a43ada060a86569b84, type: 3}
   spawnCount: 10
   delayBetweenSpawns: 0.75
   positionSelectorData:

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: GarbageHazardAttackStrategy
   m_EditorClassIdentifier: 
   uxElements: []
-  prefab: {fileID: 4438594437845392663, guid: e0c61425c0ca6544f9f2190cfdf8c073, type: 3}
+  prefabs:
+  - {fileID: 4438594437845392663, guid: e0c61425c0ca6544f9f2190cfdf8c073, type: 3}
   spawnCount: 30
   delayBetweenSpawns: 0.5
   positionSelectorData:
