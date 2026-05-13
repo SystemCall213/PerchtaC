@@ -24,7 +24,8 @@ namespace UI
 
         private void OnEnable()
         {
-            doorButton.onClick.AddListener(GoToNextLevel);
+            if (doorButton)
+                doorButton.onClick.AddListener(GoToNextLevel);
             sceneLoader.BattleEnded += CleanRoom;
             
             for (int i = 0; i < fightButtons.Count; i++)
@@ -37,7 +38,8 @@ namespace UI
 
         private void OnDisable()
         {
-            doorButton.onClick.RemoveListener(GoToNextLevel);
+            if (doorButton)
+                doorButton.onClick.RemoveListener(GoToNextLevel);
             
             foreach (Button btn in fightButtons)
             {
@@ -63,9 +65,12 @@ namespace UI
                 fightButton.interactable = false;
                 fightButton.gameObject.SetActive(false);
             }
-            gameStateMachine.ChangeState(roomStateFactory.Create(new RoomStatePayload()));
-            doorButton.interactable = true;
-            doorButton.gameObject.SetActive(true);
+
+            if (doorButton)
+            {
+                doorButton.interactable = true;
+                doorButton.gameObject.SetActive(true);
+            }
             
             bgAnimator.enabled = false;
             background.sprite = cleanRoomImage;
