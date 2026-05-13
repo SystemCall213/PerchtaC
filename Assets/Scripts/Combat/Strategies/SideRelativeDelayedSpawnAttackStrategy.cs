@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading;
 using Combat.Arena;
 using Combat.Arena.SideRelativePositionSelectors;
@@ -11,7 +12,7 @@ namespace Combat.Strategies
     [CreateAssetMenu(fileName = "SideRelativeDelayedSpawnAttack", menuName = "Combat/Strategies/SideRelativeDelayedSpawn")]
     public class SideRelativeDelayedSpawnAttackStrategy : AttackStrategy
     {
-        [SerializeField] private GameObject prefab;
+        [SerializeField] private List<GameObject> prefabs;
         [SerializeField] private int spawnCount = 10;
         [SerializeField] private float delayBetweenSpawns = 0.5f;
         [SerializeField] private SideRelativePositionSelectorData positionSelectorData;
@@ -57,7 +58,8 @@ namespace Combat.Strategies
         private void SpawnProjectile(ArenaPositionSideFactor factor)
         {
             Vector2 spawnPos = _arena.GetSidedPosition(factor, projectileOffset);
-            GameObject proj = _instantiator.InstantiatePrefab(prefab, spawnPos, Quaternion.identity, null);
+            GameObject randomPrefab = prefabs[Random.Range(0, prefabs.Count)];
+            GameObject proj = _instantiator.InstantiatePrefab(randomPrefab, spawnPos, Quaternion.identity, null);
         }
 
         public override bool IsAttacking() => _isAttacking;

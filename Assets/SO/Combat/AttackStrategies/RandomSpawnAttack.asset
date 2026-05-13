@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: RandomSpawnAttack
   m_EditorClassIdentifier: 
   uxElements: []
-  prefab: {fileID: 5583829441603358880, guid: 37e1b116df981504294ae95dca7e7316, type: 3}
+  prefabs:
+  - {fileID: 5583829441603358880, guid: 37e1b116df981504294ae95dca7e7316, type: 3}
+  - {fileID: 1322455272115880256, guid: 33fd345fd8dc7af458306271bf18e82a, type: 3}
+  - {fileID: 6224647342516546299, guid: a539a9e332945164b912aa1e8df056aa, type: 3}
+  - {fileID: 4425674960350088487, guid: 269397794baf5fa4c8e8b20b7e04157c, type: 3}
   spawnCount: 20
   delayBetweenSpawns: 0.3
   positionSelectorData:

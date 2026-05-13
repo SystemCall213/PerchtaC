@@ -21,6 +21,7 @@ MonoBehaviour:
   - {fileID: 5045488462433531450, guid: e1fd109e4582cd845b40365857305a0c, type: 3}
   - {fileID: 7397069146178356838, guid: 2cb16793cf9d872478e3634a1381da71, type: 3}
   - {fileID: 2749789233723297876, guid: 6462f99593bed4b4ba516d994bf91fad, type: 3}
+  - {fileID: 2393302622331084395, guid: 8330344e6af9dd04d9ec1a746c706216, type: 3}
   spawnCount: 30
   delayBetweenSpawns: 0.35
   references:

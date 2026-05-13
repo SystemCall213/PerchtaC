@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0010e3ad75fa42ee95b877eba3cd5b11, type: 3}
   m_Name: 3RoomCleanDialogue
   m_EditorClassIdentifier: 
-  json: {fileID: 0}
-  knotName: 
+  json: {fileID: 4900000, guid: b1c9e19ddb35951418d7e2a403bb94bc, type: 3}
+  knotName: Perchta
