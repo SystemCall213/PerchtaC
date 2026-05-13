@@ -344,7 +344,7 @@ MonoBehaviour:
     - rid: 5803789762553970690
       type: {class: RoomStatePayload, ns: CoreLoop.StatePayload, asm: GameStateMAchine}
       data:
-        musicId: 12
+        musicId: 13
 --- !u!1 &740743173
 GameObject:
   m_ObjectHideFlags: 0

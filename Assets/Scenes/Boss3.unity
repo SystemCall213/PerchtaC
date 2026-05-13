@@ -654,12 +654,14 @@ MonoBehaviour:
   initialState:
     stateType: 3
     payload:
-      rid: -2
+      rid: 5803790024596783105
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 5803790024596783105
+      type: {class: CombatStatePayload, ns: CoreLoop.StatePayload, asm: GameStateMAchine}
+      data:
+        musicId: 13
 --- !u!114 &611498123
 MonoBehaviour:
   m_ObjectHideFlags: 0

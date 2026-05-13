@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using Audio;
 using CoreLoop.Interfaces;
+using CoreLoop.StatePayload;
 using CoreLoop.States;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +13,7 @@ namespace UI
     public class InteractableController : MonoBehaviour
     {
         [Inject] private readonly IGameStateMachine gameStateMachine;
+        [Inject] private readonly RoomState.Factory roomStateFactory;
         [Inject] private readonly ISceneLoader sceneLoader;
         [SerializeField] private Button doorButton;
         [SerializeField] private List<Button> fightButtons;
@@ -60,7 +63,7 @@ namespace UI
                 fightButton.interactable = false;
                 fightButton.gameObject.SetActive(false);
             }
-            
+            gameStateMachine.ChangeState(roomStateFactory.Create(new RoomStatePayload()));
             doorButton.interactable = true;
             doorButton.gameObject.SetActive(true);
             

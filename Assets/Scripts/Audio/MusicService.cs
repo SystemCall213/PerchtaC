@@ -5,16 +5,10 @@ using StudioStopMode = FMOD.Studio.STOP_MODE;
 
 namespace Audio
 {
-    public enum MusicDestinationMarker
-    {
-        Room,
-        Boss
-    }
-
     public interface IMusicService
     {
         void Request(MusicId id);
-        void RequestIfNotPlaying(MusicId id, MusicDestinationMarker destinationMarker);
+        void RequestIfNotPlaying(MusicId id);
         void SetIsInRoom(bool isInRoom);
     }
 
@@ -29,38 +23,29 @@ namespace Audio
         {
             this.catalog = catalog;
         }
+        
 
-        public void Request(MusicId id)
-        {
-            Request(id, null);
-        }
-
-        public void RequestIfNotPlaying(MusicId id, MusicDestinationMarker destinationMarker)
+        public void RequestIfNotPlaying(MusicId id)
         {
             if (IsPlaying()) return;
 
-            Request(id, destinationMarker);
+            Request(id);
         }
 
-        private void Request(MusicId id, MusicDestinationMarker? destinationMarker)
+        public void Request(MusicId id)
         {
-            if (id == MusicId.None) return;
-
             if (currentId == id && IsPlaying()) return;
-
-            if (!catalog.TryGet(id, out var reference)) return;
 
             if (current.isValid())
             {
                 current.stop(StudioStopMode.ALLOWFADEOUT);
                 current.release();
+                current = default;
+                currentId = null;
             }
-
+            if (!catalog.TryGet(id, out var reference)) return;
             current = RuntimeManager.CreateInstance(reference);
-            if (destinationMarker.HasValue)
-            {
-                JumpToDestinationMarker(destinationMarker.Value);
-            }
+            
 
             current.start();
             currentId = id;
@@ -68,23 +53,7 @@ namespace Audio
 
         public void SetIsInRoom(bool isInRoom)
         {
-            if (!current.isValid()) return;
-            current.setParameterByName("IsInRoom", isInRoom ? 1f : 0f);
-        }
-
-        private void JumpToDestinationMarker(MusicDestinationMarker destinationMarker)
-        {
-            switch (destinationMarker)
-            {
-                case MusicDestinationMarker.Room:
-                    SetIsInRoom(true);
-                    break;
-                case MusicDestinationMarker.Boss:
-                    SetIsInRoom(false);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(destinationMarker), destinationMarker, null);
-            }
+            RuntimeManager.StudioSystem.setParameterByName("IsInRoom", isInRoom ? 1f : 0f);
         }
 
         private bool IsPlaying()

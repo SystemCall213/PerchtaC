@@ -528,7 +528,7 @@ MonoBehaviour:
     - rid: 5803789762553970689
       type: {class: CombatStatePayload, ns: CoreLoop.StatePayload, asm: GameStateMAchine}
       data:
-        musicId: 21
+        musicId: 12
 --- !u!114 &611498123
 MonoBehaviour:
   m_ObjectHideFlags: 0
