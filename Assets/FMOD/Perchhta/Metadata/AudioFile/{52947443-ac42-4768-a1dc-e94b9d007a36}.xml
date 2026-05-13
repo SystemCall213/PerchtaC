@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{52947443-ac42-4768-a1dc-e94b9d007a36}">
+		<property name="assetPath">
+			<value>sleepy.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>137.17116666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7cb4e597-f557-4c60-9716-ee404b86be3b}</destination>
+		</relationship>
+	</object>
+</objects>
