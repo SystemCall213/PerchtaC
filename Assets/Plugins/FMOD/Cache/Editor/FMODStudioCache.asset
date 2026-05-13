@@ -15,12 +15,36 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639142367184351932
+  lastModified: 639142813161447074
   FileSizes:
   - Name: Desktop
-    Value: 3999840
+    Value: 9501728
   Exists: 1
---- !u!114 &-5269323688162405965
+--- !u!114 &-6768758850238775504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Room1/IsInRoom
+  m_EditorClassIdentifier: 
+  Name: IsInRoom
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1405334970
+    data2: 2825024226
+  Type: 1
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-6295481507800915279
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,23 +54,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Menu
+  m_Name: event:/Music/Room3
   m_EditorClassIdentifier: 
-  Path: event:/Menu
+  Path: event:/Music/Room3
   Guid:
-    Data1: 172120642
-    Data2: 1265067085
-    Data3: 1685465519
-    Data4: 400516320
+    Data1: 593213668
+    Data2: 1294421094
+    Data3: 1846553473
+    Data4: 747221560
   Banks:
   - {fileID: -8413986079484656142}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: -2949653770299817004}
   MinDistance: 1
   MaxDistance: 20
-  Length: 42853
+  Length: 166956
 --- !u!114 &-5199378761368018898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,11 +87,62 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639142762309002649
+  lastModified: 639142801144314877
   FileSizes:
   - Name: Desktop
     Value: 23744
   Exists: 1
+--- !u!114 &-2949653770299817004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Room3/IsInRoom
+  m_EditorClassIdentifier: 
+  Name: IsInRoom
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1405334970
+    data2: 2825024226
+  Type: 1
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-2187183519980192669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Menu
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Menu
+  Guid:
+    Data1: 172120642
+    Data2: 1265067085
+    Data3: 1685465519
+    Data4: 400516320
+  Banks:
+  - {fileID: -8413986079484656142}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 42853
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,26 +161,30 @@ MonoBehaviour:
   - {fileID: -8413986079484656142}
   - {fileID: -5199378761368018898}
   EditorEvents:
-  - {fileID: 4517112354074352585}
-  - {fileID: -5269323688162405965}
-  - {fileID: 1247661965921163226}
   - {fileID: 1003613460650718928}
-  EditorParameters: []
+  - {fileID: 2606492475595564289}
+  - {fileID: -2187183519980192669}
+  - {fileID: 3644397318213528152}
+  - {fileID: -6295481507800915279}
+  EditorParameters:
+  - {fileID: 1377443797337480491}
   MasterBanks:
   - {fileID: 1324369379720746212}
   StringsBanks:
   - {fileID: 350716027781193484}
   cacheVersion: 131858
-  cacheTime: 639142762309002649
+  cacheTime: 639142813161447074
   SerializableEventsDict:
-  - key: event:/Room1
-    index: 0
-  - key: event:/Menu
-    index: 1
-  - key: event:/Boss1
-    index: 2
   - key: event:/dmg effect quick
+    index: 0
+  - key: event:/Music/Room1
+    index: 1
+  - key: event:/Music/Menu
+    index: 2
+  - key: event:/Music/Room2
     index: 3
+  - key: event:/Music/Room3
+    index: 4
 --- !u!114 &350716027781193484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,10 +200,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639142762308982588
+  lastModified: 639142801103100035
   FileSizes:
   - Name: Desktop
-    Value: 1060
+    Value: 1168
   Exists: 1
 --- !u!114 &1003613460650718928
 MonoBehaviour:
@@ -152,33 +232,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &1247661965921163226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Boss1
-  m_EditorClassIdentifier: 
-  Path: event:/Boss1
-  Guid:
-    Data1: -1643966708
-    Data2: 1248051688
-    Data3: 403658670
-    Data4: 1275486249
-  Banks:
-  - {fileID: -8413986079484656142}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 183829
 --- !u!114 &1324369379720746212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,12 +247,36 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639142367184230429
+  lastModified: 639142801103067140
   FileSizes:
   - Name: Desktop
-    Value: 1378
+    Value: 1554
   Exists: 1
---- !u!114 &4517112354074352585
+--- !u!114 &1377443797337480491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/IsInRoom
+  m_EditorClassIdentifier: 
+  Name: IsInRoom
+  StudioPath: parameter:/IsInRoom
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1405334970
+    data2: 2825024226
+  Type: 1
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &2606492475595564289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,9 +286,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Room1
+  m_Name: event:/Music/Room1
   m_EditorClassIdentifier: 
-  Path: event:/Room1
+  Path: event:/Music/Room1
   Guid:
     Data1: -300445172
     Data2: 1292968733
@@ -222,7 +299,60 @@ MonoBehaviour:
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: -6768758850238775504}
   MinDistance: 1
   MaxDistance: 20
-  Length: 68085
+  Length: 280000
+--- !u!114 &3644397318213528152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Room2
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Room2
+  Guid:
+    Data1: 996677038
+    Data2: 1265182798
+    Data3: 2061016509
+    Data4: 1442886312
+  Banks:
+  - {fileID: -8413986079484656142}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8401438064905353615}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 284393
+--- !u!114 &8401438064905353615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Room2/IsInRoom
+  m_EditorClassIdentifier: 
+  Name: IsInRoom
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1405334970
+    data2: 2825024226
+  Type: 1
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
