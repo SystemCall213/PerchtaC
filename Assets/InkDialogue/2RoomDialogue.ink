@@ -5,7 +5,7 @@ VAR perchta = ""
 # speaker:<b><size=120%>Perchta</size=120%></b>
 mmm… I see, <b>little cub</b> can fight for its life. Rather violently.
 # speaker:<b><size=120%>Perchta</size=120%></b>
-What scared you so in that filthy pile of garbage you’ve cleaned?
+What scared you so in that filthy pile of garbage you've cleaned?
 # speaker:<b><size=120%>Perchta</size=120%></b>
 What thy <i>wounded mind</i> sees there?
 # speaker:<b><size=120%>Perchta</size=120%></b>
@@ -15,10 +15,10 @@ Splendid work, <i><b>little one</b></i>.
 # speaker:<b><size=120%>Perchta</size=120%></b>
 yet I wonder…
 # speaker:<b><size=120%>Perchta</size=120%></b>
-<shiver><b>Where’s your mother’s body now, child?</shiver></b>
+<shiver><b>Where's your mother's body now, child?</shiver></b>
 # speaker:<b>Girl</b>
 <color="black">.</color="black">
-    + [<i><shiver>I’ll bury her…</shiver></i>]
+    + [<i><shiver>I'll bury her…</shiver></i>]
         -> bury
     + [<i><shiver>What do you want…?</shiver></i>]
         -> want
@@ -27,7 +27,7 @@ yet I wonder…
 # speaker:<b><size=120%>Perchta</size=120%></b>
 Little wasteful cub.
 # speaker:<b><size=120%>Perchta</size=120%></b>
-There’s so much <shiver><b><size=120%>meat</size=120%></shiver></b> left… Yet it is not me who hunted her down.
+There's so much <shiver><b><size=120%>meat</size=120%></shiver></b> left… Yet it is not me who hunted her down.
 
 -> end_dialogue
 
