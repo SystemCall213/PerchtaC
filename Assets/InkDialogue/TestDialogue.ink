@@ -5,7 +5,7 @@ VAR perchta = ""
 # speaker:<b><size=120%>Perchta</size=120%></b>
 Oh, <i>little child</i>. Pardon my visit.
 # speaker:<b><size=120%>Perchta</size=120%></b>
-I believe you shouldn’t have seen all this.
+I believe you shouldn't have seen all this.
 # speaker:<b><size=120%>Perchta</size=120%></b>
 As you see, I came for your <i>mommy…</i>
 # speaker:<b>Girl</b>
@@ -36,7 +36,7 @@ She dared to turn <i>this little</i> house into a <b><size=120%>BUGHOLE!</size=1
 <color="black">.</color="black">
     + [<i><shiver>W-w-will you kill me now?</shiver></i>]
         -> frightened
-    + [<i><shiver>It’s… It’s not her fault!</shiver></i>]
+    + [<i><shiver>It's… It's not her fault!</shiver></i>]
         -> fault
 
 === frightened ===
@@ -63,9 +63,9 @@ Clean all the mess here, and then I, with my sisters, will let you live.
 # speaker:<b><size=120%>Perchta</size=120%></b>
 Oh, <i>and be a sweetie</i>, bring us leftovers of that <shiver><b>delicious schnapps</b></shiver> that your mother had.
 # speaker:<b><size=120%>Perchta</size=120%></b>
-Don’t be scared now, <i>little one</i>, all these shadows are nothing but rubbish.
+Don't be scared now, <i>little one</i>, all these shadows are nothing but rubbish.
 # speaker:<b><size=120%>Perchta</size=120%></b>
-Yet I believe your imagination will be quite <b><i>humorous</i></b> after <b><shiver>what</shiver></b> you’ve seen.
+Yet I believe your imagination will be quite <b><i>humorous</i></b> after <b><shiver>what</shiver></b> you've seen.
 # speaker:<b><size=120%>Perchta</size=120%></b>
 <i><wave>Ehe-he-he-he-he</wave></i>
 

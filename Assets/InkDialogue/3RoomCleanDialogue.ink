@@ -3,7 +3,7 @@ VAR perchta = ""
 
 === Perchta ===
 # speaker:<b><size=120%>Perchta</size=120%></b>
-<b><size=160%>You’ve cleaned…</size=160%></b>
+<b><size=160%>You've cleaned…</size=160%></b>
 <color="black">.</color="black">
     + [<i><shiver>nod...</shiver></i>]
         -> first_choice
@@ -12,7 +12,7 @@ VAR perchta = ""
 
 === first_choice ===
 # speaker:<b><size=120%>Perchta</size=120%></b>
-<b><size=160%>You’re different… not like your mother.</size=160%></b>
+<b><size=160%>You're different… not like your mother.</size=160%></b>
 # speaker:<b><size=120%>Perchta</size=120%></b>
 <b><size=160%><shiver>Interesting…</shiver></size=160%></b>
 # speaker:<b><size=120%>Perchta</size=120%></b>
