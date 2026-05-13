@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDialogue: {fileID: 11400000, guid: 2f49b2ddb95c4be479db10506fd152cb, type: 2}
-  cleanedRoomDialogue: {fileID: 0}
+  cleanedRoomDialogue: {fileID: 11400000, guid: 35b2c9bf9f297274ab255dd38b608e66, type: 2}
 --- !u!114 &327388434
 MonoBehaviour:
   m_ObjectHideFlags: 0
