@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using Cinemachine;
 using Combat.Interfaces;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -12,6 +13,7 @@ namespace Combat
         [SerializeField] private float ImmunityTime;
         
         private SpriteRenderer spriteRenderer;
+        private CinemachineImpulseSource impulseSource;
         private int health;
         private int maxHealth;
         private float currentImmunityTimer;
@@ -27,6 +29,7 @@ namespace Combat
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
+            impulseSource = GetComponent<CinemachineImpulseSource>();
             health = maxHealth;
         }
 
@@ -49,6 +52,7 @@ namespace Combat
             }
             else
             {
+                impulseSource.GenerateImpulse();
                 GainImmunity(ImmunityTime).Forget();
             }
         }
