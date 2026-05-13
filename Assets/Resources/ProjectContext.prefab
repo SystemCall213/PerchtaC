@@ -84,6 +84,7 @@ MonoBehaviour:
   - Assets/Scenes/Room1.unity
   - Assets/Scenes/Room2.unity
   - Assets/Scenes/Room3.unity
+  loadingScreen: {fileID: 1059912421801596487, guid: 20f035c5dadca744da0a6b93ee0f3f8b, type: 3}
 --- !u!114 &8926279751076572044
 MonoBehaviour:
   m_ObjectHideFlags: 0
