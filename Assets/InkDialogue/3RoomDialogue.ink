@@ -3,11 +3,11 @@ VAR perchta = ""
 
 === Perchta ===
 # speaker:<b><size=120%>Perchta</size=120%></b>
-oho-Ho<b><size=120%>-HO</size=120%><size=140%>-HO</size=140%><size=160%>-HO</size=160%><size=180%>-HO!</size=180%></b>
+<wave>oho-Ho<b><size=120%>-HO</size=120%><size=140%>-HO</size=140%><size=160%>-HO</size=160%><size=180%>-HO!</size=180%></b></wave>
 # speaker:<b><size=120%>Perchta</size=120%></b>
 What do we have <i>hereee~</i> what a <i>child</i>, <b>what a lovely girl!</b>
 # speaker:<b><size=120%>Perchta</size=120%></b>
-You’ve cleaned the room well, <b><size=120%>oh, the whole room!</size=120%></b> See no dust, <b>no dust!</b>
+You’ve cleaned the room well, <b><size=140%>oh, the whole room!</size=140%></b> See no dust, <b>no dust!</b>
 # speaker:<b><size=120%>Perchta</size=120%></b>
 … now, your <b>Mother</b> has been a naughty girl. All these spells and sigils kept us away for a long time.
 # speaker:<b><size=120%>Perchta</size=120%></b>

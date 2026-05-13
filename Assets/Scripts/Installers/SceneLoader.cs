@@ -31,7 +31,7 @@ namespace CoreLoop
             else
             {
                 SceneManager.LoadSceneAsync(levels[currentLevel%levels.Length]);
-                currentLevel++;    
+                currentLevel++;
             }
         }
 
