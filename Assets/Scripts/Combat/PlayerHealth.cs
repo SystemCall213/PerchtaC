@@ -1,10 +1,12 @@
 using System;
 using System.Threading;
 using Cinemachine;
+using Audio;
 using Combat.Interfaces;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using Zenject;
 
 namespace Combat
 {
@@ -19,6 +21,8 @@ namespace Combat
         private float currentImmunityTimer;
         private CancellationTokenSource immunityCts;
         private Tween immunityTween;
+        
+        [Inject] private ISoundService soundService;
         
         public event Action<int> OnDamage;
         public event Action<int> OnHeal;
@@ -45,6 +49,7 @@ namespace Combat
             health -= damage;
 
             OnDamage?.Invoke(damage);
+            soundService.PlayOneShot(SoundId.Damage);
 
             if (IsDead())
             {

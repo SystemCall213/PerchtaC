@@ -2,6 +2,8 @@
 {
     public enum SoundId
     {
-        None = 0
+        None = 0,
+        Damage = 1,
+        
     }
 }

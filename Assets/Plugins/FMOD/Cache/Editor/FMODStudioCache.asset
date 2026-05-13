@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639142367184351932
+  lastModified: 639142328797017147
   FileSizes:
   - Name: Desktop
     Value: 3999840
@@ -62,10 +62,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639142358781795337
+  lastModified: 639142328797620925
   FileSizes:
   - Name: Desktop
-    Value: 506
+    Value: 23744
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -88,13 +88,14 @@ MonoBehaviour:
   - {fileID: 4517112354074352585}
   - {fileID: -5269323688162405965}
   - {fileID: 1247661965921163226}
+  - {fileID: 1003613460650718928}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1324369379720746212}
   StringsBanks:
   - {fileID: 350716027781193484}
   cacheVersion: 131858
-  cacheTime: 639142367184351932
+  cacheTime: 639142328797620925
   SerializableEventsDict:
   - key: event:/Room1
     index: 0
@@ -102,6 +103,8 @@ MonoBehaviour:
     index: 1
   - key: event:/Boss1
     index: 2
+  - key: event:/dmg effect quick
+    index: 3
 --- !u!114 &350716027781193484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,11 +120,38 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639142367184245766
+  lastModified: 639142328745692726
   FileSizes:
   - Name: Desktop
-    Value: 1012
+    Value: 1060
   Exists: 1
+--- !u!114 &1003613460650718928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/dmg effect quick
+  m_EditorClassIdentifier: 
+  Path: event:/dmg effect quick
+  Guid:
+    Data1: 437626726
+    Data2: 1270997595
+    Data3: -16143448
+    Data4: 974569016
+  Banks:
+  - {fileID: -5199378761368018898}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1247661965921163226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +194,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639142367184230429
+  lastModified: 639142328745676613
   FileSizes:
   - Name: Desktop
     Value: 1378
