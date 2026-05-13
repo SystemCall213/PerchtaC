@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639142813161447074
+  lastModified: 639142833015822168
   FileSizes:
   - Name: Desktop
-    Value: 9501728
+    Value: 9501760
   Exists: 1
 --- !u!114 &-6768758850238775504
 MonoBehaviour:
@@ -173,7 +173,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 350716027781193484}
   cacheVersion: 131858
-  cacheTime: 639142813161447074
+  cacheTime: 639142833015822168
   SerializableEventsDict:
   - key: event:/dmg effect quick
     index: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639142801103100035
+  lastModified: 639142820535571631
   FileSizes:
   - Name: Desktop
     Value: 1168
@@ -247,7 +247,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639142801103067140
+  lastModified: 639142820535550146
   FileSizes:
   - Name: Desktop
     Value: 1554
@@ -303,7 +303,7 @@ MonoBehaviour:
   - {fileID: -6768758850238775504}
   MinDistance: 1
   MaxDistance: 20
-  Length: 280000
+  Length: 256000
 --- !u!114 &3644397318213528152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +331,7 @@ MonoBehaviour:
   - {fileID: 8401438064905353615}
   MinDistance: 1
   MaxDistance: 20
-  Length: 284393
+  Length: 240314
 --- !u!114 &8401438064905353615
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,8 +25,8 @@ namespace CoreLoop.States
         {
             defaultActions.UI.CloseMenu.Enable();
             defaultActions.Combat.Enable();
-            musicService.RequestIfNotPlaying(combatMusic, MusicDestinationMarker.Boss);
             musicService.SetIsInRoom(false);
+            musicService.Request(combatMusic);
         }
 
         public override void Exit()

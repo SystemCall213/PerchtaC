@@ -243,7 +243,7 @@
 	</object>
 	<object class="TransitionMarker" id="{1a95cecb-2e89-4ed4-be76-3f5611a05e80}">
 		<property name="position">
-			<value>0</value>
+			<value>0.057553956522282179</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{5fb53716-9bdb-41ce-816e-81ea0eabc3b1}</destination>
@@ -308,10 +308,10 @@
 	<object class="MixerBusPanner" id="{a26b40e9-14e3-48f1-87ed-97f2b2223e81}" />
 	<object class="ParameterCondition" id="{a5f7a7bd-d147-4349-a779-839cf98ce7d8}">
 		<property name="minimum">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<property name="maximum">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{33d07ae9-5b09-42f1-820b-9f3a6dfce998}</destination>
@@ -319,10 +319,10 @@
 	</object>
 	<object class="ParameterCondition" id="{e4cff57d-8355-4e1f-a68a-5a1fa3e192da}">
 		<property name="minimum">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<property name="maximum">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{33d07ae9-5b09-42f1-820b-9f3a6dfce998}</destination>
@@ -330,10 +330,10 @@
 	</object>
 	<object class="ParameterCondition" id="{588762a2-1870-42db-beb7-92012f650357}">
 		<property name="minimum">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<property name="maximum">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{33d07ae9-5b09-42f1-820b-9f3a6dfce998}</destination>

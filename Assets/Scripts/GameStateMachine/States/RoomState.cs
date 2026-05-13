@@ -25,8 +25,8 @@ namespace CoreLoop.States
             
             if (Payload.MusicId != MusicId.None)
             {
-                musicService.RequestIfNotPlaying(Payload.MusicId, MusicDestinationMarker.Room);
                 musicService.SetIsInRoom(true);
+                musicService.Request(Payload.MusicId);
             }
         }
 
