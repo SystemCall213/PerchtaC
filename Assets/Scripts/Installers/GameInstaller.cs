@@ -1,6 +1,7 @@
 using Controls;
 using CoreLoop;
 using CoreLoop.Interfaces;
+using DefaultNamespace.Shnaps;
 using Dialogue.Interfaces;
 using UI;
 using UnityEngine;
