@@ -60,21 +60,18 @@ namespace DefaultNamespace.Shnaps
             // Move down
             _currentSequence.Append(beaksContainer.DOAnchorPosY(_originalBeaksPos.y - moveDownAmount, moveDuration));
 
-            // Open beaks
+            // Close beaks
             _currentSequence.Append(leftBeak.DORotate(new Vector3(0, 0, openRotationAngle), rotateDuration));
             _currentSequence.Join(rightBeak.DORotate(new Vector3(0, 0, -openRotationAngle), rotateDuration));
 
-            // Close beaks
-            _currentSequence.Append(leftBeak.DORotate(Vector3.zero, rotateDuration));
-            _currentSequence.Join(rightBeak.DORotate(Vector3.zero, rotateDuration));
 
             // Move back up with shnaps
-            _currentSequence.Append(beaksContainer.DOAnchorPosY(_originalBeaksPos.y, moveDuration));
-            _currentSequence.Join(shnaps.DOAnchorPosY(1000, moveDuration)).OnComplete(() =>
+            _currentSequence.Append(beaksContainer.DOAnchorPosY(_originalBeaksPos.y+ offscreenOffset, moveDuration));
+            _currentSequence.Join(shnaps.DOAnchorPosY(_originalShnapsPos.y + offscreenOffset, moveDuration)).OnComplete(() =>
             {
                 _canvasGroup.blocksRaycasts = false;
                 OnShnapsGiven?.Invoke();
-                _canvasGroup.DOFade(0f, 0.5f).SetEase(Ease.OutSine).SetDelay(2);
+                _canvasGroup.DOFade(0f, 0.5f).SetEase(Ease.OutSine);
             });
         }
 

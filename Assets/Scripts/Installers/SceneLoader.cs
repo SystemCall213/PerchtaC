@@ -85,7 +85,7 @@ namespace CoreLoop
 
         public void ReloadCurrentCombatScene()
         {
-            LoadCombatScene(currentCombatScene);
+            LoadSceneWithScreen(currentCombatScene, LoadSceneMode.Additive).Forget();
         }
 
         public void LoadCreditsScene()
