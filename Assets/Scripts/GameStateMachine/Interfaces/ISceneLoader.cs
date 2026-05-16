@@ -10,6 +10,7 @@ namespace CoreLoop.Interfaces
         void LoadMainMenu();
         void LoadCombatScene(string levelName);
         void UnloadCombatScene();
+        void ReloadCurrentCombatScene();
         void LoadCreditsScene();
         void LoadCinematicScene(string scene);
         void ResetPlaythrough();

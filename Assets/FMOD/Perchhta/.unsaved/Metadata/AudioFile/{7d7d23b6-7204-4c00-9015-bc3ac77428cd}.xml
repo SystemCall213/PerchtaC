@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{7d7d23b6-7204-4c00-9015-bc3ac77428cd}">
+		<property name="assetPath">
+			<value>bbye.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>110.32258333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7cb4e597-f557-4c60-9716-ee404b86be3b}</destination>
+		</relationship>
+	</object>
+</objects>

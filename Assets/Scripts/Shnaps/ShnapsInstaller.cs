@@ -12,6 +12,9 @@ namespace DefaultNamespace.Shnaps
         {
             Container.Bind<IShnapsController>().To<ShnapsController>().AsSingle();
             Container.Bind<ShnapsUI>().FromComponentInNewPrefab(shnapsUI).AsSingle();
+            Container.Bind<IShnapsFacade>().To<ShnapsFacade>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ShnapsAdapter>().AsSingle().NonLazy();
+            
         }
     }
 }

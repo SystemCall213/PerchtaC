@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Combat.Interfaces;
 using CoreLoop.Interfaces;
+using DefaultNamespace.Shnaps.Interfaces;
 using UnityEngine;
 using Zenject;
 
@@ -23,6 +24,7 @@ namespace Combat.HealthUI
         private IHealth health;
         
         [Inject] private readonly ISceneLoader sceneLoader;
+        [Inject] private readonly IShnapsFacade shnapsFacade;
         private void Start()
         {
             if (entity == null)
@@ -122,7 +124,8 @@ namespace Combat.HealthUI
             else
             {
                 // Player died - just unload combat scene
-                sceneLoader.LoadMainMenu();
+                sceneLoader.UnloadCombatScene();
+                shnapsFacade.GiveShnaps();
             }
         }
 

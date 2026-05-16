@@ -26,22 +26,36 @@ namespace DefaultNamespace.Shnaps
         private Vector2 _originalBeaksPos;
         private Vector2 _originalShnapsPos;
         private Sequence _currentSequence;
+        private CanvasGroup _canvasGroup;
+        
+        public event System.Action OnShnapsGiven;
+        public event System.Action OnNoShnapsGiven;
 
         private void Awake()
         {
             _originalBeaksPos = beaksContainer.anchoredPosition;
             _originalShnapsPos = shnaps.anchoredPosition;
-            PlayGivingShnapsAnimation();
+            _canvasGroup = GetComponent<CanvasGroup>();
+            _canvasGroup.alpha = 0f;
+            _canvasGroup.blocksRaycasts = false;
+        }
+
+        private void OnDestroy()
+        {
+            _currentSequence?.Kill();
         }
 
         public void PlayGivingShnapsAnimation()
         {
             _currentSequence?.Kill();
-            _currentSequence = DOTween.Sequence();
+            _currentSequence = DOTween.Sequence().SetLink(gameObject);
 
             emptyHand.gameObject.SetActive(false);
             fullHand.gameObject.SetActive(true);
             shnaps.gameObject.SetActive(true);
+            
+            _canvasGroup.blocksRaycasts = true;
+            _currentSequence.Append(_canvasGroup.DOFade(1f, 0.5f).SetEase(Ease.OutSine));
 
             // Move down
             _currentSequence.Append(beaksContainer.DOAnchorPosY(_originalBeaksPos.y - moveDownAmount, moveDuration));
@@ -56,18 +70,21 @@ namespace DefaultNamespace.Shnaps
 
             // Move back up with shnaps
             _currentSequence.Append(beaksContainer.DOAnchorPosY(_originalBeaksPos.y, moveDuration));
-            _currentSequence.Join(shnaps.DOAnchorPosY(_originalShnapsPos.y, moveDuration));
+            _currentSequence.Join(shnaps.DOAnchorPosY(_originalShnapsPos.y, moveDuration)).OnComplete(() => OnShnapsGiven?.Invoke()); 
+            _currentSequence.Append(_canvasGroup.DOFade(0f, 0.5f).SetEase(Ease.OutSine)).OnComplete(() => _canvasGroup.blocksRaycasts = false);
         }
 
         public void PlayNoShnapsAnimation()
         {
             _currentSequence?.Kill();
-            _currentSequence = DOTween.Sequence();
+            _currentSequence = DOTween.Sequence().SetLink(gameObject);
 
             emptyHand.gameObject.SetActive(true);
             fullHand.gameObject.SetActive(false);
             shnaps.gameObject.SetActive(false);
-
+            _canvasGroup.blocksRaycasts = true;
+            
+            _currentSequence.Append(_canvasGroup.DOFade(1f, 0.5f).SetEase(Ease.OutSine));
             // Move down
             _currentSequence.Append(beaksContainer.DOAnchorPosY(_originalBeaksPos.y - moveDownAmount/2, moveDuration));
 
@@ -85,7 +102,12 @@ namespace DefaultNamespace.Shnaps
             
             // Move back up
             _currentSequence.Append(beaksContainer.DOAnchorPosY(_originalBeaksPos.y + offscreenOffset, moveDuration));
-            _currentSequence.Join(emptyHand.DOAnchorPosY(_originalShnapsPos.y + offscreenOffset, moveDuration));
+            _currentSequence.Join(emptyHand.DOAnchorPosY(_originalShnapsPos.y + offscreenOffset, moveDuration)).OnComplete(() =>
+            {
+                OnNoShnapsGiven?.Invoke();
+                _canvasGroup.blocksRaycasts = false;
+                _canvasGroup.DOFade(0f, 0.5f).SetEase(Ease.OutSine).SetDelay(2);
+            });
         }
     }
 }
