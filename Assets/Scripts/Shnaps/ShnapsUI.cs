@@ -70,8 +70,12 @@ namespace DefaultNamespace.Shnaps
 
             // Move back up with shnaps
             _currentSequence.Append(beaksContainer.DOAnchorPosY(_originalBeaksPos.y, moveDuration));
-            _currentSequence.Join(shnaps.DOAnchorPosY(_originalShnapsPos.y, moveDuration)).OnComplete(() => OnShnapsGiven?.Invoke()); 
-            _currentSequence.Append(_canvasGroup.DOFade(0f, 0.5f).SetEase(Ease.OutSine)).OnComplete(() => _canvasGroup.blocksRaycasts = false);
+            _currentSequence.Join(shnaps.DOAnchorPosY(1000, moveDuration)).OnComplete(() =>
+            {
+                _canvasGroup.blocksRaycasts = false;
+                OnShnapsGiven?.Invoke();
+                _canvasGroup.DOFade(0f, 0.5f).SetEase(Ease.OutSine).SetDelay(2);
+            });
         }
 
         public void PlayNoShnapsAnimation()
