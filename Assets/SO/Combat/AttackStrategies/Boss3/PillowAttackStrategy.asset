@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 10306283293108146, guid: 0954bf26ccdf4d549a71846aa425ea97, type: 3}
   duration: 2
   damage: 2
-  bulletCount: 8
+  bulletCount: 14
   bulletSpeed: 5
   stampCount: 3
   stampDelay: 1

@@ -15,7 +15,8 @@ namespace Combat.Strategies
         [SerializeField] private int spawnCount = 10;
         [SerializeField] private float delayBetweenSpawns = 0.5f;
         [SerializeField] private RadialPositionSelectorData positionSelectorData;
-
+        [SerializeField] private int additionalTime = 5000;
+        
         [Inject] private CombatArena _arena;
         [Inject] private IInstantiator _instantiator;
         private bool _isAttacking;
@@ -44,7 +45,7 @@ namespace Combat.Strategies
 
             if (!ct.IsCancellationRequested)
             {
-                await UniTask.Delay(5000, cancellationToken: ct);
+                await UniTask.Delay(additionalTime, cancellationToken: ct);
             }
             
             _isAttacking = false;
