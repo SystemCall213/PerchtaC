@@ -18,7 +18,7 @@ namespace Combat.Misc
             ApplyDamageOnCollision(other.gameObject);
         }
 
-        private void ApplyDamageOnCollision(GameObject other)
+        public void ApplyDamageOnCollision(GameObject other)
         {
             if (other == null) return;
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
