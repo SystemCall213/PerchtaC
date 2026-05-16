@@ -1,6 +1,7 @@
 ﻿using System;
 using CoreLoop.Interfaces;
 using DefaultNamespace.Shnaps.Interfaces;
+using UI.Interfaces;
 using Zenject;
 
 namespace DefaultNamespace.Shnaps
@@ -10,6 +11,7 @@ namespace DefaultNamespace.Shnaps
         [Inject] private IShnapsController shnapsController;
         [Inject] private ShnapsUI shnapsUI;
         [Inject] private ISceneLoader sceneLoader;
+        [Inject] private IUIFacade uiFacade;
         
         public void Initialize()
         {
@@ -26,6 +28,7 @@ namespace DefaultNamespace.Shnaps
         public void OnShnapsGiven()
         {
             shnapsController.RemoveShnaps();
+            uiFacade.CloseTopmost();
             sceneLoader.ReloadCurrentCombatScene();
             
         }
@@ -33,6 +36,7 @@ namespace DefaultNamespace.Shnaps
         private void OnNoShnapsGiven()
         {
             sceneLoader.LoadMainMenu();
+            uiFacade.CloseTopmost();
             sceneLoader.ResetPlaythrough();
         }
         

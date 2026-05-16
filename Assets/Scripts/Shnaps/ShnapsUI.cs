@@ -1,10 +1,11 @@
 using DG.Tweening;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace DefaultNamespace.Shnaps
 {
-    public class ShnapsUI : MonoBehaviour
+    public class ShnapsUI : ConfigurableCanvas
     {
         [Header("References")]
         [SerializeField] private RectTransform leftBeak;
@@ -13,6 +14,7 @@ namespace DefaultNamespace.Shnaps
         [SerializeField] private RectTransform fullHand;
         [SerializeField] private RectTransform shnaps;
         [SerializeField] private RectTransform beaksContainer;
+        [SerializeField] private Image girlHang;
 
         [Header("Animation Settings")]
         [SerializeField] private float moveDownAmount = 200f;
@@ -38,6 +40,7 @@ namespace DefaultNamespace.Shnaps
             _canvasGroup = GetComponent<CanvasGroup>();
             _canvasGroup.alpha = 0f;
             _canvasGroup.blocksRaycasts = false;
+            girlHang.gameObject.SetActive(false);
         }
 
         private void OnDestroy()
@@ -53,6 +56,7 @@ namespace DefaultNamespace.Shnaps
             emptyHand.gameObject.SetActive(false);
             fullHand.gameObject.SetActive(true);
             shnaps.gameObject.SetActive(true);
+            girlHang.gameObject.SetActive(false);
             
             _canvasGroup.blocksRaycasts = true;
             _currentSequence.Append(_canvasGroup.DOFade(1f, 0.5f).SetEase(Ease.OutSine));
@@ -103,12 +107,13 @@ namespace DefaultNamespace.Shnaps
             
             // Move back up
             _currentSequence.Append(beaksContainer.DOAnchorPosY(_originalBeaksPos.y + offscreenOffset, moveDuration));
-            _currentSequence.Join(emptyHand.DOAnchorPosY(_originalShnapsPos.y + offscreenOffset, moveDuration)).OnComplete(() =>
-            {
-                OnNoShnapsGiven?.Invoke();
-                _canvasGroup.blocksRaycasts = false;
-                _canvasGroup.DOFade(0f, 0.5f).SetEase(Ease.OutSine).SetDelay(2);
-            });
+            _currentSequence.Join(emptyHand.DOAnchorPosY(_originalShnapsPos.y + offscreenOffset, moveDuration)).OnComplete(() => GirlPopup());
+            
+        }
+        public void GirlPopup()
+        {
+            girlHang.gameObject.SetActive(true);
+            girlHang.rectTransform.DOLocalMoveY(-125, 2).SetEase(Ease.InOutCirc);
         }
     }
 }
