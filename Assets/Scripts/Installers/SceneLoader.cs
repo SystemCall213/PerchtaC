@@ -63,7 +63,7 @@ namespace CoreLoop
 
         public void LoadCombatScene(string levelName)
         {
-            if (isLoading || currentCombatScene == levelName) return;
+            if (isLoading) return;
 
             for (int i = 0; i < SceneManager.sceneCount; i++)
             {
@@ -85,7 +85,6 @@ namespace CoreLoop
 
         public void ReloadCurrentCombatScene()
         {
-            if (currentCombatScene == null) return;
             LoadCombatScene(currentCombatScene);
         }
 
