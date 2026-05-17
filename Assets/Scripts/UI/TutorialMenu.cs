@@ -1,4 +1,5 @@
-﻿using UI.Interfaces;
+﻿using System;
+using UI.Interfaces;
 using Zenject;
 
 namespace UI
@@ -7,6 +8,11 @@ namespace UI
     { 
         [Inject] private IUIFacade uiFacade;
         private bool isFirstTime = true;
+
+        private void Start()
+        {
+            gameObject.SetActive(false);
+        }
 
         public void TryOpenTutorial()
         {
