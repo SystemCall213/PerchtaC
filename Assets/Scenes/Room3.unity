@@ -414,6 +414,7 @@ GameObject:
   - component: {fileID: 327388434}
   - component: {fileID: 327388433}
   - component: {fileID: 327388435}
+  - component: {fileID: 327388436}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -505,6 +506,19 @@ MonoBehaviour:
       type: {class: RoomStatePayload, ns: CoreLoop.StatePayload, asm: GameStateMAchine}
       data:
         musicId: 13
+--- !u!114 &327388436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327388431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9bee0a60b6d49f38a5f9419d3270940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalCinematicScene: Assets/Scenes/Cinematics/CreditsCinematic.unity
 --- !u!1 &740743173
 GameObject:
   m_ObjectHideFlags: 0
