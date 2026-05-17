@@ -32,6 +32,10 @@ namespace UI.Interfaces
 
         private void OnEnable()
         {
+            if (dialogueManager == null)
+            {
+                Debug.LogError("DialogueManager not injected!");
+            }
             dialogueManager.OnDialogueEntered += Open;
             dialogueManager.OnDialogueExited += Close;
             dialogueManager.OnDialogueDisplay += DisplayDialogue;

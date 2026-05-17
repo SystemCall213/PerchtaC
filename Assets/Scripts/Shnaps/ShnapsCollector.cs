@@ -18,7 +18,6 @@ namespace DefaultNamespace.Shnaps
         
         public void CollectShnaps()
         {
-            Debug.Log("Collecting shnaps");
             shnapsFacade.TakeShnaps();
             button.interactable = false;
         }

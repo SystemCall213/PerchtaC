@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 41d78cdea15cefd43875380601442c82, type: 3}
+    - target: {fileID: 2647318633667591191, guid: a539a9e332945164b912aa1e8df056aa, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647318633667591191, guid: a539a9e332945164b912aa1e8df056aa, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1558228909
+      objectReference: {fileID: 0}
     - target: {fileID: 6224647342516546299, guid: a539a9e332945164b912aa1e8df056aa, type: 3}
       propertyPath: m_Name
       value: CentrePointingBullet Variant 2

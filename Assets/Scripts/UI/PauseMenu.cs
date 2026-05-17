@@ -52,7 +52,6 @@ namespace UI
         }
         private void Exit()
         {
-            sceneLoader.ResetPlaythrough();
             sceneLoader.LoadMainMenu();
         }
     }
