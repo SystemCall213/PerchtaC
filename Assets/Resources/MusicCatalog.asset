@@ -22,6 +22,14 @@ MonoBehaviour:
           Data3: 1685465519
           Data4: 400516320
         Path: event:/Music/Menu
+    - Key: 3
+      Value:
+        Guid:
+          Data1: -843898484
+          Data2: 1220267166
+          Data3: -163272310
+          Data4: -535590318
+        Path: event:/Music/StartGameAnimMusic
     - Key: 2
       Value:
         Guid:
