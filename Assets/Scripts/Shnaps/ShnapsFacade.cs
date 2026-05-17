@@ -1,6 +1,9 @@
-﻿using CoreLoop.Interfaces;
+﻿using System;
+using CoreLoop.Interfaces;
 using DefaultNamespace.Shnaps.Interfaces;
+using UI;
 using UI.Interfaces;
+using UnityEngine;
 using Zenject;
 
 namespace DefaultNamespace.Shnaps
@@ -10,6 +13,9 @@ namespace DefaultNamespace.Shnaps
         [Inject] private IShnapsController shnapsController;
         [Inject] private IUIFacade uiFacade;
         [Inject] private ShnapsUI shnapsUI;
+        [Inject] private ShnapsMenu shnapsMenu;
+        
+        private bool isFirstShnapsFound = true;
         
         public void GiveShnaps()
         {
@@ -29,6 +35,12 @@ namespace DefaultNamespace.Shnaps
         public void TakeShnaps()
         {
             shnapsController.AddShnaps();
+            if (isFirstShnapsFound)
+            {
+                Debug.Log("Shnaps found!");
+                uiFacade.Open(shnapsMenu);
+                isFirstShnapsFound = false;
+            }
         }
 
         public void ClearShnaps()

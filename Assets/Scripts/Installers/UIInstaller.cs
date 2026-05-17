@@ -11,11 +11,13 @@ namespace Installers
     {
         [SerializeField] private SettingMenu settingMenu;
         [SerializeField] private PauseMenu pauseMenu;
+        [SerializeField] private ShnapsMenu shnapsMenu;
         public override void InstallBindings()
         {
             Container.Bind<IUIFacade>().To<UIFacade>().AsSingle();
             Container.Bind<SettingMenu>().FromComponentInNewPrefab(settingMenu).AsSingle().NonLazy();
             Container.Bind<PauseMenu>().FromComponentInNewPrefab(pauseMenu).AsSingle().NonLazy();
+            Container.Bind<ShnapsMenu>().FromComponentInNewPrefab(shnapsMenu).AsSingle().NonLazy();
         }
     }
 }
