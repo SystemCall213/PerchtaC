@@ -60,7 +60,7 @@ I have an <shiver>idea</shiver>, <i>little one</i>.
 # speaker:<b><size=120%>Perchta</size=120%></b>
 Clean all the mess here, and then I, with my sisters, will let you live. 
 # speaker:<b><size=120%>Perchta</size=120%></b>
-<b>They</b> will decide <b>if you are worthy of life</b> later tonight. Be a good <i>little child.</i>
+Be a good <i>little child.</i>
 # speaker:<b><size=120%>Perchta</size=120%></b>
 Oh, <i>and be a sweetie</i>, bring us leftovers of that <shiver><b>delicious schnapps</b></shiver> that your mother had.
 # speaker:<b><size=120%>Perchta</size=120%></b>
