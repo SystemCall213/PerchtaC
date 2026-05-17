@@ -64,6 +64,16 @@ namespace UI.Interfaces
         public void Open()
         {
             canvas.enabled = true;
+
+            canvasGroup.alpha = 0;
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = true;
+
+            canvasGroup.DOFade(1f, 0f).OnComplete(() =>
+            {
+                canvasGroup.interactable = true;
+            });
+            
             choicesText = new TextMeshProUGUI[choices.Length];
             for (int i = 0; i < choices.Length; i++)            {
                 choicesText[i] = choices[i].GetComponentInChildren<TextMeshProUGUI>();
@@ -74,7 +84,7 @@ namespace UI.Interfaces
         {
             canvasGroup.interactable = false;
 
-            canvasGroup.DOFade(0f, 1.5f).OnComplete(() =>
+            canvasGroup.DOFade(0f, 0f).OnComplete(() =>
             {
                 canvasGroup.blocksRaycasts = false;
                 canvas.enabled = false;
