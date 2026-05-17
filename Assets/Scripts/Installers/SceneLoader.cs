@@ -18,14 +18,16 @@ namespace CoreLoop
         private int currentLevel = 0;
         private string currentCombatScene;
         private readonly LoadingScreen loadingScreen;
+        private readonly TutorialMenu tutorialMenu;
         private IShnapsFacade shnapsFacade;
         private bool isLoading;
 
-        public SceneLoader(string[] levels, LoadingScreen loadingScreen, IShnapsFacade shnapsFacade)
+        public SceneLoader(string[] levels, LoadingScreen loadingScreen, IShnapsFacade shnapsFacade, TutorialMenu tutorialMenu)
         {
             this.levels = levels;
             this.loadingScreen = loadingScreen;
             this.shnapsFacade = shnapsFacade;
+            this.tutorialMenu = tutorialMenu;
         }
 
         public event Action BattleEnded;
@@ -57,6 +59,7 @@ namespace CoreLoop
             if (isLoading || SceneManager.GetActiveScene().name == MainMenuScene) return;
 
             ResetPlaythrough();
+            tutorialMenu.ResetFirstTime();
             currentCombatScene = null;
             LoadSceneWithScreen(MainMenuScene).Forget();
         }
