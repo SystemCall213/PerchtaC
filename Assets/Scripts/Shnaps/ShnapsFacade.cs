@@ -19,12 +19,11 @@ namespace DefaultNamespace.Shnaps
         
         public void GiveShnaps()
         {
+            Debug.Log("Giving shnaps");
             uiFacade.Open(shnapsUI);
             if (shnapsController.IsShnapsAvailable())
             {
                 shnapsUI.PlayGivingShnapsAnimation();
-                
-                shnapsController.RemoveShnaps();
             }
             else
             {
@@ -34,10 +33,10 @@ namespace DefaultNamespace.Shnaps
 
         public void TakeShnaps()
         {
+            Debug.Log("Taking shnaps");
             shnapsController.AddShnaps();
             if (isFirstShnapsFound)
             {
-                Debug.Log("Shnaps found!");
                 uiFacade.Open(shnapsMenu);
                 isFirstShnapsFound = false;
             }
@@ -45,7 +44,9 @@ namespace DefaultNamespace.Shnaps
 
         public void ClearShnaps()
         {
+            Debug.Log("Clearing shnaps");
             shnapsController.ClearShnaps();
+            isFirstShnapsFound = true;
         }
     }
 }
