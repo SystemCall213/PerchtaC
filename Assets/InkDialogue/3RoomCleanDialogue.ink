@@ -18,9 +18,9 @@ VAR perchta = ""
 # speaker:<b><size=120%>Perchta</size=120%></b>
 <b><size=160%>We will spare your life, child…</size=160%></b>
 <color="black">.</color="black">
-    + [<i>leave <b>my</b> house…</i>]
+    + [<i>leave <b><size=120%>my</size=120%></b> house…</i>]
         -> my
-    + [<i>leave <b>me<b> alone!</i>]
+    + [<i>leave <b><size=120%>me</size=120%><b> alone!</i>]
         -> me
 
 === my ===
