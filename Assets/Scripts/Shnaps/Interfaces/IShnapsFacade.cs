@@ -5,6 +5,5 @@
         void GiveShnaps();
         void TakeShnaps();
         void ClearShnaps();
-        
     }
 }
