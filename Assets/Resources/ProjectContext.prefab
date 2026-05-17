@@ -116,6 +116,7 @@ MonoBehaviour:
   settingMenu: {fileID: 1629583867417689093, guid: 7df67db7b68db824899423078437065b, type: 3}
   pauseMenu: {fileID: 6901033316260379058, guid: 13adc3a6c6ef0c546bf0f038ab8dd31b, type: 3}
   shnapsMenu: {fileID: 3642277499296420221, guid: 4c3b8967244d105408bf553d4e5c9ed1, type: 3}
+  tutorialMenu: {fileID: 8928113299486454413, guid: a66f32eb14bbd7f4cb55b7762eaa7766, type: 3}
 --- !u!114 &372340139877906303
 MonoBehaviour:
   m_ObjectHideFlags: 0

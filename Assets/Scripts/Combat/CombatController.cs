@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using Combat.Interfaces;
 using Cysharp.Threading.Tasks;
+using UI;
 using Zenject;
 
 namespace Combat
@@ -10,16 +11,19 @@ namespace Combat
     {
         private readonly ICombatScenario _scenario;
         private readonly DiContainer _container;
+        private readonly TutorialMenu _tutorialMenu;
         private CancellationTokenSource _cts;
 
-        public CombatController(ICombatScenario scenario, DiContainer container)
+        public CombatController(ICombatScenario scenario, DiContainer container, TutorialMenu tutorialMenu)
         {
             _scenario = scenario;
             _container = container;
+            _tutorialMenu = tutorialMenu;
         }
 
         public void Initialize()
         {
+            _tutorialMenu.TryOpenTutorial();
             _cts = new CancellationTokenSource();
             RunCombatLoop(_cts.Token).Forget();
         }

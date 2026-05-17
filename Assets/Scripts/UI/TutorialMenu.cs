@@ -8,7 +8,7 @@ namespace UI
         [Inject] private IUIFacade uiFacade;
         private bool isFirstTime = true;
 
-        private void Start()
+        public void TryOpenTutorial()
         {
             if (isFirstTime)
             {
