@@ -3,6 +3,7 @@ using Audio;
 using CoreLoop.Interfaces;
 using CoreLoop.StatePayload;
 using CoreLoop.States;
+using DefaultNamespace.Shnaps;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -17,6 +18,7 @@ namespace UI
         [Inject] private readonly ISceneLoader sceneLoader;
         [SerializeField] private Button doorButton;
         [SerializeField] private List<Button> fightButtons;
+        [SerializeField] private List<ShnapsCollector> shnapsCollectors;
         [SerializeField] private List<string> fightSceneNames;
         [SerializeField] private Sprite cleanRoomImage;
         [SerializeField] private Image background;
@@ -71,6 +73,11 @@ namespace UI
                 doorButton.interactable = true;
                 doorButton.gameObject.SetActive(true);
             }
+            foreach (var shnapsCollector in shnapsCollectors)
+            {
+                Destroy(shnapsCollector.gameObject);
+            }
+            
             
             bgAnimator.enabled = false;
             background.sprite = cleanRoomImage;

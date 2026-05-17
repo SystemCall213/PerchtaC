@@ -3385,7 +3385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7c22675edd4ef5bfe898852480cb54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 0.06
+  force: 0.03
   frequency: 1.5
 --- !u!1 &1424462504
 GameObject:
@@ -3975,7 +3975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7c22675edd4ef5bfe898852480cb54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 0.03
+  force: 0.015
   frequency: 2
 --- !u!1 &1642267553
 GameObject:

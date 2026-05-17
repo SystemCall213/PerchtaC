@@ -124,7 +124,6 @@ namespace Combat.HealthUI
             else
             {
                 // Player died - just unload combat scene
-                sceneLoader.UnloadCombatScene();
                 shnapsFacade.GiveShnaps();
             }
         }

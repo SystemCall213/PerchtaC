@@ -30,7 +30,6 @@ namespace DefaultNamespace.Shnaps
             shnapsController.RemoveShnaps();
             uiFacade.CloseTopmost();
             sceneLoader.ReloadCurrentCombatScene();
-            
         }
         
         private void OnNoShnapsGiven()

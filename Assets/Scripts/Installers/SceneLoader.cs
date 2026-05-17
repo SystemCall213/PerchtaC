@@ -89,12 +89,37 @@ namespace CoreLoop
         {
             if (isLoading) return;
 
+            if (string.IsNullOrEmpty(currentCombatScene))
+            {
+                Debug.LogWarning("No combat scene to unload.");
+                return;
+            }
+
             isLoading = true;
             try
             {
                 await loadingScreen.FadeIn();
-                await SceneManager.UnloadSceneAsync(currentCombatScene);
-                BattleEnded.Invoke();
+
+                bool isLoaded = false;
+                for (int i = 0; i < SceneManager.sceneCount; i++)
+                {
+                    if (SceneManager.GetSceneAt(i).name == currentCombatScene)
+                    {
+                        isLoaded = true;
+                        break;
+                    }
+                }
+
+                if (isLoaded)
+                {
+                    await SceneManager.UnloadSceneAsync(currentCombatScene);
+                }
+                else
+                {
+                    Debug.LogWarning($"Scene {currentCombatScene} is not loaded, skipping unload.");
+                }
+                
+                BattleEnded?.Invoke();
             }
             finally
             {
@@ -112,11 +137,32 @@ namespace CoreLoop
         {
             if (isLoading) return;
 
+            if (string.IsNullOrEmpty(currentCombatScene))
+            {
+                Debug.LogWarning("No combat scene to reload.");
+                return;
+            }
+
             isLoading = true;
             try
             {
                 await loadingScreen.FadeIn();
-                await SceneManager.UnloadSceneAsync(currentCombatScene);
+
+                bool isLoaded = false;
+                for (int i = 0; i < SceneManager.sceneCount; i++)
+                {
+                    if (SceneManager.GetSceneAt(i).name == currentCombatScene)
+                    {
+                        isLoaded = true;
+                        break;
+                    }
+                }
+
+                if (isLoaded)
+                {
+                    await SceneManager.UnloadSceneAsync(currentCombatScene);
+                }
+
                 await SceneManager.LoadSceneAsync(currentCombatScene, LoadSceneMode.Additive);
             }
             finally

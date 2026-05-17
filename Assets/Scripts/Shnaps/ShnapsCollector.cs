@@ -1,4 +1,6 @@
-﻿using DefaultNamespace.Shnaps.Interfaces;
+﻿using System;
+using Cysharp.Threading.Tasks;
+using DefaultNamespace.Shnaps.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -20,6 +22,7 @@ namespace DefaultNamespace.Shnaps
         {
             shnapsFacade.TakeShnaps();
             button.interactable = false;
+            button.onClick.RemoveAllListeners();
         }
     }
 }

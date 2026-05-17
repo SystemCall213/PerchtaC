@@ -615,6 +615,9 @@ MonoBehaviour:
   doorButton: {fileID: 1058109092}
   fightButtons:
   - {fileID: 236535864}
+  shnapsCollectors:
+  - {fileID: 1873155989}
+  - {fileID: 1294199199}
   fightSceneNames:
   - Boss2
   cleanRoomImage: {fileID: 21300000, guid: ce87b8e64011ae046b5eb10754ff67f4, type: 3}

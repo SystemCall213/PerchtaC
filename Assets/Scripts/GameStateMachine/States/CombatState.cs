@@ -1,6 +1,7 @@
 ﻿using Audio;
 using CoreLoop.Interfaces;
 using CoreLoop.StatePayload;
+using UnityEngine;
 using Zenject;
 
 namespace CoreLoop.States
@@ -26,11 +27,14 @@ namespace CoreLoop.States
             defaultActions.UI.CloseMenu.Enable();
             defaultActions.Combat.Enable();
             musicService.Request(combatMusic);
+            Cursor.visible = false;
         }
 
         public override void Exit()
         {
             defaultActions.Combat.Disable();
+            defaultActions.UI.CloseMenu.Disable();
+            Cursor.visible = true;
         }
 
         public class Factory : PlaceholderFactory<CombatStatePayload, CombatState> { }
