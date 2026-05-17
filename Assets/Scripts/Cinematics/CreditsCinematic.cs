@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 using CoreLoop.Interfaces;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,8 +18,9 @@ namespace DefaultNamespace.Cinematics
         [SerializeField] private Image spriteRenderer1;
         [SerializeField] private Image spriteRenderer2;
         [SerializeField] private List<Sprite> frames;
+        [SerializeField] private float frameDelay = 2f;
         
-        private int currentFrameIndex = 0;
+        private CancellationTokenSource _cts;
         
         private void OnEnable()
         {
@@ -26,35 +30,37 @@ namespace DefaultNamespace.Cinematics
         private void OnDisable()
         {
             defaultActions.UI.SkipCinematic.performed -= SkipCinematic;
+            _cts?.Cancel();
+            _cts?.Dispose();
         }
 
-        public void Clicked()
+        private void Start()
         {
-            // please don't read this code, it's a mess and I don't want to look at it again
-            if (currentFrameIndex > frames.Count + 1) return;
-            
-            if (currentFrameIndex == frames.Count + 1)
-            {
-                currentFrameIndex++;
-                SpriteMove();   
-                return;
-            }
-            
-            if (currentFrameIndex == frames.Count)
-            {
-                spriteRenderer2.gameObject.SetActive(true);
-                currentFrameIndex++;
-            }
-            else
-            {
-                spriteRenderer1.sprite = frames[currentFrameIndex++];
-            }
+            _cts = new CancellationTokenSource();
+            StartCinematic(_cts.Token).Forget();
         }
 
-        private void SpriteMove()
+        private async UniTaskVoid StartCinematic(CancellationToken ct)
         {
+            foreach (var frame in frames)
+            {
+                spriteRenderer1.sprite = frame;
+                await UniTask.Delay(TimeSpan.FromSeconds(frameDelay), cancellationToken: ct);
+            }
+
+            spriteRenderer2.gameObject.SetActive(true);
+            await UniTask.Delay(TimeSpan.FromSeconds(frameDelay), cancellationToken: ct);
+
+            await SpriteMove(ct);
             
-            spriteRenderer2.transform.DOLocalMoveY(spriteRenderer2.transform.localPosition.y - 3240, 3f).SetEase(Ease.Linear).OnComplete(OnAnimationComplete);
+            OnAnimationComplete();
+        }
+
+        private async UniTask SpriteMove(CancellationToken ct)
+        {
+            await spriteRenderer2.transform.DOLocalMoveY(spriteRenderer2.transform.localPosition.y - 3240, 3f)
+                .SetEase(Ease.Linear)
+                .AsyncWaitForCompletion().AsUniTask().AttachExternalCancellation(ct);
         }
 
         private void OnAnimationComplete()
@@ -64,6 +70,7 @@ namespace DefaultNamespace.Cinematics
 
         private void SkipCinematic(InputAction.CallbackContext obj)
         {
+            _cts?.Cancel();
             sceneLoader.LoadCreditsScene();
         }
     }
