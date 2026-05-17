@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639145803537781850
+  lastModified: 639146570120867388
   FileSizes:
   - Name: Desktop
-    Value: 10983680
+    Value: 11731808
   Exists: 1
 --- !u!114 &-6305496980481928635
 MonoBehaviour:
@@ -89,7 +89,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639143666870155958
+  lastModified: 639145747508439985
   FileSizes:
   - Name: Desktop
     Value: 23744
@@ -175,6 +175,7 @@ MonoBehaviour:
   - {fileID: -2967186607842986167}
   - {fileID: 4017702971650322326}
   - {fileID: -6305496980481928635}
+  - {fileID: 398366829960125733}
   EditorParameters:
   - {fileID: 1377443797337480491}
   MasterBanks:
@@ -182,7 +183,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 350716027781193484}
   cacheVersion: 131858
-  cacheTime: 639145803537781850
+  cacheTime: 639146570120867388
   SerializableEventsDict:
   - key: event:/dmg effect quick
     index: 0
@@ -202,6 +203,8 @@ MonoBehaviour:
     index: 7
   - key: event:/Music/Boss2
     index: 8
+  - key: event:/Music/StartGameAnimMusic
+    index: 9
 --- !u!114 &350716027781193484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,11 +220,38 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639145803537191490
+  lastModified: 639146570085805429
   FileSizes:
   - Name: Desktop
-    Value: 1320
+    Value: 1368
   Exists: 1
+--- !u!114 &398366829960125733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/StartGameAnimMusic
+  m_EditorClassIdentifier: 
+  Path: event:/Music/StartGameAnimMusic
+  Guid:
+    Data1: -843898484
+    Data2: 1220267166
+    Data3: -163272310
+    Data4: -535590318
+  Banks:
+  - {fileID: -8413986079484656142}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 45061
 --- !u!114 &1003613460650718928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +294,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639143666869463382
+  lastModified: 639146570085770196
   FileSizes:
   - Name: Desktop
     Value: 1554
