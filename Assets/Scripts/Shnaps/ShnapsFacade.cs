@@ -16,10 +16,12 @@ namespace DefaultNamespace.Shnaps
         [Inject] private ShnapsMenu shnapsMenu;
         
         private bool isFirstShnapsFound = true;
-        
+
+        public event Action OnShnapsClicked;
+
         public void GiveShnaps()
         {
-            Debug.Log("Giving shnaps");
+            OnShnapsClicked?.Invoke();
             uiFacade.Open(shnapsUI);
             if (shnapsController.IsShnapsAvailable())
             {
