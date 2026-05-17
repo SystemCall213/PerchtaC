@@ -11,7 +11,7 @@ namespace CoreLoop
     public class SceneLoader : ISceneLoader
     {
         private const string MainMenuScene = "MainMenuScene";
-        private const string CreditsScene = "CreditsCinematic";
+        private const string CreditsScene = "CreditsScene";
         
         private string[] levels;
         private int currentLevel = 0;

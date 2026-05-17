@@ -69,7 +69,7 @@ namespace UI.Interfaces
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = true;
 
-            canvasGroup.DOFade(1f, 2f).OnComplete(() =>
+            canvasGroup.DOFade(1f, 0f).OnComplete(() =>
             {
                 canvasGroup.interactable = true;
             });
@@ -84,7 +84,7 @@ namespace UI.Interfaces
         {
             canvasGroup.interactable = false;
 
-            canvasGroup.DOFade(0f, 1.5f).OnComplete(() =>
+            canvasGroup.DOFade(0f, 0f).OnComplete(() =>
             {
                 canvasGroup.blocksRaycasts = false;
                 canvas.enabled = false;

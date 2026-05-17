@@ -1,6 +1,10 @@
-﻿using CoreLoop.Interfaces;
+﻿using System.Collections.Generic;
+using CoreLoop.Interfaces;
+using DG.Tweening;
+using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using Zenject;
 
 namespace DefaultNamespace.Cinematics
@@ -9,9 +13,11 @@ namespace DefaultNamespace.Cinematics
     {
         [Inject] private readonly ISceneLoader sceneLoader;
         [Inject] private readonly DefaultActions defaultActions;
-        [SerializeField] private Animator animator;
+        [SerializeField] private Image spriteRenderer1;
+        [SerializeField] private Image spriteRenderer2;
+        [SerializeField] private List<Sprite> frames;
         
-        private bool hasCompleted;
+        private int currentFrameIndex = 0;
         
         private void OnEnable()
         {
@@ -23,29 +29,43 @@ namespace DefaultNamespace.Cinematics
             defaultActions.UI.SkipCinematic.performed -= SkipCinematic;
         }
 
-        private void Update()
+        public void Clicked()
         {
-            if (hasCompleted) return;
+            // please don't read this code, it's a mess and I don't want to look at it again
+            if (currentFrameIndex > frames.Count + 1) return;
             
-            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-    
-            // Check if animation has finished playing
-            if (stateInfo.normalizedTime >= 1f && !animator.IsInTransition(0))
+            if (currentFrameIndex == frames.Count + 1)
             {
-                hasCompleted = true;
-                OnAnimationComplete();
+                currentFrameIndex++;
+                SpriteMove();   
+                return;
             }
+            
+            if (currentFrameIndex == frames.Count)
+            {
+                spriteRenderer2.gameObject.SetActive(true);
+                currentFrameIndex++;
+            }
+            else
+            {
+                spriteRenderer1.sprite = frames[currentFrameIndex++];
+            }
+        }
+
+        private void SpriteMove()
+        {
+            
+            spriteRenderer2.transform.DOLocalMoveY(spriteRenderer2.transform.localPosition.y - 3240, 3f).SetEase(Ease.Linear).OnComplete(OnAnimationComplete);
         }
 
         private void OnAnimationComplete()
         {
-            sceneLoader.LoadMainMenu();
+            sceneLoader.LoadCreditsScene();
         }
 
         private void SkipCinematic(InputAction.CallbackContext obj)
         {
-            hasCompleted = true;
-            sceneLoader.LoadMainMenu();
+            sceneLoader.LoadCreditsScene();
         }
     }
 }
