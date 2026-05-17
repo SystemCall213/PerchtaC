@@ -661,7 +661,7 @@ MonoBehaviour:
     - rid: 5803790024596783105
       type: {class: CombatStatePayload, ns: CoreLoop.StatePayload, asm: GameStateMAchine}
       data:
-        musicId: 13
+        musicId: 26
 --- !u!114 &611498123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3139,7 +3139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab42accf02444791a942f15f0a0399c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImmunityTime: 2
+  ImmunityTime: 1
 --- !u!114 &1904736121
 MonoBehaviour:
   m_ObjectHideFlags: 0

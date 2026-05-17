@@ -2,6 +2,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 using CoreLoop.Interfaces;
+using DefaultNamespace.Shnaps.Interfaces;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,12 +18,14 @@ namespace CoreLoop
         private int currentLevel = 0;
         private string currentCombatScene;
         private readonly LoadingScreen loadingScreen;
+        private IShnapsFacade shnapsFacade;
         private bool isLoading;
 
-        public SceneLoader(string[] levels, LoadingScreen loadingScreen)
+        public SceneLoader(string[] levels, LoadingScreen loadingScreen, IShnapsFacade shnapsFacade)
         {
             this.levels = levels;
             this.loadingScreen = loadingScreen;
+            this.shnapsFacade = shnapsFacade;
         }
 
         public event Action BattleEnded;
@@ -60,7 +63,7 @@ namespace CoreLoop
 
         public void LoadCombatScene(string levelName)
         {
-            if (isLoading || currentCombatScene == levelName) return;
+            if (isLoading) return;
 
             for (int i = 0; i < SceneManager.sceneCount; i++)
             {
@@ -78,7 +81,11 @@ namespace CoreLoop
         {
             SceneManager.UnloadSceneAsync(currentCombatScene);
             BattleEnded.Invoke();
-            currentCombatScene = null;
+        }
+
+        public void ReloadCurrentCombatScene()
+        {
+            LoadSceneWithScreen(currentCombatScene, LoadSceneMode.Additive).Forget();
         }
 
         public void LoadCreditsScene()
@@ -98,6 +105,7 @@ namespace CoreLoop
         public void ResetPlaythrough()
         {
             currentLevel = 0;
+            shnapsFacade.ClearShnaps();
         }
 
         private async UniTaskVoid LoadSceneWithScreen(string sceneName, LoadSceneMode loadSceneMode = LoadSceneMode.Single)

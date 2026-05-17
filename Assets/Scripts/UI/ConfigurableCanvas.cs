@@ -32,13 +32,13 @@ namespace UI
         
         public void Open()
         {
-            canvas.gameObject.SetActive(true);
+            gameObject.SetActive(true);
         }
         
         
         public void Close()
         {
-            canvas.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

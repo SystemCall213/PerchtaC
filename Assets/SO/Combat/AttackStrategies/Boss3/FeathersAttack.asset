@@ -25,6 +25,7 @@ MonoBehaviour:
     type: 4
     selector:
       rid: 8043928812459130884
+  additionalTime: 10000
   references:
     version: 2
     RefIds:

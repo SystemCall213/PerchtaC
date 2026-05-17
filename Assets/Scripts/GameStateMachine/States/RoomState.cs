@@ -25,7 +25,6 @@ namespace CoreLoop.States
             
             if (Payload.MusicId != MusicId.None)
             {
-                musicService.SetIsInRoom(true);
                 musicService.Request(Payload.MusicId);
             }
         }

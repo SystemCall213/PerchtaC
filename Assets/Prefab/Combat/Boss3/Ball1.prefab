@@ -165,7 +165,7 @@ MonoBehaviour:
   _scaleUpDuration: 0.5
   _scaleDownDuration: 0.5
   _normalScale: {x: 0.075, y: 0.075, z: 1}
-  _impulseForce: 9
+  _impulseForce: 7
   _bounceDuration: 10
   _delayBetweenBounces: 0.5
   _bounceRandomYOffset: 3

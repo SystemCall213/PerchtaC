@@ -8,8 +8,6 @@ namespace Audio
     public interface IMusicService
     {
         void Request(MusicId id);
-        void RequestIfNotPlaying(MusicId id);
-        void SetIsInRoom(bool isInRoom);
     }
 
     public sealed class MusicService : IMusicService, IDisposable
@@ -24,13 +22,6 @@ namespace Audio
             this.catalog = catalog;
         }
         
-
-        public void RequestIfNotPlaying(MusicId id)
-        {
-            if (IsPlaying()) return;
-
-            Request(id);
-        }
 
         public void Request(MusicId id)
         {
@@ -49,11 +40,6 @@ namespace Audio
 
             current.start();
             currentId = id;
-        }
-
-        public void SetIsInRoom(bool isInRoom)
-        {
-            RuntimeManager.StudioSystem.setParameterByName("IsInRoom", isInRoom ? 1f : 0f);
         }
 
         private bool IsPlaying()

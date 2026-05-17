@@ -22,6 +22,30 @@ MonoBehaviour:
           Data3: 1685465519
           Data4: 400516320
         Path: event:/Music/Menu
+    - Key: 24
+      Value:
+        Guid:
+          Data1: -973733685
+          Data2: 1179201393
+          Data3: -769198150
+          Data4: -1779475956
+        Path: event:/Music/Boss1
+    - Key: 25
+      Value:
+        Guid:
+          Data1: 1399679704
+          Data2: 1222553944
+          Data3: 1437463210
+          Data4: -2100848094
+        Path: event:/Music/Boss2
+    - Key: 26
+      Value:
+        Guid:
+          Data1: 61141251
+          Data2: 1180655907
+          Data3: -1499294583
+          Data4: -933014990
+        Path: event:/Music/Boss3
     - Key: 11
       Value:
         Guid:
