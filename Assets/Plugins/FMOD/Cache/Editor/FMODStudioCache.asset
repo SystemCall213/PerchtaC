@@ -15,12 +15,12 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639145736742595190
+  lastModified: 639145749971257098
   FileSizes:
   - Name: Desktop
-    Value: 9501760
+    Value: 10983680
   Exists: 1
---- !u!114 &-6768758850238775504
+--- !u!114 &-6305496980481928635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29,21 +29,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Room1/IsInRoom
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Boss2
   m_EditorClassIdentifier: 
-  Name: IsInRoom
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 1405334970
-    data2: 2825024226
-  Type: 1
-  IsGlobal: 1
-  Labels: []
-  Exists: 1
+  Path: event:/Music/Boss2
+  Guid:
+    Data1: 1399679704
+    Data2: 1222553944
+    Data3: 1437463210
+    Data4: -2100848094
+  Banks:
+  - {fileID: -8413986079484656142}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 158455
 --- !u!114 &-6295481507800915279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,11 +70,10 @@ MonoBehaviour:
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters:
-  - {fileID: -2949653770299817004}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 166956
+  Length: 15675
 --- !u!114 &-5199378761368018898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,12 +89,12 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639145736742609948
+  lastModified: 639145747508439985
   FileSizes:
   - Name: Desktop
     Value: 23744
   Exists: 1
---- !u!114 &-2949653770299817004
+--- !u!114 &-2967186607842986167
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,21 +103,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Room3/IsInRoom
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Cinematic
   m_EditorClassIdentifier: 
-  Name: IsInRoom
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 1405334970
-    data2: 2825024226
-  Type: 1
-  IsGlobal: 1
-  Labels: []
-  Exists: 1
+  Path: event:/Music/Cinematic
+  Guid:
+    Data1: -1874769129
+    Data2: 1269979501
+    Data3: -320489309
+    Data4: 540364507
+  Banks:
+  - {fileID: -8413986079484656142}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 108508
 --- !u!114 &-2187183519980192669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +171,10 @@ MonoBehaviour:
   - {fileID: -2187183519980192669}
   - {fileID: 3644397318213528152}
   - {fileID: -6295481507800915279}
+  - {fileID: 6630905512292836738}
+  - {fileID: -2967186607842986167}
+  - {fileID: 4017702971650322326}
+  - {fileID: -6305496980481928635}
   EditorParameters:
   - {fileID: 1377443797337480491}
   MasterBanks:
@@ -173,7 +182,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 350716027781193484}
   cacheVersion: 131858
-  cacheTime: 639145736742609948
+  cacheTime: 639145749971257098
   SerializableEventsDict:
   - key: event:/dmg effect quick
     index: 0
@@ -185,6 +194,14 @@ MonoBehaviour:
     index: 3
   - key: event:/Music/Room3
     index: 4
+  - key: event:/Music/Boss3
+    index: 5
+  - key: event:/Music/Cinematic
+    index: 6
+  - key: event:/Music/Boss1
+    index: 7
+  - key: event:/Music/Boss2
+    index: 8
 --- !u!114 &350716027781193484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,10 +217,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639145736741979621
+  lastModified: 639145749937853038
   FileSizes:
   - Name: Desktop
-    Value: 1168
+    Value: 1320
   Exists: 1
 --- !u!114 &1003613460650718928
 MonoBehaviour:
@@ -247,7 +264,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Perchhta/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639145736741963782
+  lastModified: 639145749937839661
   FileSizes:
   - Name: Desktop
     Value: 1554
@@ -299,11 +316,10 @@ MonoBehaviour:
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters:
-  - {fileID: -6768758850238775504}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 256000
+  Length: 44000
 --- !u!114 &3644397318213528152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,12 +343,11 @@ MonoBehaviour:
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters:
-  - {fileID: 8401438064905353615}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 240314
---- !u!114 &8401438064905353615
+  Length: 48000
+--- !u!114 &4017702971650322326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -341,18 +356,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Room2/IsInRoom
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Boss1
   m_EditorClassIdentifier: 
-  Name: IsInRoom
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 1405334970
-    data2: 2825024226
-  Type: 1
-  IsGlobal: 1
-  Labels: []
-  Exists: 1
+  Path: event:/Music/Boss1
+  Guid:
+    Data1: -973733685
+    Data2: 1179201393
+    Data3: -769198150
+    Data4: -1779475956
+  Banks:
+  - {fileID: -8413986079484656142}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 183829
+--- !u!114 &6630905512292836738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Boss3
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Boss3
+  Guid:
+    Data1: 61141251
+    Data2: 1180655907
+    Data3: -1499294583
+    Data4: -933014990
+  Banks:
+  - {fileID: -8413986079484656142}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 132173
