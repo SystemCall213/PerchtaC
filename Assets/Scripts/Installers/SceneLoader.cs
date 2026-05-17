@@ -77,18 +77,53 @@ namespace CoreLoop
                 }
             }
 
-            LoadSceneWithScreen(levelName, LoadSceneMode.Additive).Forget();
             currentCombatScene = levelName;
+            LoadSceneWithScreen(levelName, LoadSceneMode.Additive).Forget();
         }
         public void UnloadCombatScene()
         {
-            SceneManager.UnloadSceneAsync(currentCombatScene);
-            BattleEnded.Invoke();
+            UnloadSceneWithScreen().Forget();
+        }
+
+        private async UniTaskVoid UnloadSceneWithScreen()
+        {
+            if (isLoading) return;
+
+            isLoading = true;
+            try
+            {
+                await loadingScreen.FadeIn();
+                await SceneManager.UnloadSceneAsync(currentCombatScene);
+                BattleEnded.Invoke();
+            }
+            finally
+            {
+                await loadingScreen.FadeOut();
+                isLoading = false;
+            }
         }
 
         public void ReloadCurrentCombatScene()
         {
-            LoadSceneWithScreen(currentCombatScene, LoadSceneMode.Additive).Forget();
+            ReloadCombatSceneWithScreen().Forget();
+        }
+
+        private async UniTaskVoid ReloadCombatSceneWithScreen()
+        {
+            if (isLoading) return;
+
+            isLoading = true;
+            try
+            {
+                await loadingScreen.FadeIn();
+                await SceneManager.UnloadSceneAsync(currentCombatScene);
+                await SceneManager.LoadSceneAsync(currentCombatScene, LoadSceneMode.Additive);
+            }
+            finally
+            {
+                await loadingScreen.FadeOut();
+                isLoading = false;
+            }
         }
 
         public void LoadCreditsScene()
