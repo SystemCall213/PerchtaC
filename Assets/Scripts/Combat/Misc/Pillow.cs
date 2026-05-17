@@ -17,15 +17,15 @@ namespace Combat.Misc
         [SerializeField] private float fadeOutDuration = 0.2f;
 
         [Header("Collision & Damage")]
-        [SerializeField] private int damage = 1;
+        [SerializeField] protected int damage = 1;
         [SerializeField] private float collisionRadius = 0.5f;
         [SerializeField] private LayerMask playerLayer;
 
         [Header("Spawning")]
-        [SerializeField] private List<GameObject> prefabsToSpawn;
-        [SerializeField] private int spawnCount = 1;
+        [SerializeField] protected List<GameObject> prefabsToSpawn;
+        [SerializeField] protected int spawnCount = 1;
 
-        [Inject] private IInstantiator _instantiator;
+        [Inject] protected IInstantiator _instantiator;
 
         private SpriteRenderer spriteRenderer;
 
@@ -88,7 +88,7 @@ namespace Combat.Misc
             });
         }
 
-        private void SpawnPrefab()
+        protected virtual void SpawnPrefab()
         {
             if (prefabsToSpawn is { Count: > 0 })
             {

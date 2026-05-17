@@ -15,6 +15,13 @@ MonoBehaviour:
   uxElements: []
   prefabs:
   - {fileID: 4438594437845392663, guid: e0c61425c0ca6544f9f2190cfdf8c073, type: 3}
+  - {fileID: 4843053125039890072, guid: 9016281817bcc694086a72d818535915, type: 3}
+  - {fileID: 5096572667169878861, guid: 2411e30965acd9149bd22c821df62700, type: 3}
+  - {fileID: 4153699930056446922, guid: dc477cfb12429c74093ac33a6b6696d9, type: 3}
+  - {fileID: 6787221574138889606, guid: a6ce306f663813f4a8e75c7fa9f57d6f, type: 3}
+  - {fileID: 6772215736016235596, guid: ef1fa795386181644a56051ae7d5c53f, type: 3}
+  - {fileID: 4432784523843221977, guid: 4602105edd8404442a648ac1f3446e6b, type: 3}
+  - {fileID: 3239811047432137444, guid: 94afc135f36223b409283a3914242095, type: 3}
   spawnCount: 30
   delayBetweenSpawns: 0.5
   positionSelectorData:
