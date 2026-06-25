@@ -82,6 +82,7 @@ namespace CoreLoop
         }
         public void UnloadCombatScene()
         {
+            Cursor.visible = true;
             UnloadSceneWithScreen().Forget();
         }
 

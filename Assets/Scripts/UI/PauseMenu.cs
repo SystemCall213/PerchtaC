@@ -30,6 +30,7 @@ namespace UI
 
         private void OnEnable()
         {
+            Cursor.visible = true;
             resumeButton.onClick.AddListener(Resume);
             settingsButton.onClick.AddListener(Settings);
             exitButton.onClick.AddListener(Exit);

@@ -931,7 +931,8 @@ PrefabInstance:
       value: DialogueCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7137684486279833818, guid: 1dcaa28b79587fc43ab85ef8f3e3401d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dcaa28b79587fc43ab85ef8f3e3401d, type: 3}
